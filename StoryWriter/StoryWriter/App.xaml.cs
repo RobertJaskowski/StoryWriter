@@ -1,4 +1,4 @@
-﻿using StoryWriter.Services;
+﻿
 using StoryWriter.Views;
 using System;
 using Xamarin.Forms;
@@ -13,7 +13,7 @@ namespace StoryWriter
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            //DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }
 

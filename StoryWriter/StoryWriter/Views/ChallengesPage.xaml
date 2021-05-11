@@ -1,12 +1,145 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="StoryWriter.Views.ChallengesPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             x:Class="StoryWriter.Views.ChallengesPage"
+             xmlns:helpers="clr-namespace:StoryWriter.Helpers"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             Shell.NavBarIsVisible="False"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             >
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="CategoryIcon" TargetType="Label">
+                <Setter Property="FontFamily" Value="FASolid"/>
+                <Setter Property="FontSize" Value="28"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="TextColor" Value="{StaticResource TextSecondary}"/>
+                
+            </Style>
+            <Style x:Key="CategoryLabel" TargetType="Label">
+                <Setter Property="FontFamily" Value="FASolid"/>
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid 
+        RowDefinitions="Auto, .9*,Auto" >
+
+        <Grid ColumnDefinitions="*,*,*"
+              Padding="15,15,15,15"
+              BackgroundColor="{StaticResource CardBackground}"
+              RowDefinitions="Auto,Auto">
+            <Label
+                   Grid.Row="0"
+                   Grid.Column="0" 
+                   Style="{StaticResource CategoryIcon}"
+                   Text="{x:StaticResource IconProfile}"/>
+            <Label Text="Active"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   Style="{StaticResource CategoryLabel}"
+                   />
+            
+            <Label
+                   Grid.Row="0"
+                   Grid.Column="1" 
+                   Style="{StaticResource CategoryIcon}"
+                   Text="{x:StaticResource IconProfile}"/>
+            <Label Text="Upcoming" 
+                   Grid.Row="1"
+                   Grid.Column="1" 
+                   Style="{StaticResource CategoryLabel}"/>
+            
+            <Label
+                   Grid.Row="0"
+                   Grid.Column="2" 
+                    Style="{StaticResource CategoryIcon}"
+                   Text="{x:StaticResource IconProfile}"/>
+            <Label Text="Completad" 
+                   Grid.Row="1"
+                   Grid.Column="2" 
+                   Style="{StaticResource CategoryLabel}"/>
+            
+        </Grid>
+        <CarouselView Loop="False" 
+                      Grid.Row="1"
+                      PeekAreaInsets="100"
+                      IndicatorView="indicatorView">
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout 
+                    Orientation="Horizontal" 
+                    ItemSpacing="20" 
+                    SnapPointsType="Mandatory"
+                    SnapPointsAlignment="Center"/>
+            </CarouselView.ItemsLayout>
+            <CarouselView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Item one</x:String>
+                    <x:String>Item one</x:String>
+                    <x:String>Item one</x:String>
+                </x:Array>
+            </CarouselView.ItemsSource>
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="16,0,0,0">
+                        <Frame CornerRadius="20" 
+                               Padding="0"
+                               BackgroundColor="{StaticResource CardBackground}" 
+                               WidthRequest="320" 
+                               HasShadow="True">
+                            <Frame.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#8A2387" Offset="0.1"/>
+                                    <GradientStop Color="#E94057" Offset="0.6"/>
+                                    <GradientStop Color="#F27121"/>
+                                </LinearGradientBrush>
+                            </Frame.Background>
+                        </Frame>
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="CurrentItem">
+                                    <VisualState.Setters>
+                                        <Setter Property="Scale" Value="1"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="PreviousItem">
+                                    <VisualState.Setters>
+                                        <Setter Property="Opacity" Value="0.5"/>
+                                        <Setter Property="Scale" Value=".9"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="NextItem">
+                                    <VisualState.Setters>
+                                        <Setter Property="Opacity" Value="0.5"/>
+                                        <Setter Property="Scale" Value=".9"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="DefaultItem">
+                                    <VisualState.Setters>
+                                        <Setter Property="Opacity" Value="0.25"/>
+                                        <Setter Property="Scale" Value=".9"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <IndicatorView x:Name="indicatorView"
+                       Grid.Row="2"
+                   Margin="0,0,0,10"
+                   IndicatorColor="Gray"
+                   SelectedIndicatorColor="Black"
+                   HorizontalOptions="Center">
+        </IndicatorView>
+    </Grid>
 </ContentPage>
