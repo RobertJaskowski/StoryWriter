@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rL9vrrLWzrQs/rxhQldp34Rp3x4W00gaevz6DhOoBmshyQhpT4SsCc2sFAJXH63PZ2DINqigmityai5Pmej/0Q==",
+  "dgSpecHash": "7S7H7sDc1Qv6hJpSAEGN63DN9mRrVOz3kRosEy2OZcgwfP9TVWNGPSAjd7Wq569hJKS7qr9avKswC2KII7iNEA==",
   "success": true,
   "projectFilePath": "C:\\Projects\\StoryWriter\\StoryWriter\\StoryWriter\\StoryWriter.csproj",
   "expectedPackageFiles": [
@@ -18,9 +18,14 @@
     "C:\\Users\\R\\.nuget\\packages\\sharpnado.taskmonitor\\1.0.1\\sharpnado.taskmonitor.1.0.1.nupkg.sha512",
     "C:\\Users\\R\\.nuget\\packages\\system.componentmodel\\4.3.0\\system.componentmodel.4.3.0.nupkg.sha512",
     "C:\\Users\\R\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\R\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.7.0\\system.reflection.emit.ilgeneration.4.7.0.nupkg.sha512",
+    "C:\\Users\\R\\.nuget\\packages\\system.reflection.emit.lightweight\\4.7.0\\system.reflection.emit.lightweight.4.7.0.nupkg.sha512",
     "C:\\Users\\R\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\R\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.3\\system.runtime.compilerservices.unsafe.4.5.3.nupkg.sha512",
+    "C:\\Users\\R\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\R\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
     "C:\\Users\\R\\.nuget\\packages\\thomaslevesque.weakevent\\4.1.0\\thomaslevesque.weakevent.4.1.0.nupkg.sha512",
+    "C:\\Users\\R\\.nuget\\packages\\xamarin.communitytoolkit\\1.1.0\\xamarin.communitytoolkit.1.1.0.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512",
     "C:\\Users\\R\\.nuget\\packages\\xamarin.forms.pancakeview\\2.3.0.759\\xamarin.forms.pancakeview.2.3.0.759.nupkg.sha512"

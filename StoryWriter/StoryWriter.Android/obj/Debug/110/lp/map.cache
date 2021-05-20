@@ -1,4 +1,9 @@
 FormsViewGroup.dll
+MonkeyCache.dll
+MonkeyCache.FileStore.dll
+Sharpnado.MaterialFrame.Android.dll
+Sharpnado.Shadows.Android.dll
+Sharpnado.Tabs.Android.dll
 Xamarin.AndroidX.Activity.dll
 Xamarin.AndroidX.Annotation.dll
 Xamarin.AndroidX.Annotation.Experimental.dll
@@ -30,7 +35,9 @@ Xamarin.AndroidX.Lifecycle.ViewModelSavedState.dll
 Xamarin.AndroidX.Loader.dll
 Xamarin.AndroidX.LocalBroadcastManager.dll
 Xamarin.AndroidX.Media.dll
+Xamarin.AndroidX.MediaRouter.dll
 Xamarin.AndroidX.MultiDex.dll
+Xamarin.AndroidX.Palette.dll
 Xamarin.AndroidX.Print.dll
 Xamarin.AndroidX.RecyclerView.dll
 Xamarin.AndroidX.SavedState.dll
@@ -42,7 +49,9 @@ Xamarin.AndroidX.VectorDrawable.dll
 Xamarin.AndroidX.VersionedParcelable.dll
 Xamarin.AndroidX.ViewPager.dll
 Xamarin.AndroidX.ViewPager2.dll
+Xamarin.CommunityToolkit.dll
 Xamarin.Essentials.dll
+Xamarin.Forms.PancakeView.dll
 Xamarin.Forms.Platform.Android.dll
 Xamarin.Forms.Platform.dll
 Xamarin.Google.Android.Material.dll
@@ -86,13 +95,5 @@ androidx.asynclayoutinflater.asynclayoutinflater.aar
 androidx.legacy.legacy-support-core-ui.aar
 androidx.legacy.legacy-support-v4.aar
 androidx.browser.browser.aar
-MonkeyCache.dll
-MonkeyCache.FileStore.dll
-Xamarin.Forms.PancakeView.dll
-Sharpnado.Shadows.Android.dll
-Sharpnado.Tabs.Android.dll
-Sharpnado.MaterialFrame.Android.dll
-Xamarin.AndroidX.MediaRouter.dll
-Xamarin.AndroidX.Palette.dll
 androidx.palette.palette.aar
 androidx.mediarouter.mediarouter.aar

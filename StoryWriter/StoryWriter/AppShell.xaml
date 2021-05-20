@@ -33,6 +33,18 @@
     </Shell.Resources>
 
     <TabBar>
+        <Tab Title="Stories"
+             Route="StoriesPage"
+             Shell.NavBarIsVisible="False">
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid"
+                    Glyph="{StaticResource IconUser}"/>
+            </Tab.Icon>
+            <ShellContent 
+                ContentTemplate="{DataTemplate local:StoriesPage}" >
+
+            </ShellContent>
+        </Tab>
         <Tab Title="Featured"
              Route="FeaturedPage"
              Shell.NavBarIsVisible="False"> 
@@ -50,7 +62,7 @@
              Shell.NavBarIsVisible="True">
             <Tab.Icon>
                 <FontImageSource FontFamily="FARegular"
-                                     Glyph="{x:Static helpers:FAIcons.Star}"/>
+                                     Glyph="{StaticResource IconUser}"/>
             </Tab.Icon>
             
             <ShellContent 
@@ -68,7 +80,7 @@
              Shell.NavBarIsVisible="False">
             <Tab.Icon>
                 <FontImageSource FontFamily="FARegular"
-                                     Glyph="{x:Static helpers:FAIcons.Star}"/>
+                                     Glyph="{StaticResource IconUser}"/>
             </Tab.Icon>
             <ShellContent 
                 ContentTemplate="{DataTemplate local:ClassesPage}" >
@@ -80,7 +92,7 @@
              Shell.NavBarIsVisible="False">
             <Tab.Icon>
                 <FontImageSource FontFamily="FARegular"
-                                     Glyph="{x:Static helpers:FAIcons.User}"/>
+                                     Glyph="{StaticResource IconUser}"/>
             </Tab.Icon>
             <ShellContent 
                 ContentTemplate="{DataTemplate local:ProfilePage}" >
@@ -92,7 +104,7 @@
              Shell.NavBarIsVisible="False">
             <Tab.Icon>
                 <FontImageSource FontFamily="FARegular"
-                                     Glyph="{x:Static helpers:FAIcons.Star}"/>
+                                     Glyph="{StaticResource IconUser}"/>
             </Tab.Icon>
             <ShellContent 
                 ContentTemplate="{DataTemplate local:MorePage}" >

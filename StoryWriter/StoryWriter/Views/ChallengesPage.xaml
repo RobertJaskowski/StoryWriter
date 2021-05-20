@@ -5,9 +5,14 @@
              xmlns:helpers="clr-namespace:StoryWriter.Helpers"
              BackgroundColor="{StaticResource BackgroundColor}"
              Shell.NavBarIsVisible="False"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:viewmodels="clr-namespace:StoryWriter.ViewModels" xmlns:converters="clr-namespace:StoryWriter.Converters" xmlns:controls="clr-namespace:StoryWriter.Controls"
              ios:Page.UseSafeArea="True"
              >
+
+    <ContentPage.BindingContext>
+        <viewmodels:ChallengesViewModel/>
+    </ContentPage.BindingContext>
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -25,6 +30,7 @@
 
             </Style>
 
+            <converters:SelectedIndexColorConverter x:Key="SelectedIndexColorConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -35,111 +41,64 @@
               Padding="15,15,15,15"
               BackgroundColor="{StaticResource CardBackground}"
               RowDefinitions="Auto,Auto">
-            <Label
+            <StackLayout Grid.Column="0">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SelectedCategoryCommand}" CommandParameter="1"/>
+                </StackLayout.GestureRecognizers>
+                <Label
                    Grid.Row="0"
                    Grid.Column="0" 
                    Style="{StaticResource CategoryIcon}"
-                   Text="{x:StaticResource IconProfile}"/>
-            <Label Text="Active"
+                   Text="{x:StaticResource IconProfile}"
+                    TextColor="{ Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexColorConverter}}"/>
+                <Label Text="Active"
                    Grid.Row="1"
                    Grid.Column="0"
                    Style="{StaticResource CategoryLabel}"
+                   TextColor="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexColorConverter}}"
                    />
-            
-            <Label
-                   Grid.Row="0"
-                   Grid.Column="1" 
-                   Style="{StaticResource CategoryIcon}"
-                   Text="{x:StaticResource IconProfile}"/>
-            <Label Text="Upcoming" 
-                   Grid.Row="1"
-                   Grid.Column="1" 
-                   Style="{StaticResource CategoryLabel}"/>
-            
-            <Label
+            </StackLayout>
+
+            <StackLayout Grid.Column="1">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SelectedCategoryCommand}" CommandParameter="0"/>
+                </StackLayout.GestureRecognizers>
+                <Label
+                       Grid.Row="0"
+                       Grid.Column="1" 
+                       Style="{StaticResource CategoryIcon}"
+                       Text="{x:StaticResource IconProfile}"
+                    TextColor="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexColorConverter}}"
+                    />
+
+                <Label Text="Upcomingss" 
+                       Grid.Row="1"
+                       Grid.Column="1" 
+                       Style="{StaticResource CategoryLabel}"
+                       TextColor="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexColorConverter}}"
+                       />
+            </StackLayout>
+            <StackLayout Grid.Column="2">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SelectedCategoryCommand}" CommandParameter="0"/>
+                </StackLayout.GestureRecognizers>
+                <Label
                    Grid.Row="0"
                    Grid.Column="2" 
                     Style="{StaticResource CategoryIcon}"
-                   Text="{x:StaticResource IconProfile}"/>
-            <Label Text="Completad" 
-                   Grid.Row="1"
-                   Grid.Column="2" 
-                   Style="{StaticResource CategoryLabel}"/>
-            
+                   Text="{x:StaticResource IconProfile}"
+                TextColor="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexColorConverter}}"
+                />
+                <Label Text="Completed" 
+                       Grid.Row="1"
+                       Grid.Column="2" 
+                       Style="{StaticResource CategoryLabel}"
+                       TextColor="{Binding SelectedCategoryIndex, Converter={StaticResource SelectedIndexColorConverter}}"
+                       />
+            </StackLayout>
+
         </Grid>
-        <CarouselView Loop="False" 
-                      Grid.Row="1"
-                      PeekAreaInsets="100"
-                      IndicatorView="indicatorView">
-            <CarouselView.ItemsLayout>
-                <LinearItemsLayout 
-                    Orientation="Horizontal" 
-                    ItemSpacing="20" 
-                    SnapPointsType="Mandatory"
-                    SnapPointsAlignment="Center"/>
-            </CarouselView.ItemsLayout>
-            <CarouselView.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>Item one</x:String>
-                    <x:String>Item one</x:String>
-                    <x:String>Item one</x:String>
-                </x:Array>
-            </CarouselView.ItemsSource>
-            <CarouselView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Padding="16,0,0,0">
-                        <Frame CornerRadius="20" 
-                               Padding="0"
-                               BackgroundColor="{StaticResource CardBackground}" 
-                               WidthRequest="320" 
-                               HasShadow="True">
-                            <Frame.Background>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                    <GradientStop Color="#8A2387" Offset="0.1"/>
-                                    <GradientStop Color="#E94057" Offset="0.6"/>
-                                    <GradientStop Color="#F27121"/>
-                                </LinearGradientBrush>
-                            </Frame.Background>
-                        </Frame>
 
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup x:Name="CommonStates">
-                                <VisualState x:Name="CurrentItem">
-                                    <VisualState.Setters>
-                                        <Setter Property="Scale" Value="1"/>
-                                    </VisualState.Setters>
-                                </VisualState>
-                                <VisualState x:Name="PreviousItem">
-                                    <VisualState.Setters>
-                                        <Setter Property="Opacity" Value="0.5"/>
-                                        <Setter Property="Scale" Value=".9"/>
-                                    </VisualState.Setters>
-                                </VisualState>
-                                <VisualState x:Name="NextItem">
-                                    <VisualState.Setters>
-                                        <Setter Property="Opacity" Value="0.5"/>
-                                        <Setter Property="Scale" Value=".9"/>
-                                    </VisualState.Setters>
-                                </VisualState>
-                                <VisualState x:Name="DefaultItem">
-                                    <VisualState.Setters>
-                                        <Setter Property="Opacity" Value="0.25"/>
-                                        <Setter Property="Scale" Value=".9"/>
-                                    </VisualState.Setters>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
-                    </Grid>
-                </DataTemplate>
-            </CarouselView.ItemTemplate>
-        </CarouselView>
-
-        <IndicatorView x:Name="indicatorView"
-                       Grid.Row="2"
-                   Margin="0,0,0,10"
-                   IndicatorColor="Gray"
-                   SelectedIndicatorColor="Black"
-                   HorizontalOptions="Center">
-        </IndicatorView>
+        <controls:ActiveChallengesView Grid.Row="1"/>
     </Grid>
 </ContentPage>

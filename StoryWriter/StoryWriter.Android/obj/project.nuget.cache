@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rGSr5Lrtj00wFsf7pvK3RMLTnCjiaT5HJ1C7LLPax+nSszVUVeAnrKEbQSrQpaVdVTfomhhPAfU4YzKru28Nfg==",
+  "dgSpecHash": "P1YQGmyLFPXPc9HRRtPe4eQgBo2voeLpRjkM61IkFrkMlay2fhgVRNSYcE21mWOZbw1vV63dmFyNGVOLCBk4Fg==",
   "success": true,
   "projectFilePath": "C:\\Projects\\StoryWriter\\StoryWriter\\StoryWriter.Android\\StoryWriter.Android.csproj",
   "expectedPackageFiles": [
@@ -63,6 +63,7 @@
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.versionedparcelable\\1.1.1.6\\xamarin.androidx.versionedparcelable.1.1.1.6.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.viewpager\\1.0.0.6\\xamarin.androidx.viewpager.1.0.0.6.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.viewpager2\\1.0.0.8\\xamarin.androidx.viewpager2.1.0.0.8.nupkg.sha512",
+    "C:\\Users\\R\\.nuget\\packages\\xamarin.communitytoolkit\\1.1.0\\xamarin.communitytoolkit.1.1.0.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512",
     "C:\\Users\\R\\.nuget\\packages\\xamarin.forms.pancakeview\\2.3.0.759\\xamarin.forms.pancakeview.2.3.0.759.nupkg.sha512",
