@@ -40,7 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <SharedImage Include="Resources\Images\add-solid.svg"  />
+	  <SharedImage Include="Resources\Images\add-solid.svg" BaseSize="20,20" />
   </ItemGroup>
 
   <ItemGroup>
@@ -53,7 +53,7 @@
     <EmbeddedResource Update="Views\ClassesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\CreateStoryPopup.xaml">
+    <EmbeddedResource Update="Views\CreateStoryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\FeaturedPage.xaml">
@@ -63,6 +63,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ProfilePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RegisterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\StoriesPage.xaml">

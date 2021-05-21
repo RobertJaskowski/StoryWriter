@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:StoryWriter.ViewModels" 
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+             xmlns:converters="clr-namespace:StoryWriter.Converters"
+             x:Class="StoryWriter.Views.CreateStoryPage">
+
+
+    <ContentPage.BindingContext>
+        <viewmodels:CreateStoryViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <Style TargetType="Entry" >
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="TextColor" Value="{StaticResource Accent}" />
+        </Style>
+
+
+       <ResourceDictionary>
+            <xct:InvertedBoolConverter x:Key="invertBoolConverter" />
+            <converters:BoolToValidColorConverter x:Key="boolToValidColorConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+
+
+            <Frame
+                HorizontalOptions="FillAndExpand"
+                Margin="0"
+                BackgroundColor="{StaticResource Accent}">
+
+                <Label 
+                    Text="Create a story"
+                    FontSize="30"
+                    TextColor="{StaticResource TextPrimary}"
+                    HorizontalOptions="Center"/>
+
+            </Frame>
+
+
+            <StackLayout
+                VerticalOptions="FillAndExpand" 
+                HorizontalOptions="FillAndExpand" 
+                Margin="0"
+                Padding="0">
+
+
+                <Entry 
+                    Placeholder="Story name" 
+                    Text="{Binding StoryName,FallbackValue=''}"
+                    HorizontalOptions="FillAndExpand">
+                    <Entry.Behaviors>
+                        <xct:MultiValidationBehavior 
+                            Errors="{Binding StoryNameErrors}"
+                            IsValid="{Binding IsStoryNameValid}"
+                            Flags="ValidateOnValueChanging"
+                            
+                            >
+                            <xct:TextValidationBehavior  xct:MultiValidationBehavior.Error="Min lenght of name is 3"
+                                MinimumLength="3" />
+                            <xct:TextValidationBehavior  xct:MultiValidationBehavior.Error="Max lenght of name is 15"
+                                MaximumLength="15" />
+                        </xct:MultiValidationBehavior>
+                    </Entry.Behaviors>
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Valid">
+                                <VisualState.Setters>
+                                    <Setter Property="TextColor" Value="Green"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Invalid">
+                                <VisualState.Setters>
+                                    <Setter Property="TextColor" Value="IndianRed"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                </Entry>
+
+            </StackLayout>
+            <CollectionView ItemsSource="{Binding Errors}" IsVisible="{Binding IsInputValid,Converter={StaticResource invertBoolConverter}}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                            
+                        <Label 
+                            Text="{Binding .}"
+                            HorizontalOptions="CenterAndExpand"
+                            Margin="10,5,10,0"
+                            TextColor="Red" 
+                               />
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+            <Button 
+                Margin="20,5,20,5"
+                Text="Cancel" 
+                TextColor="{StaticResource TextPrimary}"
+                BackgroundColor="{StaticResource Accent}"
+                Command="{Binding BackButton}"/>
+            <Button 
+                IsVisible="{Binding IsInputValid,Mode=TwoWay}"
+                Margin="20,0,20,5"
+                Text="Create"
+                TextColor="{StaticResource TextPrimary}"
+                BackgroundColor="{StaticResource Accent}"
+                Command="{Binding CreateButton,Mode=TwoWay}"
+                IsEnabled="{Binding IsInputValid}"
+                />
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
+    

@@ -53,7 +53,9 @@ namespace StoryWriter.ViewModels
 
         void OnCreateStoryButtonClicked()
         {
-            Application.Current.MainPage.Navigation.ShowPopup(new CreateStoryPopup() { IsLightDismissEnabled = true });
+            // Application.Current.MainPage.Navigation.ShowPopup(new CreateStoryPopup() { IsLightDismissEnabled = true });
+
+            Application.Current.MainPage.Navigation.PushModalAsync(new CreateStoryPage());
         }
 
 

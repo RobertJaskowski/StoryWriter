@@ -14,13 +14,13 @@
             <Color x:Key="TabBarBackground">#FAF8FA</Color>
             <Color x:Key="CardBackground">#FAF8FA</Color>
             <Color x:Key="ButtonOutline">#5F6573</Color>
-            <Color x:Key="Accent">#FF344A</Color>
+            <Color x:Key="Accent">#2196F3</Color>
             
             
             <Color x:Key="TabIconSelected">#F44257</Color>
             <Color x:Key="TabIconUnselected">#2C2D31</Color>
 
-            <Color x:Key="TextPrimary">#25272B</Color>
+            <Color x:Key="TextPrimary">#FAF8FA</Color>
             <Color x:Key="TextSecondary">#606573</Color>
 
             <x:String x:Key="IconUser">&#xf2bd;</x:String>

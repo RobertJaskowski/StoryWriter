@@ -7,7 +7,6 @@ C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\AppShel
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\Controls\ActiveChallengesView.xaml.g.cs
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\Views\ChallengesPage.xaml.g.cs
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\Views\ClassesPage.xaml.g.cs
-C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\Views\CreateStoryPopup.xaml.g.cs
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\Views\FeaturedPage.xaml.g.cs
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\Views\MorePage.xaml.g.cs
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\Views\ProfilePage.xaml.g.cs
@@ -19,3 +18,6 @@ C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\XamlC.s
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\StoryWriter.dll
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\ref\StoryWriter.dll
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\StoryWriter.pdb
+C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\StoryWriter.csprojAssemblyReference.cache
+C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\Views\CreateStoryPage.xaml.g.cs
+C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\Views\RegisterPage.xaml.g.cs
