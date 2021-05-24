@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StoryWriter.Pages.FeaturedPage"
+             xmlns:local="clr-namespace:StoryWriter.PageModels"
+             BackgroundColor="{StaticResource BackgroundColor}">
+    <!--<ContentPage.BindingContext>-->
+        <!--<local:FeaturedViewModel/>
+    </ContentPage.BindingContext>-->
+
+    <Grid RowDefinitions="Auto,240,*">
+        <Label Margin="10,0" 
+               FontSize="Small"
+               TextColor="{StaticResource TextPrimary}" 
+               Text="Live and upcoming"/>
+        <CollectionView Grid.Row="1" VerticalOptions="Start"  ItemsLayout="HorizontalList" >
+            <CollectionView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Item One</x:String>
+                    <x:String>Item One</x:String>
+                    <x:String>Item One</x:String>
+                </x:Array>
+            </CollectionView.ItemsSource>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="16,0,0,0">
+                        <Frame CornerRadius="12" 
+                               Padding="0"
+                               BackgroundColor="{StaticResource CardBackground}" 
+                               WidthRequest="320" 
+                               HasShadow="True">
+                            <Grid RowDefinitions="170,Auto,Auto">
+                                <BoxView BackgroundColor="Black" />
+                                <Label  Grid.Row="1"  Margin="16,0,0,0" FontAttributes="Bold" TextColor="{StaticResource TextSecondary}" Text="Program -4weeks"/>
+                                <Label Grid.Row="2" Margin="16,0,0,0" FontAttributes="Bold" TextColor="{StaticResource TextPrimary}" Text="Streanght"/>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+
+</ContentPage>

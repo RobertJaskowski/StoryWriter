@@ -1,4 +1,4 @@
-﻿using StoryWriter.ViewModels;
+﻿using StoryWriter.PageModels;
 using StoryWriter.Views;
 using System;
 using System.Collections.Generic;

@@ -1,6 +1,8 @@
 ﻿
+using StoryWriter.PageModels;
 using StoryWriter.Views;
 using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,11 +16,18 @@ namespace StoryWriter
             InitializeComponent();
 
             //DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+            //MainPage = new AppShell(); default
         }
 
-        protected override void OnStart()
+        Task InitNavigation()
         {
+            var navService = PageModelLocator.Resolve<INavigationService>();
+            return navService.NavigateToAsync<LoginPageModel>();
+        }
+
+        protected override async void OnStart()
+        {
+            await InitNavigation();
         }
 
         protected override void OnSleep()

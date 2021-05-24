@@ -4,7 +4,6 @@
        xmlns:local="clr-namespace:StoryWriter.Views"
        Title="StoryWriter"
        x:Class="StoryWriter.AppShell"
-       xmlns:helpers ="clr-namespace:StoryWriter.Helpers"
        >
 
     <!--
@@ -32,7 +31,7 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    <TabBar>
+    <!--<TabBar>
         <Tab Title="Stories"
              Route="StoriesPage"
              Shell.NavBarIsVisible="False">
@@ -69,11 +68,11 @@
                 ContentTemplate="{DataTemplate local:ChallengesPage}" >
 
             </ShellContent>
-           <!-- <ShellContent 
+           --><!-- <ShellContent 
                 Title="asdsd"
                 ContentTemplate="{DataTemplate local:ChallengesPage}" >
 
-            </ShellContent>-->
+            </ShellContent>--><!--
         </Tab>
         <Tab Title="Classes"
              Route="ClassesPage"
@@ -106,12 +105,12 @@
                 <FontImageSource FontFamily="FARegular"
                                      Glyph="{StaticResource IconUser}"/>
             </Tab.Icon>
-            <ShellContent 
-                ContentTemplate="{DataTemplate local:MorePage}" >
+            --><!--<ShellContent--> 
+                <!--ContentTemplate="{DataTemplate local:MorePage}" >
 
-            </ShellContent>
+            </ShellContent>--><!--
         </Tab>
-    </TabBar>
+    </TabBar>-->
 
     <!--
         If you would like to navigate to this content you can do so by calling

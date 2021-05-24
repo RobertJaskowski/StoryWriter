@@ -9,6 +9,13 @@
     -->
     <Application.Resources>
         <ResourceDictionary>
+
+
+            <Color x:Key="PrimaryHeaderColor">#01A9DB</Color>
+            <Color x:Key="GradientStartColor">#00BFFF</Color>
+            <Color x:Key="GradientEndColor">#086A87</Color>
+            <Color x:Key="BackgroundColorLight">#EFEFEF</Color>
+            
             <Color x:Key="Primary">#2196F3</Color>
             <Color x:Key="BackgroundColor">#D4D5DB</Color>
             <Color x:Key="TabBarBackground">#FAF8FA</Color>

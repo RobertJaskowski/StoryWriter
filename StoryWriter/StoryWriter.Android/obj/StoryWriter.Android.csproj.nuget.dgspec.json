@@ -70,6 +70,18 @@
               "target": "Package",
               "version": "[1.6.1, )"
             },
+            "Xamarin.Firebase.Analytics": {
+              "target": "Package",
+              "version": "[118.0.3, )"
+            },
+            "Xamarin.Firebase.Auth": {
+              "target": "Package",
+              "version": "[120.0.3, )"
+            },
+            "Xamarin.Firebase.Firestore": {
+              "target": "Package",
+              "version": "[122.1.1, )"
+            },
             "Xamarin.Forms": {
               "target": "Package",
               "version": "[5.0.0.2012, )"
@@ -77,6 +89,11 @@
             "Xamarin.Forms.PancakeView": {
               "target": "Package",
               "version": "[2.3.0.759, )"
+            },
+            "Xamarin.Google.Guava": {
+              "include": "None",
+              "target": "Package",
+              "version": "[27.1.0, )"
             }
           }
         }
@@ -135,10 +152,6 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"
-            },
-            "Refractored.MvvmHelpers": {
-              "target": "Package",
-              "version": "[1.6.2, )"
             },
             "Resizetizer.NT": {
               "target": "Package",

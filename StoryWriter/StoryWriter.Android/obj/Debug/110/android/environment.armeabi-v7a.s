@@ -23,8 +23,8 @@
 	.section	.rodata.env.str.1,"aMS",%progbits,1
 	.type	.L.env.str.1, %object
 .L.env.str.1:
-	.asciz	"com.companyname.storywriter"
-	.size	.L.env.str.1, 28
+	.asciz	"com.InspiredMedia.StoryWriter"
+	.size	.L.env.str.1, 30
 	.section	.data.application_config,"aw",%progbits
 	.type	application_config, %object
 	.p2align	2
@@ -92,7 +92,7 @@ mono_aot_mode_name:
 	.section	.rodata.env.str.8,"aMS",%progbits,1
 	.type	.L.env.str.8, %object
 .L.env.str.8:
-	.asciz	"c2f153b9-022f-4097-bcfe-2d5330e18084"
+	.asciz	"186e737c-bfab-4bf0-9468-2500447e96dd"
 	.size	.L.env.str.8, 37
 	.section	.rodata.env.str.9,"aMS",%progbits,1
 	.type	.L.env.str.9, %object

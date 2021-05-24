@@ -147,10 +147,6 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
-            "Refractored.MvvmHelpers": {
-              "target": "Package",
-              "version": "[1.6.2, )"
-            },
             "Resizetizer.NT": {
               "target": "Package",
               "version": "[0.2.0, )"
