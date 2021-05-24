@@ -6,7 +6,7 @@ using StoryWriter.Services;
 
 namespace StoryWriter.iOS.Services
 {
-    public abstract class BaseRepository<T> : IRepository<T> where T : IIdentifiable
+    public abstract class BaseRepository<T> : IFirebaseRepository<T> where T : IIdentifiable
     {
         public abstract string DocumentPath { get; }
 

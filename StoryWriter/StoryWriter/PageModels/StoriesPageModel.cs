@@ -68,7 +68,7 @@ namespace StoryWriter.PageModels
 
         private void OnTestButtonClicked(object obj)
         {
-            var result = PageModelLocator.Resolve<IRepository<MyTestData>>().Save(new MyTestData
+            var result = PageModelLocator.Resolve<IFirebaseCollection<MyTestData>>().Save(new MyTestData
             {
                 name = "nametest",
                 flag = true

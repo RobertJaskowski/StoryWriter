@@ -48,9 +48,9 @@ namespace StoryWriter
 
 
 
-            ////_container.Register(DependencyService.Get<IRepository<WorkItem>>());
-            _container.Register(DependencyService.Get<IRepository<TestData>>());
-            _container.Register(DependencyService.Get<IRepository<MyTestData>>());
+            ////_container.Register(DependencyService.Get<IFirebaseCollection<WorkItem>>());
+            _container.Register(DependencyService.Get<IFirebaseCollection<TestData>>());
+            _container.Register(DependencyService.Get<IFirebaseCollection<MyTestData>>());
         }
 
         /// <summary>

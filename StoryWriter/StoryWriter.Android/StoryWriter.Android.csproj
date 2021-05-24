@@ -96,7 +96,7 @@
     <PackageReference Include="Xamarin.Forms.PancakeView">
       <Version>2.3.0.759</Version>
     </PackageReference>
-	<PackageReference Include="Xamarin.Google.Guava">
+    <PackageReference Include="Xamarin.Google.Guava">
       <Version>27.1.0.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Google.Dagger">
@@ -128,9 +128,9 @@
     <Compile Include="ServiceListeners\OnDeleteCompleteListener.cs" />
     <Compile Include="ServiceListeners\OnDocumentCompleteListener.cs" />
     <Compile Include="Services\AccountService.cs" />
-    <Compile Include="Services\BaseRepository.cs" />
-    <Compile Include="Services\MyTestDataRepository.cs" />
-    <Compile Include="Services\TestDataRepository.cs" />
+    <Compile Include="Services\BaseFirebaseCollection.cs" />
+    <Compile Include="Services\MyTestDataFirebaseCollection.cs" />
+    <Compile Include="Services\TestDataFirebaseCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <GoogleServicesJson Include="google-services.json" />
