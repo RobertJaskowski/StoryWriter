@@ -22,7 +22,7 @@ namespace StoryWriter
         Task InitNavigation()
         {
             var navService = PageModelLocator.Resolve<INavigationService>();
-            return navService.NavigateToAsync<LoginPageModel>();
+            return navService.NavigateToAsync<DashboardPageModel>();
         }
 
         protected override async void OnStart()

@@ -69,6 +69,8 @@ Xamarin.Forms.PancakeView.dll
 Xamarin.Forms.Platform.Android.dll
 Xamarin.Forms.Platform.dll
 Xamarin.Google.Android.Material.dll
+Xamarin.Google.Dagger.dll
+Xamarin.Google.Guava.dll
 Xamarin.Google.Guava.FailureAccess.dll
 Xamarin.Google.Guava.ListenableFuture.dll
 Xamarin.GooglePlayServices.Ads.Identifier.dll
@@ -94,6 +96,7 @@ Xamarin.Grpc.Stub.dll
 Xamarin.Io.OpenCensus.OpenCensusApi.dll
 Xamarin.Io.OpenCensus.OpenCensusContribGrpcMetrics.dll
 Xamarin.Io.PerfMark.PerfMarkApi.dll
+Xamarin.JavaX.Inject.dll
 Xamarin.Protobuf.JavaLite.dll
 androidx.multidex.multidex.aar
 androidx.versionedparcelable.versionedparcelable.aar
@@ -157,6 +160,6 @@ playservicesauthapiphone-17.5.0.aar
 protolitewellknowntypes-17.1.1.aar
 firebasedatabasecollection-17.0.1.aar
 firebaseauthinterop-19.0.2.aar
-firebasefirestore-22.1.1.aar
-firebaseauth-20.0.3.aar
+firebasefirestore-22.1.2.aar
+firebaseauth-20.0.4.aar
 firebaseanalytics-18.0.3.aar

@@ -7,9 +7,9 @@
              x:Class="StoryWriter.Pages.CreateStoryPage">
 
 
-    <ContentPage.BindingContext>
+    <!--<ContentPage.BindingContext>
         <viewmodels:CreateStoryViewModel/>
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
     
     <ContentPage.Resources>
         <Style TargetType="Entry" >

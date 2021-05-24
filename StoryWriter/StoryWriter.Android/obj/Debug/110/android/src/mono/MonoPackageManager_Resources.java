@@ -83,6 +83,8 @@ public class MonoPackageManager_Resources {
 		"Xamarin.Forms.Platform.dll",
 		"Xamarin.Forms.Xaml.dll",
 		"Xamarin.Google.Android.Material.dll",
+		"Xamarin.Google.Dagger.dll",
+		"Xamarin.Google.Guava.dll",
 		"Xamarin.Google.Guava.FailureAccess.dll",
 		"Xamarin.Google.Guava.ListenableFuture.dll",
 		"Xamarin.GooglePlayServices.Ads.Identifier.dll",
@@ -108,6 +110,7 @@ public class MonoPackageManager_Resources {
 		"Xamarin.Io.OpenCensus.OpenCensusApi.dll",
 		"Xamarin.Io.OpenCensus.OpenCensusContribGrpcMetrics.dll",
 		"Xamarin.Io.PerfMark.PerfMarkApi.dll",
+		"Xamarin.JavaX.Inject.dll",
 		"Xamarin.Protobuf.JavaLite.dll",
 	};
 	public static String[] Dependencies = new String[]{

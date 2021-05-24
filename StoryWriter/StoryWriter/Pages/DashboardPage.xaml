@@ -6,6 +6,12 @@
              x:Class="StoryWriter.Pages.DashboardPage"
             xmlns:pages="clr-namespace:StoryWriter.Pages">
     <TabbedPage.Children>
+
+        <NavigationPage Title="Stories">
+            <x:Arguments>
+                <pages:StoriesPage BindingContext="{Binding StoriesPageModel}"/>
+            </x:Arguments>
+        </NavigationPage>
         <NavigationPage Title="time">
             <x:Arguments>
                 <pages:TimeClockPage BindingContext="{Binding TimeClockPageModel}"/>

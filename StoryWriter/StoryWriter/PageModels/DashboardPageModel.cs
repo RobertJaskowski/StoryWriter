@@ -8,6 +8,12 @@ namespace StoryWriter.PageModels
 {
     public class DashboardPageModel : PageModelBase
     {
+        private StoriesPageModel _storiesPage;
+        public StoriesPageModel StoriesPageModel
+        {
+            get => _storiesPage;
+            set => SetProperty(ref _storiesPage, value);
+        }
 
         private SummaryPageModel _summaryPM;
         public SummaryPageModel SummaryPageModel
@@ -41,13 +47,15 @@ namespace StoryWriter.PageModels
             ProfilePageModel profilePM,
             SettingsPageModel settingsPM,
             SummaryPageModel summaryPM,
-            TimeClockPageModel timeClockPM
+            TimeClockPageModel timeClockPM,
+            StoriesPageModel storiesPM
             )
         {
             ProfilePageModel = profilePM;
             SettingsPageModel = settingsPM;
             SummaryPageModel = summaryPM;
             TimeClockPageModel = timeClockPM;
+            StoriesPageModel = storiesPM;
         }
 
         public override Task InitializeAsync(object navigationData)
@@ -57,7 +65,8 @@ namespace StoryWriter.PageModels
                 ProfilePageModel.InitializeAsync(null),
                 SettingsPageModel.InitializeAsync(null),
                 SummaryPageModel.InitializeAsync(null),
-                TimeClockPageModel.InitializeAsync(null));
+                TimeClockPageModel.InitializeAsync(null),
+                StoriesPageModel.InitializeAsync(null));
 
             return base.InitializeAsync(navigationData);
         }

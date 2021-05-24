@@ -2,7 +2,6 @@ C:\Projects\StoryWriter\StoryWriter\StoryWriter\bin\Debug\netstandard2.0\StoryWr
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\bin\Debug\netstandard2.0\StoryWriter.dll
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\bin\Debug\netstandard2.0\ref\StoryWriter.dll
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\bin\Debug\netstandard2.0\StoryWriter.pdb
-C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\StoryWriter.csprojAssemblyReference.cache
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\Controls\ActiveChallengesView.xaml.g.cs

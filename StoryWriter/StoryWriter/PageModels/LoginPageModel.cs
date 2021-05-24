@@ -18,6 +18,25 @@ namespace StoryWriter.PageModels
             set => SetProperty(ref _icon, value);
         }
 
+        private string _username;
+
+        public string Username
+        {
+            get { return _username; }
+            set { SetProperty(ref _username, value); }
+        }
+
+
+
+        private string _password;
+
+        public string Password
+        {
+            get { return _password; }
+            set { SetProperty(ref _password, value); }
+        }
+
+
         public LoginEntryViewModel EmailEntryViewModel { get; set; }
         public LoginEntryViewModel PasswordEntryViewModel { get; set; }
 
@@ -43,11 +62,12 @@ namespace StoryWriter.PageModels
 
         private async void OnLogin()
         {
-            var loginAttempt = await _accountService.LoginAsync(EmailEntryViewModel.Text, PasswordEntryViewModel.Text);
+            //var loginAttempt = await _accountService.LoginAsync(EmailEntryViewModel.Text, PasswordEntryViewModel.Text);
+            var loginAttempt = await _accountService.LoginAsync(Username,Password);
             if (loginAttempt)
             {
                 // navigate to the Dashboard.
-                //await _navigationService.NavigateToAsync<RecentActivityPageModel>();todo
+                await _navigationService.NavigateToAsync<StoriesPageModel>();
             }
             else
             {

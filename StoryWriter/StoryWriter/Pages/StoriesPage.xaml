@@ -4,7 +4,7 @@
              x:Class="StoryWriter.Pages.StoriesPage"
              xmlns:models="clr-namespace:StoryWriter.Model"
              xmlns:viewmodels="clr-namespace:StoryWriter.PageModels"
-             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" >
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" NavigationPage.HasNavigationBar="False" >
 
     <!--<ContentPage.BindingContext>
         <viewmodels:StoriesViewModel/>
@@ -16,78 +16,86 @@
 
 
             <xct:TabView
-        IsSwipeEnabled="False"
-        TabStripBackgroundColor="{StaticResource CardBackground}"
-        TabStripHeight="90"
-        TabStripPlacement="Top">
+                IsSwipeEnabled="False"
+                TabStripBackgroundColor="{StaticResource CardBackground}"
+                TabStripHeight="90"
+                TabStripPlacement="Top">
 
 
 
                 <xct:TabViewItem
-            ControlTemplate="{StaticResource TabItemTemplate}"
-            Style="{StaticResource TabViewItemStyle}"
-            Text="All">
+                    ControlTemplate="{StaticResource TabItemTemplate}"
+                    Style="{StaticResource TabViewItemStyle}"
+                    Text="All">
 
                     <xct:TabViewItem.Icon>
                         <FontImageSource
-                    FontFamily="FARegular"
-                    Glyph="{StaticResource IconProfile}"
-                    Size="20"
-                    Color="{StaticResource TextSecondary}" />
+                            FontFamily="FARegular"
+                            Glyph="{StaticResource IconProfile}"
+                            Size="20"
+                            Color="{StaticResource TextSecondary}" />
                     </xct:TabViewItem.Icon>
                     <xct:TabViewItem.IconSelected>
                         <FontImageSource
-                    FontFamily="FARegular"
-                    Glyph="{StaticResource IconUser}"
-                    Size="42"
-                    Color="{StaticResource Accent}" />
+                            FontFamily="FARegular"
+                            Glyph="{StaticResource IconUser}"
+                            Size="42"
+                            Color="{StaticResource Accent}" />
                     </xct:TabViewItem.IconSelected>
-
-                    <CollectionView
-                Margin="0,42,0,0"
-                ItemsLayout="VerticalList"
-                VerticalOptions="Start"
-                ItemsSource="{Binding StoriesList}"
-                >
-
-                        <CollectionView.ItemTemplate>
-
-
-                            <DataTemplate>
-                                <Grid Padding="12,6" HeightRequest="80">
+                    <Grid>
+                        <Button Text="Test button" HeightRequest="50" Grid.Row="0" IsVisible="True" Command="{Binding TestButton}" IsEnabled="True"/>
 
 
 
+                        <CollectionView
+                            Grid.Row="1"
+                        Margin="0,42,0,0"
+                        ItemsLayout="VerticalList"
+                        VerticalOptions="Start"
+                        ItemsSource="{Binding StoriesList}"
+                        >
+
+                            <CollectionView.ItemTemplate>
 
 
-                                    <Frame
+                                <DataTemplate>
+                                    <Grid Padding="12,6" HeightRequest="80">
+
+
+
+
+
+                                        <Frame
                                         Padding="0"
                                         BackgroundColor="Black"
                                         CornerRadius="12"
                                         HasShadow="False"
                                         IsClippedToBounds="True">
-                                        
-                                        <Grid ColumnDefinitions=".55*,.45*">
-                                            <Label
+
+                                            <Grid ColumnDefinitions=".55*,.45*">
+                                                <Label
                                         Margin="36,0"
                                         FontSize="24"
                                         LineBreakMode="WordWrap"
                                         Text="{Binding Name}"
                                         TextColor="White"
                                         VerticalOptions="Center" />
-                                            <Image
+                                                <Image
                                         Grid.Column="1"
                                         Aspect="AspectFill"
                                         Source="strength.png" />
-                                        </Grid>
+                                            </Grid>
 
-                                    </Frame>
+                                        </Frame>
 
 
-                                </Grid>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                    </Grid>
+
 
 
                 </xct:TabViewItem>

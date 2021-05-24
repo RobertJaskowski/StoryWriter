@@ -1,6 +1,8 @@
-﻿using StoryWriter.PageModels;
+﻿using StoryWriter.Models;
+using StoryWriter.PageModels;
 using StoryWriter.PageModels.Base;
 using StoryWriter.Pages;
+using StoryWriter.Services;
 using StoryWriter.Services.Statement;
 using StoryWriter.Services.Work;
 using System;
@@ -29,6 +31,7 @@ namespace StoryWriter
             Register<ProfilePageModel, ProfilePage>();
             Register<SettingsPageModel, SettingsPage>();
             Register<SummaryPageModel, SummaryPage>();
+            Register<StoriesPageModel, StoriesPage>();
             Register<TimeClockPageModel, TimeClockPage>();
 
             //Register<RecentActivityPageModel, RecentActivityPage>();
@@ -39,10 +42,15 @@ namespace StoryWriter
             //_container.Register<IAccountService, MockAccountService>();
 
             _container.Register<IAccountService>(DependencyService.Get<IAccountService>());
+
             _container.Register<IStatementService, MockStatementService>();
             _container.Register<IWorkService, MockWorkService>();
+
+
+
             ////_container.Register(DependencyService.Get<IRepository<WorkItem>>());
-            //_container.Register(DependencyService.Get<IRepository<TestData>>());
+            _container.Register(DependencyService.Get<IRepository<TestData>>());
+            _container.Register(DependencyService.Get<IRepository<MyTestData>>());
         }
 
         /// <summary>

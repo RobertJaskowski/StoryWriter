@@ -76,11 +76,11 @@
             },
             "Xamarin.Firebase.Auth": {
               "target": "Package",
-              "version": "[120.0.3, )"
+              "version": "[120.0.4, )"
             },
             "Xamarin.Firebase.Firestore": {
               "target": "Package",
-              "version": "[122.1.1, )"
+              "version": "[122.1.2, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
@@ -90,10 +90,25 @@
               "target": "Package",
               "version": "[2.3.0.759, )"
             },
-            "Xamarin.Google.Guava": {
-              "include": "None",
+            "Xamarin.Google.Dagger": {
               "target": "Package",
-              "version": "[27.1.0, )"
+              "version": "[2.27.0, )"
+            },
+            "Xamarin.Google.Guava": {
+              "target": "Package",
+              "version": "[27.1.0.1, )"
+            },
+            "Xamarin.Google.Guava.FailureAccess": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            },
+            "Xamarin.Google.Guava.ListenableFuture": {
+              "target": "Package",
+              "version": "[1.0.0.2, )"
+            },
+            "Xamarin.GooglePlayServices.Base": {
+              "target": "Package",
+              "version": "[117.6.0, )"
             }
           }
         }

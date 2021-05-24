@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Firebase.Firestore;
+using Java.Util;
 using StoryWriter.Droid.Extensions;
 using StoryWriter.Droid.ServiceListeners;
 using StoryWriter.Services;
@@ -59,9 +60,10 @@ namespace StoryWriter.Droid.Services
         {
             var tcs = new TaskCompletionSource<string>();
 
+
             FirebaseFirestore.Instance
                 .Collection(DocumentPath)
-                .Add(item.Convert())
+                .Add(item.ConvertToHashMap())
                 .AddOnCompleteListener(new OnCreateCompleteListener(tcs));
 
             return tcs.Task;

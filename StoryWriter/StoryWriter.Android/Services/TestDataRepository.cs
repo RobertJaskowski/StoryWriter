@@ -6,11 +6,11 @@ using Xamarin.Forms;
 [assembly: Dependency(typeof(TestDataRepository))]
 namespace StoryWriter.Droid.Services
 {
-    public class TestDataRepository : BaseRepository<TestData>
+    public class TestDataRepository : BaseRepository<MyTestData>
     {
         protected override string DocumentPath =>
-            "users/"
+            "mytestData/"
             + Firebase.Auth.FirebaseAuth.Instance.CurrentUser.Uid
-            + "/test";
+            + "/mytest";
     }
 }
