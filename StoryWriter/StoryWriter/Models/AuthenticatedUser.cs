@@ -1,5 +1,5 @@
 ﻿using System;
-namespace StoryWriter
+namespace StoryWriter.Models
 {
     public class AuthenticatedUser
     {

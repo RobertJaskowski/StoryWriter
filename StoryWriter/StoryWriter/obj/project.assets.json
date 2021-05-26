@@ -123,6 +123,55 @@
           "lib/netstandard2.0/Sharpnado.TaskMonitor.dll": {}
         }
       },
+      "SkiaSharp/2.80.2": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SkiaSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SkiaSharp.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/osx/native/libSkiaSharp.dylib": {
+            "assetType": "native",
+            "rid": "osx"
+          },
+          "runtimes/win-arm64/native/libSkiaSharp.dll": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-x64/native/libSkiaSharp.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/libSkiaSharp.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
+      "SkiaSharp.Views.Forms/2.80.2": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "2.80.2",
+          "Xamarin.Forms": "4.6.0.772"
+        },
+        "compile": {
+          "ref/netstandard2.0/SkiaSharp.Views.Forms.dll": {}
+        }
+      },
+      "System.Buffers/4.4.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Buffers.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Buffers.dll": {}
+        }
+      },
       "System.ComponentModel/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -133,6 +182,20 @@
         },
         "runtime": {
           "lib/netstandard1.3/System.ComponentModel.dll": {}
+        }
+      },
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.4.0",
+          "System.Numerics.Vectors": "4.4.0",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Memory.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Memory.dll": {}
         }
       },
       "System.Numerics.Vectors/4.5.0": {
@@ -699,6 +762,153 @@
         "task-monitor.png"
       ]
     },
+    "SkiaSharp/2.80.2": {
+      "sha512": "D25rzdCwh+3L+XyXqpNa+H/yiLJbE3/R3K/XexwHyQjGdzZvSufFW3oqf3En7hhqSIsxsJ8f5NEZ0J5W5wlGBg==",
+      "type": "package",
+      "path": "skiasharp/2.80.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/monoandroid1.0/SkiaSharp.targets",
+        "build/monoandroid1.0/arm/libSkiaSharp.so",
+        "build/monoandroid1.0/arm64/libSkiaSharp.so",
+        "build/monoandroid1.0/x64/libSkiaSharp.so",
+        "build/monoandroid1.0/x86/libSkiaSharp.so",
+        "build/net462/SkiaSharp.targets",
+        "build/tizen40/SkiaSharp.targets",
+        "build/tizen40/arm/libSkiaSharp.so",
+        "build/tizen40/x86/libSkiaSharp.so",
+        "build/xamarinios1.0/SkiaSharp.targets",
+        "build/xamarinios1.0/libSkiaSharp.framework/Info.plist",
+        "build/xamarinios1.0/libSkiaSharp.framework/Modules/module.modulemap",
+        "build/xamarinios1.0/libSkiaSharp.framework/_CodeSignature/CodeResources",
+        "build/xamarinios1.0/libSkiaSharp.framework/libSkiaSharp",
+        "build/xamarinmac2.0/SkiaSharp.targets",
+        "build/xamarintvos1.0/SkiaSharp.targets",
+        "build/xamarintvos1.0/libSkiaSharp.framework/Info.plist",
+        "build/xamarintvos1.0/libSkiaSharp.framework/Modules/module.modulemap",
+        "build/xamarintvos1.0/libSkiaSharp.framework/_CodeSignature/CodeResources",
+        "build/xamarintvos1.0/libSkiaSharp.framework/libSkiaSharp",
+        "build/xamarinwatchos1.0/SkiaSharp.targets",
+        "build/xamarinwatchos1.0/libSkiaSharp.framework/Info.plist",
+        "build/xamarinwatchos1.0/libSkiaSharp.framework/Modules/module.modulemap",
+        "build/xamarinwatchos1.0/libSkiaSharp.framework/_CodeSignature/CodeResources",
+        "build/xamarinwatchos1.0/libSkiaSharp.framework/libSkiaSharp",
+        "buildTransitive/monoandroid1.0/SkiaSharp.targets",
+        "buildTransitive/net462/SkiaSharp.targets",
+        "buildTransitive/tizen40/SkiaSharp.targets",
+        "buildTransitive/xamarinios1.0/SkiaSharp.targets",
+        "buildTransitive/xamarinmac2.0/SkiaSharp.targets",
+        "buildTransitive/xamarintvos1.0/SkiaSharp.targets",
+        "buildTransitive/xamarinwatchos1.0/SkiaSharp.targets",
+        "lib/monoandroid1.0/SkiaSharp.dll",
+        "lib/monoandroid1.0/SkiaSharp.xml",
+        "lib/net462/SkiaSharp.dll",
+        "lib/net462/SkiaSharp.xml",
+        "lib/netstandard1.3/SkiaSharp.dll",
+        "lib/netstandard1.3/SkiaSharp.xml",
+        "lib/netstandard2.0/SkiaSharp.dll",
+        "lib/netstandard2.0/SkiaSharp.xml",
+        "lib/tizen40/SkiaSharp.dll",
+        "lib/tizen40/SkiaSharp.xml",
+        "lib/uap10.0.10240/SkiaSharp.dll",
+        "lib/uap10.0.10240/SkiaSharp.xml",
+        "lib/uap10.0.16299/SkiaSharp.dll",
+        "lib/uap10.0.16299/SkiaSharp.xml",
+        "lib/xamarinios1.0/SkiaSharp.dll",
+        "lib/xamarinios1.0/SkiaSharp.xml",
+        "lib/xamarinmac2.0/SkiaSharp.dll",
+        "lib/xamarinmac2.0/SkiaSharp.xml",
+        "lib/xamarintvos1.0/SkiaSharp.dll",
+        "lib/xamarintvos1.0/SkiaSharp.xml",
+        "lib/xamarinwatchos1.0/SkiaSharp.dll",
+        "lib/xamarinwatchos1.0/SkiaSharp.xml",
+        "runtimes/osx/native/libSkiaSharp.dylib",
+        "runtimes/win-arm64/native/libSkiaSharp.dll",
+        "runtimes/win-x64/native/libSkiaSharp.dll",
+        "runtimes/win-x86/native/libSkiaSharp.dll",
+        "runtimes/win10-arm/nativeassets/uap10.0/libEGL.dll",
+        "runtimes/win10-arm/nativeassets/uap10.0/libGLESv2.dll",
+        "runtimes/win10-arm/nativeassets/uap10.0/libSkiaSharp.dll",
+        "runtimes/win10-arm64/nativeassets/uap10.0/libEGL.dll",
+        "runtimes/win10-arm64/nativeassets/uap10.0/libGLESv2.dll",
+        "runtimes/win10-arm64/nativeassets/uap10.0/libSkiaSharp.dll",
+        "runtimes/win10-x64/nativeassets/uap10.0/libEGL.dll",
+        "runtimes/win10-x64/nativeassets/uap10.0/libGLESv2.dll",
+        "runtimes/win10-x64/nativeassets/uap10.0/libSkiaSharp.dll",
+        "runtimes/win10-x86/nativeassets/uap10.0/libEGL.dll",
+        "runtimes/win10-x86/nativeassets/uap10.0/libGLESv2.dll",
+        "runtimes/win10-x86/nativeassets/uap10.0/libSkiaSharp.dll",
+        "skiasharp.2.80.2.nupkg.sha512",
+        "skiasharp.nuspec"
+      ]
+    },
+    "SkiaSharp.Views.Forms/2.80.2": {
+      "sha512": "8aRDb98O2cHymB94O8FBj85qMC+MYEY6591wBpHcwgfz4HMo4orSMApD5y8VDmHpA5KR0Yh2ija+HTylz/9CgA==",
+      "type": "package",
+      "path": "skiasharp.views.forms/2.80.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "build/net462/SkiaSharp.Views.Forms.targets",
+        "lib/monoandroid1.0/SkiaSharp.Views.Forms.dll",
+        "lib/monoandroid1.0/SkiaSharp.Views.Forms.xml",
+        "lib/net462/_._",
+        "lib/tizen40/SkiaSharp.Views.Forms.dll",
+        "lib/tizen40/SkiaSharp.Views.Forms.xml",
+        "lib/uap10.0/SkiaSharp.Views.Forms.dll",
+        "lib/uap10.0/SkiaSharp.Views.Forms.xml",
+        "lib/xamarinios1.0/SkiaSharp.Views.Forms.dll",
+        "lib/xamarinios1.0/SkiaSharp.Views.Forms.xml",
+        "lib/xamarinmac2.0/SkiaSharp.Views.Forms.dll",
+        "lib/xamarinmac2.0/SkiaSharp.Views.Forms.xml",
+        "ref/monoandroid1.0/SkiaSharp.Views.Forms.dll",
+        "ref/monoandroid1.0/SkiaSharp.Views.Forms.xml",
+        "ref/net462/_._",
+        "ref/netstandard1.3/SkiaSharp.Views.Forms.dll",
+        "ref/netstandard1.3/SkiaSharp.Views.Forms.xml",
+        "ref/netstandard2.0/SkiaSharp.Views.Forms.dll",
+        "ref/netstandard2.0/SkiaSharp.Views.Forms.xml",
+        "ref/tizen40/SkiaSharp.Views.Forms.dll",
+        "ref/tizen40/SkiaSharp.Views.Forms.xml",
+        "ref/uap10.0/SkiaSharp.Views.Forms.dll",
+        "ref/uap10.0/SkiaSharp.Views.Forms.xml",
+        "ref/xamarinios1.0/SkiaSharp.Views.Forms.dll",
+        "ref/xamarinios1.0/SkiaSharp.Views.Forms.xml",
+        "ref/xamarinmac2.0/SkiaSharp.Views.Forms.dll",
+        "ref/xamarinmac2.0/SkiaSharp.Views.Forms.xml",
+        "skiasharp.views.forms.2.80.2.nupkg.sha512",
+        "skiasharp.views.forms.nuspec"
+      ]
+    },
+    "System.Buffers/4.4.0": {
+      "sha512": "AwarXzzoDwX6BgrhjoJsk6tUezZEozOT5Y9QKF94Gl4JK91I4PIIBkBco9068Y9/Dra8Dkbie99kXB8+1BaYKw==",
+      "type": "package",
+      "path": "system.buffers/4.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.1/System.Buffers.dll",
+        "lib/netstandard1.1/System.Buffers.xml",
+        "lib/netstandard2.0/System.Buffers.dll",
+        "lib/netstandard2.0/System.Buffers.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.1/System.Buffers.dll",
+        "ref/netstandard1.1/System.Buffers.xml",
+        "ref/netstandard2.0/System.Buffers.dll",
+        "ref/netstandard2.0/System.Buffers.xml",
+        "system.buffers.4.4.0.nupkg.sha512",
+        "system.buffers.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.ComponentModel/4.3.0": {
       "sha512": "VyGn1jGRZVfxnh8EdvDCi71v3bMXrsu8aYJOwoV7SNDLVhiEqwP86pPMyRGsDsxhXAm2b3o9OIqeETfN5qfezw==",
       "type": "package",
@@ -756,6 +966,27 @@
         "ref/xamarinwatchos10/_._",
         "system.componentmodel.4.3.0.nupkg.sha512",
         "system.componentmodel.nuspec"
+      ]
+    },
+    "System.Memory/4.5.3": {
+      "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+      "type": "package",
+      "path": "system.memory/4.5.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.1/System.Memory.dll",
+        "lib/netstandard1.1/System.Memory.xml",
+        "lib/netstandard2.0/System.Memory.dll",
+        "lib/netstandard2.0/System.Memory.xml",
+        "ref/netcoreapp2.1/_._",
+        "system.memory.4.5.3.nupkg.sha512",
+        "system.memory.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "System.Numerics.Vectors/4.5.0": {
@@ -1457,6 +1688,7 @@
       "Resizetizer.NT >= 0.2.0",
       "Sharpnado.MaterialFrame >= 1.1.4",
       "Sharpnado.Tabs >= 2.1.0",
+      "SkiaSharp.Views.Forms >= 2.80.2",
       "Xamarin.CommunityToolkit >= 1.1.0",
       "Xamarin.Essentials >= 1.6.1",
       "Xamarin.Forms >= 5.0.0.2012",
@@ -1532,6 +1764,10 @@
           "Sharpnado.Tabs": {
             "target": "Package",
             "version": "[2.1.0, )"
+          },
+          "SkiaSharp.Views.Forms": {
+            "target": "Package",
+            "version": "[2.80.2, )"
           },
           "Xamarin.CommunityToolkit": {
             "target": "Package",

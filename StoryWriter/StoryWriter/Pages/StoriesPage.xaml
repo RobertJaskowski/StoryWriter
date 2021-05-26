@@ -2,13 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StoryWriter.Pages.StoriesPage"
-             xmlns:models="clr-namespace:StoryWriter.Model"
+             xmlns:models="clr-namespace:StoryWriter.Models"
              xmlns:viewmodels="clr-namespace:StoryWriter.PageModels"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit" NavigationPage.HasNavigationBar="False" >
 
-    <!--<ContentPage.BindingContext>
-        <viewmodels:StoriesViewModel/>
-    </ContentPage.BindingContext>-->
 
     <ContentPage.Content>
         <Grid>
@@ -19,14 +16,95 @@
                 IsSwipeEnabled="False"
                 TabStripBackgroundColor="{StaticResource CardBackground}"
                 TabStripHeight="90"
-                TabStripPlacement="Top">
+                TabStripPlacement="Top" >
 
 
 
                 <xct:TabViewItem
                     ControlTemplate="{StaticResource TabItemTemplate}"
                     Style="{StaticResource TabViewItemStyle}"
-                    Text="All">
+                    Text="My" 
+                    TabTapped="{Binding MyTabTapped}">
+
+                    <xct:TabViewItem.Icon>
+                        <FontImageSource
+                            FontFamily="FARegular"
+                            Glyph="{StaticResource IconProfile}"
+                            Size="20"
+                            Color="{StaticResource TextSecondary}" />
+                    </xct:TabViewItem.Icon>
+
+                    <xct:TabViewItem.IconSelected>
+                        <FontImageSource
+                            FontFamily="FARegular"
+                            Glyph="{StaticResource IconUser}"
+                            Size="42"
+                            Color="{StaticResource Accent}" />
+                    </xct:TabViewItem.IconSelected>
+
+
+                    <xct:TabViewItem.Content>
+
+                        <Grid>
+
+                            <CollectionView
+                            Grid.Row="1"
+                            Margin="0,42,0,0"
+                            ItemsLayout="VerticalList"
+                            VerticalOptions="Start"
+                            ItemsSource="{Binding MyStoriesList}">
+
+
+                                <CollectionView.ItemTemplate>
+
+
+                                    <DataTemplate>
+                                        <Grid Padding="12,6" HeightRequest="80">
+
+
+
+
+
+                                            <Frame
+                                        Padding="0"
+                                        BackgroundColor="{StaticResource Accent}"
+                                        CornerRadius="12"
+                                        HasShadow="False"
+                                        IsClippedToBounds="True">
+
+                                                <Grid ColumnDefinitions=".55*,.45*">
+                                                    <Label
+                                        Margin="36,0"
+                                        FontSize="24"
+                                        LineBreakMode="WordWrap"
+                                        Text="{Binding Name}"
+                                        TextColor="White"
+                                        VerticalOptions="Center" />
+                                                    <Image
+                                        Grid.Column="1"
+                                        Aspect="AspectFill"
+                                        Source="strength.png" />
+                                                </Grid>
+
+                                            </Frame>
+
+
+                                        </Grid>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+
+                        </Grid>
+
+                    </xct:TabViewItem.Content>
+
+
+                </xct:TabViewItem>
+
+                <xct:TabViewItem
+                    ControlTemplate="{StaticResource TabItemTemplate}"
+                    Style="{StaticResource TabViewItemStyle}"
+                    Text="All" TabTapped="{Binding AllTabTapped}">
 
                     <xct:TabViewItem.Icon>
                         <FontImageSource
@@ -42,68 +120,90 @@
                             Size="42"
                             Color="{StaticResource Accent}" />
                     </xct:TabViewItem.IconSelected>
-                    <Grid>
-                        <Button Text="Test button" HeightRequest="50" Grid.Row="0" IsVisible="True" Command="{Binding TestButton}" IsEnabled="True"/>
+
+                    <xct:TabViewItem.Content>
+
+                        <Grid>
 
 
 
-                        <CollectionView
+                            <CollectionView
                             Grid.Row="1"
-                        Margin="0,42,0,0"
-                        ItemsLayout="VerticalList"
-                        VerticalOptions="Start"
-                        ItemsSource="{Binding StoriesList}"
-                        >
+                            Margin="0,42,0,0"
+                            ItemsLayout="VerticalList"
+                            VerticalOptions="Start"
+                            ItemsSource="{Binding StoriesList}"
+                            >
 
-                            <CollectionView.ItemTemplate>
-
-
-                                <DataTemplate>
-                                    <Grid Padding="12,6" HeightRequest="80">
+                                <CollectionView.ItemTemplate>
 
 
+                                    <DataTemplate>
+                                        <Grid Padding="12,6" HeightRequest="80">
 
 
 
-                                        <Frame
+
+
+                                            <Frame
                                         Padding="0"
                                         BackgroundColor="Black"
                                         CornerRadius="12"
                                         HasShadow="False"
                                         IsClippedToBounds="True">
 
-                                            <Grid ColumnDefinitions=".55*,.45*">
-                                                <Label
+                                                <Grid ColumnDefinitions=".55*,.45*">
+                                                    <Label
                                         Margin="36,0"
                                         FontSize="24"
                                         LineBreakMode="WordWrap"
                                         Text="{Binding Name}"
                                         TextColor="White"
                                         VerticalOptions="Center" />
-                                                <Image
+                                                    <Image
                                         Grid.Column="1"
                                         Aspect="AspectFill"
                                         Source="strength.png" />
-                                            </Grid>
+                                                </Grid>
 
-                                        </Frame>
+                                            </Frame>
 
 
-                                    </Grid>
-                                </DataTemplate>
-                            </CollectionView.ItemTemplate>
-                        </CollectionView>
+                                        </Grid>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
 
-                    </Grid>
-
+                        </Grid>
+                    </xct:TabViewItem.Content>
 
 
                 </xct:TabViewItem>
+
+
             </xct:TabView>
 
             <AbsoluteLayout 
                 WidthRequest="10"
                 >
+
+
+                <Image
+                    IsVisible="True" 
+                    Background="Red"
+                    Source="add-solid.png" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional"  
+                    AbsoluteLayout.LayoutBounds=".95,.65,50,50" 
+                />
+
+                <Button 
+                    Background="Transparent"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"  
+                    AbsoluteLayout.LayoutBounds=".95,.65,50,50"
+                    IsVisible="True" 
+                    Command="{Binding TestButton}" />
+
+
 
                 <Image
                     Background="Transparent"

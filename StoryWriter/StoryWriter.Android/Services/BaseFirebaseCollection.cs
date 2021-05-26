@@ -46,7 +46,6 @@ namespace StoryWriter.Droid.Services
         public Task<IList<T>> GetAll()
         {
             var tcs = new TaskCompletionSource<IList<T>>();
-            var list = new List<T>();
 
             FirebaseFirestore.Instance
                 .Collection(DocumentPath)

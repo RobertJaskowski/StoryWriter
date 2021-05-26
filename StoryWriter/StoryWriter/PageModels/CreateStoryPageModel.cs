@@ -1,6 +1,6 @@
 ﻿using MonkeyCache.FileStore;
-using StoryWriter.Model;
 using StoryWriter.PageModels.Base;
+using StoryWriter.Services.Stories;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
@@ -138,51 +138,38 @@ namespace StoryWriter.PageModels
 
         #region Commands
 
-        private Command _backButton;
-        public Command BackButton
-        {
-            get
-            {
-                if (_backButton == null)
-                {
-                    _backButton = new Command(() =>
-                    {
-                        Application.Current.MainPage.SendBackButtonPressed();
-                    });
-                }
 
-                return _backButton;
-            }
-        }
+        public Command BackButton { get; }
+        public  Command CreateButton { get; }
 
-        private Command _createButton;
-        public Command CreateButton
-        {
-            get
-            {
-                if (_createButton == null)
-                {
-                    _createButton = new Command(() =>
-                    {
-                        if (!IsInputValid) return;
-                        
-                        new Story(StoryName);
-                    }, () =>
-                    {
-
-                        return IsInputValid;
-                    });
-                }
-
-                return _createButton;
-            }
-        }
         #endregion
 
+        private INavigationService _navigationService;
+        private IStoriesService _storiesService;
+        private StoriesPageModel _storiesPM;
 
-        public CreateStoryPageModel()
+        public CreateStoryPageModel(INavigationService navigationService, IStoriesService storiesService, StoriesPageModel storiesPageModel)
         {
+            _navigationService = navigationService;
+            _storiesService = storiesService;
+            _storiesPM = storiesPageModel;
 
+            CreateButton = new Command(OnCreateStory, (e)=> { return IsInputValid; });
+            BackButton = new Command(Back);
+        }
+
+        private void Back(object obj)
+        {
+            Application.Current.MainPage.SendBackButtonPressed();
+        }
+
+        private async void OnCreateStory(object obj)
+        {
+            await _storiesService.CreateStory(StoryName);
+            await _navigationService.GoBackAsync();
+            _storiesPM.MyTabTapped.Execute(null);
+
+            
         }
     }
 }

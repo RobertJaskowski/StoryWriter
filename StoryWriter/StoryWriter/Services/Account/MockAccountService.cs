@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StoryWriter.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,11 @@ namespace StoryWriter
         }
 
         public Task<AuthenticatedUser> GetUserAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> LoginAnonymous()
         {
             throw new NotImplementedException();
         }

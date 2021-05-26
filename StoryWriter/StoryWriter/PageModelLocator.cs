@@ -4,6 +4,7 @@ using StoryWriter.PageModels.Base;
 using StoryWriter.Pages;
 using StoryWriter.Services;
 using StoryWriter.Services.Statement;
+using StoryWriter.Services.Stories;
 using StoryWriter.Services.Work;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,10 @@ namespace StoryWriter
             _lookupTable = new Dictionary<Type, Type>();
 
             // Register Page and Page Models
+
+
+            Register<CreateStoryPageModel, CreateStoryPage>();
+
             Register<DashboardPageModel, DashboardPage>();
             Register<LoginPageModel, LoginPage>();
             Register<LoginEmailPageModel, LoginEmailPage>();
@@ -34,21 +39,19 @@ namespace StoryWriter
             Register<StoriesPageModel, StoriesPage>();
             Register<TimeClockPageModel, TimeClockPage>();
 
-            //Register<RecentActivityPageModel, RecentActivityPage>();
 
             // Register Services (registered as Singletons by default)
 
             _container.Register<INavigationService, NavigationService>();
-            //_container.Register<IAccountService, MockAccountService>();
-
             _container.Register<IAccountService>(DependencyService.Get<IAccountService>());
-
             _container.Register<IStatementService, MockStatementService>();
             _container.Register<IWorkService, MockWorkService>();
+            _container.Register<IStoriesService, StoriesService>();
 
 
 
             ////_container.Register(DependencyService.Get<IFirebaseCollection<WorkItem>>());
+            _container.Register(DependencyService.Get<IFirebaseCollection<Story>>());
             _container.Register(DependencyService.Get<IFirebaseCollection<TestData>>());
             _container.Register(DependencyService.Get<IFirebaseCollection<MyTestData>>());
         }
@@ -88,7 +91,6 @@ namespace StoryWriter
             }
             return default(T);
         }
-
 
         public static Page CreatePageFor<TPageModelType>() where TPageModelType : PageModelBase
         {

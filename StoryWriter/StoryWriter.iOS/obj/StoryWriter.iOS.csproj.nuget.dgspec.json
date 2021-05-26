@@ -70,6 +70,14 @@
               "target": "Package",
               "version": "[1.6.1, )"
             },
+            "Xamarin.Firebase.iOS.Auth": {
+              "target": "Package",
+              "version": "[6.9.2, )"
+            },
+            "Xamarin.Firebase.iOS.CloudFirestore": {
+              "target": "Package",
+              "version": "[1.19.0, )"
+            },
             "Xamarin.Forms": {
               "target": "Package",
               "version": "[5.0.0.2012, )"
@@ -158,6 +166,10 @@
             "Sharpnado.Tabs": {
               "target": "Package",
               "version": "[2.1.0, )"
+            },
+            "SkiaSharp.Views.Forms": {
+              "target": "Package",
+              "version": "[2.80.2, )"
             },
             "Xamarin.CommunityToolkit": {
               "target": "Package",

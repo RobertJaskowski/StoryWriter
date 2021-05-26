@@ -96,6 +96,62 @@
           "lib/netstandard2.0/Sharpnado.TaskMonitor.dll": {}
         }
       },
+      "SkiaSharp/2.80.2": {
+        "type": "package",
+        "compile": {
+          "lib/xamarinios1.0/SkiaSharp.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios1.0/SkiaSharp.dll": {}
+        },
+        "build": {
+          "buildTransitive/xamarinios1.0/SkiaSharp.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/osx/native/libSkiaSharp.dylib": {
+            "assetType": "native",
+            "rid": "osx"
+          },
+          "runtimes/win-arm64/native/libSkiaSharp.dll": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-x64/native/libSkiaSharp.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/libSkiaSharp.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
+      "SkiaSharp.Views/2.80.2": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "2.80.2"
+        },
+        "compile": {
+          "lib/xamarinios1.0/SkiaSharp.Views.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios1.0/SkiaSharp.Views.iOS.dll": {}
+        }
+      },
+      "SkiaSharp.Views.Forms/2.80.2": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "2.80.2",
+          "SkiaSharp.Views": "2.80.2",
+          "Xamarin.Forms": "4.6.0.772"
+        },
+        "compile": {
+          "ref/xamarinios1.0/SkiaSharp.Views.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios1.0/SkiaSharp.Views.Forms.dll": {}
+        }
+      },
       "System.ComponentModel/4.3.0": {
         "type": "package",
         "compile": {
@@ -121,6 +177,13 @@
         },
         "runtime": {
           "lib/netstandard2.0/WeakEvent.dll": {}
+        }
+      },
+      "Xamarin.Build.Download/0.10.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Xamarin.Build.Download.props": {},
+          "buildTransitive/Xamarin.Build.Download.targets": {}
         }
       },
       "Xamarin.CommunityToolkit/1.1.0": {
@@ -156,6 +219,56 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Auth/6.9.2": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.10.4"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Auth.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.CloudFirestore/1.19.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.10.4"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.CloudFirestore.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.CloudFirestore.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Core/6.10.4": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Firebase.iOS.Core.targets": {}
         }
       },
       "Xamarin.Forms/5.0.0.2012": {
@@ -303,6 +416,7 @@
           "Resizetizer.NT": "0.2.0",
           "Sharpnado.MaterialFrame": "1.1.4",
           "Sharpnado.Tabs": "2.1.0",
+          "SkiaSharp.Views.Forms": "2.80.2",
           "Xamarin.CommunityToolkit": "1.1.0",
           "Xamarin.Essentials": "1.6.1",
           "Xamarin.Forms": "5.0.0.2012",
@@ -411,6 +525,44 @@
           "lib/netstandard2.0/Sharpnado.TaskMonitor.dll": {}
         }
       },
+      "SkiaSharp/2.80.2": {
+        "type": "package",
+        "compile": {
+          "lib/xamarinios1.0/SkiaSharp.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios1.0/SkiaSharp.dll": {}
+        },
+        "build": {
+          "buildTransitive/xamarinios1.0/SkiaSharp.targets": {}
+        }
+      },
+      "SkiaSharp.Views/2.80.2": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "2.80.2"
+        },
+        "compile": {
+          "lib/xamarinios1.0/SkiaSharp.Views.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios1.0/SkiaSharp.Views.iOS.dll": {}
+        }
+      },
+      "SkiaSharp.Views.Forms/2.80.2": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "2.80.2",
+          "SkiaSharp.Views": "2.80.2",
+          "Xamarin.Forms": "4.6.0.772"
+        },
+        "compile": {
+          "ref/xamarinios1.0/SkiaSharp.Views.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios1.0/SkiaSharp.Views.Forms.dll": {}
+        }
+      },
       "System.ComponentModel/4.3.0": {
         "type": "package",
         "compile": {
@@ -436,6 +588,13 @@
         },
         "runtime": {
           "lib/netstandard2.0/WeakEvent.dll": {}
+        }
+      },
+      "Xamarin.Build.Download/0.10.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Xamarin.Build.Download.props": {},
+          "buildTransitive/Xamarin.Build.Download.targets": {}
         }
       },
       "Xamarin.CommunityToolkit/1.1.0": {
@@ -471,6 +630,56 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Auth/6.9.2": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.10.4"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Auth.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.CloudFirestore/1.19.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.10.4"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.CloudFirestore.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.CloudFirestore.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Core/6.10.4": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Firebase.iOS.Core.targets": {}
         }
       },
       "Xamarin.Forms/5.0.0.2012": {
@@ -618,6 +827,7 @@
           "Resizetizer.NT": "0.2.0",
           "Sharpnado.MaterialFrame": "1.1.4",
           "Sharpnado.Tabs": "2.1.0",
+          "SkiaSharp.Views.Forms": "2.80.2",
           "Xamarin.CommunityToolkit": "1.1.0",
           "Xamarin.Essentials": "1.6.1",
           "Xamarin.Forms": "5.0.0.2012",
@@ -726,6 +936,47 @@
           "lib/netstandard2.0/Sharpnado.TaskMonitor.dll": {}
         }
       },
+      "SkiaSharp/2.80.2": {
+        "type": "package",
+        "compile": {
+          "lib/xamarinios1.0/SkiaSharp.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios1.0/SkiaSharp.dll": {}
+        },
+        "native": {
+          "runtimes/win-x64/native/libSkiaSharp.dll": {}
+        },
+        "build": {
+          "buildTransitive/xamarinios1.0/SkiaSharp.targets": {}
+        }
+      },
+      "SkiaSharp.Views/2.80.2": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "2.80.2"
+        },
+        "compile": {
+          "lib/xamarinios1.0/SkiaSharp.Views.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios1.0/SkiaSharp.Views.iOS.dll": {}
+        }
+      },
+      "SkiaSharp.Views.Forms/2.80.2": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "2.80.2",
+          "SkiaSharp.Views": "2.80.2",
+          "Xamarin.Forms": "4.6.0.772"
+        },
+        "compile": {
+          "ref/xamarinios1.0/SkiaSharp.Views.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios1.0/SkiaSharp.Views.Forms.dll": {}
+        }
+      },
       "System.ComponentModel/4.3.0": {
         "type": "package",
         "compile": {
@@ -751,6 +1002,13 @@
         },
         "runtime": {
           "lib/netstandard2.0/WeakEvent.dll": {}
+        }
+      },
+      "Xamarin.Build.Download/0.10.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Xamarin.Build.Download.props": {},
+          "buildTransitive/Xamarin.Build.Download.targets": {}
         }
       },
       "Xamarin.CommunityToolkit/1.1.0": {
@@ -786,6 +1044,56 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Auth/6.9.2": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.10.4"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Auth.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.CloudFirestore/1.19.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.10.4"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.CloudFirestore.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.CloudFirestore.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Core/6.10.4": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Firebase.iOS.Core.targets": {}
         }
       },
       "Xamarin.Forms/5.0.0.2012": {
@@ -933,6 +1241,7 @@
           "Resizetizer.NT": "0.2.0",
           "Sharpnado.MaterialFrame": "1.1.4",
           "Sharpnado.Tabs": "2.1.0",
+          "SkiaSharp.Views.Forms": "2.80.2",
           "Xamarin.CommunityToolkit": "1.1.0",
           "Xamarin.Essentials": "1.6.1",
           "Xamarin.Forms": "5.0.0.2012",
@@ -1041,6 +1350,47 @@
           "lib/netstandard2.0/Sharpnado.TaskMonitor.dll": {}
         }
       },
+      "SkiaSharp/2.80.2": {
+        "type": "package",
+        "compile": {
+          "lib/xamarinios1.0/SkiaSharp.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios1.0/SkiaSharp.dll": {}
+        },
+        "native": {
+          "runtimes/win-x86/native/libSkiaSharp.dll": {}
+        },
+        "build": {
+          "buildTransitive/xamarinios1.0/SkiaSharp.targets": {}
+        }
+      },
+      "SkiaSharp.Views/2.80.2": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "2.80.2"
+        },
+        "compile": {
+          "lib/xamarinios1.0/SkiaSharp.Views.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios1.0/SkiaSharp.Views.iOS.dll": {}
+        }
+      },
+      "SkiaSharp.Views.Forms/2.80.2": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "2.80.2",
+          "SkiaSharp.Views": "2.80.2",
+          "Xamarin.Forms": "4.6.0.772"
+        },
+        "compile": {
+          "ref/xamarinios1.0/SkiaSharp.Views.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios1.0/SkiaSharp.Views.Forms.dll": {}
+        }
+      },
       "System.ComponentModel/4.3.0": {
         "type": "package",
         "compile": {
@@ -1066,6 +1416,13 @@
         },
         "runtime": {
           "lib/netstandard2.0/WeakEvent.dll": {}
+        }
+      },
+      "Xamarin.Build.Download/0.10.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Xamarin.Build.Download.props": {},
+          "buildTransitive/Xamarin.Build.Download.targets": {}
         }
       },
       "Xamarin.CommunityToolkit/1.1.0": {
@@ -1101,6 +1458,56 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Auth/6.9.2": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.10.4"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Auth.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.CloudFirestore/1.19.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.10.4"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.CloudFirestore.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.CloudFirestore.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Core/6.10.4": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Firebase.iOS.Core.targets": {}
         }
       },
       "Xamarin.Forms/5.0.0.2012": {
@@ -1248,6 +1655,7 @@
           "Resizetizer.NT": "0.2.0",
           "Sharpnado.MaterialFrame": "1.1.4",
           "Sharpnado.Tabs": "2.1.0",
+          "SkiaSharp.Views.Forms": "2.80.2",
           "Xamarin.CommunityToolkit": "1.1.0",
           "Xamarin.Essentials": "1.6.1",
           "Xamarin.Forms": "5.0.0.2012",
@@ -1533,6 +1941,160 @@
         "task-monitor.png"
       ]
     },
+    "SkiaSharp/2.80.2": {
+      "sha512": "D25rzdCwh+3L+XyXqpNa+H/yiLJbE3/R3K/XexwHyQjGdzZvSufFW3oqf3En7hhqSIsxsJ8f5NEZ0J5W5wlGBg==",
+      "type": "package",
+      "path": "skiasharp/2.80.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/monoandroid1.0/SkiaSharp.targets",
+        "build/monoandroid1.0/arm/libSkiaSharp.so",
+        "build/monoandroid1.0/arm64/libSkiaSharp.so",
+        "build/monoandroid1.0/x64/libSkiaSharp.so",
+        "build/monoandroid1.0/x86/libSkiaSharp.so",
+        "build/net462/SkiaSharp.targets",
+        "build/tizen40/SkiaSharp.targets",
+        "build/tizen40/arm/libSkiaSharp.so",
+        "build/tizen40/x86/libSkiaSharp.so",
+        "build/xamarinios1.0/SkiaSharp.targets",
+        "build/xamarinios1.0/libSkiaSharp.framework/Info.plist",
+        "build/xamarinios1.0/libSkiaSharp.framework/Modules/module.modulemap",
+        "build/xamarinios1.0/libSkiaSharp.framework/_CodeSignature/CodeResources",
+        "build/xamarinios1.0/libSkiaSharp.framework/libSkiaSharp",
+        "build/xamarinmac2.0/SkiaSharp.targets",
+        "build/xamarintvos1.0/SkiaSharp.targets",
+        "build/xamarintvos1.0/libSkiaSharp.framework/Info.plist",
+        "build/xamarintvos1.0/libSkiaSharp.framework/Modules/module.modulemap",
+        "build/xamarintvos1.0/libSkiaSharp.framework/_CodeSignature/CodeResources",
+        "build/xamarintvos1.0/libSkiaSharp.framework/libSkiaSharp",
+        "build/xamarinwatchos1.0/SkiaSharp.targets",
+        "build/xamarinwatchos1.0/libSkiaSharp.framework/Info.plist",
+        "build/xamarinwatchos1.0/libSkiaSharp.framework/Modules/module.modulemap",
+        "build/xamarinwatchos1.0/libSkiaSharp.framework/_CodeSignature/CodeResources",
+        "build/xamarinwatchos1.0/libSkiaSharp.framework/libSkiaSharp",
+        "buildTransitive/monoandroid1.0/SkiaSharp.targets",
+        "buildTransitive/net462/SkiaSharp.targets",
+        "buildTransitive/tizen40/SkiaSharp.targets",
+        "buildTransitive/xamarinios1.0/SkiaSharp.targets",
+        "buildTransitive/xamarinmac2.0/SkiaSharp.targets",
+        "buildTransitive/xamarintvos1.0/SkiaSharp.targets",
+        "buildTransitive/xamarinwatchos1.0/SkiaSharp.targets",
+        "lib/monoandroid1.0/SkiaSharp.dll",
+        "lib/monoandroid1.0/SkiaSharp.xml",
+        "lib/net462/SkiaSharp.dll",
+        "lib/net462/SkiaSharp.xml",
+        "lib/netstandard1.3/SkiaSharp.dll",
+        "lib/netstandard1.3/SkiaSharp.xml",
+        "lib/netstandard2.0/SkiaSharp.dll",
+        "lib/netstandard2.0/SkiaSharp.xml",
+        "lib/tizen40/SkiaSharp.dll",
+        "lib/tizen40/SkiaSharp.xml",
+        "lib/uap10.0.10240/SkiaSharp.dll",
+        "lib/uap10.0.10240/SkiaSharp.xml",
+        "lib/uap10.0.16299/SkiaSharp.dll",
+        "lib/uap10.0.16299/SkiaSharp.xml",
+        "lib/xamarinios1.0/SkiaSharp.dll",
+        "lib/xamarinios1.0/SkiaSharp.xml",
+        "lib/xamarinmac2.0/SkiaSharp.dll",
+        "lib/xamarinmac2.0/SkiaSharp.xml",
+        "lib/xamarintvos1.0/SkiaSharp.dll",
+        "lib/xamarintvos1.0/SkiaSharp.xml",
+        "lib/xamarinwatchos1.0/SkiaSharp.dll",
+        "lib/xamarinwatchos1.0/SkiaSharp.xml",
+        "runtimes/osx/native/libSkiaSharp.dylib",
+        "runtimes/win-arm64/native/libSkiaSharp.dll",
+        "runtimes/win-x64/native/libSkiaSharp.dll",
+        "runtimes/win-x86/native/libSkiaSharp.dll",
+        "runtimes/win10-arm/nativeassets/uap10.0/libEGL.dll",
+        "runtimes/win10-arm/nativeassets/uap10.0/libGLESv2.dll",
+        "runtimes/win10-arm/nativeassets/uap10.0/libSkiaSharp.dll",
+        "runtimes/win10-arm64/nativeassets/uap10.0/libEGL.dll",
+        "runtimes/win10-arm64/nativeassets/uap10.0/libGLESv2.dll",
+        "runtimes/win10-arm64/nativeassets/uap10.0/libSkiaSharp.dll",
+        "runtimes/win10-x64/nativeassets/uap10.0/libEGL.dll",
+        "runtimes/win10-x64/nativeassets/uap10.0/libGLESv2.dll",
+        "runtimes/win10-x64/nativeassets/uap10.0/libSkiaSharp.dll",
+        "runtimes/win10-x86/nativeassets/uap10.0/libEGL.dll",
+        "runtimes/win10-x86/nativeassets/uap10.0/libGLESv2.dll",
+        "runtimes/win10-x86/nativeassets/uap10.0/libSkiaSharp.dll",
+        "skiasharp.2.80.2.nupkg.sha512",
+        "skiasharp.nuspec"
+      ]
+    },
+    "SkiaSharp.Views/2.80.2": {
+      "sha512": "qOvmMOZ2lkT6BTbmSNjsA46ugUeo6X6Vonok5RE3rYWpCEFxB1FvBqbKoaLY5XpdLWzyS3qinAuT2JLSyoPRvg==",
+      "type": "package",
+      "path": "skiasharp.views/2.80.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "lib/monoandroid1.0/SkiaSharp.Views.Android.dll",
+        "lib/monoandroid1.0/SkiaSharp.Views.Android.xml",
+        "lib/net462/SkiaSharp.Views.Desktop.dll",
+        "lib/net462/SkiaSharp.Views.Desktop.xml",
+        "lib/tizen40/SkiaSharp.Views.Tizen.dll",
+        "lib/tizen40/SkiaSharp.Views.Tizen.xml",
+        "lib/uap10.0/SkiaSharp.Views.UWP.dll",
+        "lib/uap10.0/SkiaSharp.Views.UWP.xml",
+        "lib/xamarinios1.0/SkiaSharp.Views.iOS.dll",
+        "lib/xamarinios1.0/SkiaSharp.Views.iOS.xml",
+        "lib/xamarinmac2.0/SkiaSharp.Views.Mac.dll",
+        "lib/xamarinmac2.0/SkiaSharp.Views.Mac.xml",
+        "lib/xamarintvos1.0/SkiaSharp.Views.tvOS.dll",
+        "lib/xamarintvos1.0/SkiaSharp.Views.tvOS.xml",
+        "lib/xamarinwatchos1.0/SkiaSharp.Views.watchOS.dll",
+        "lib/xamarinwatchos1.0/SkiaSharp.Views.watchOS.xml",
+        "runtimes/win10-arm/nativeassets/uap10.0/SkiaSharp.Views.Interop.UWP.dll",
+        "runtimes/win10-arm64/nativeassets/uap10.0/SkiaSharp.Views.Interop.UWP.dll",
+        "runtimes/win10-x64/nativeassets/uap10.0/SkiaSharp.Views.Interop.UWP.dll",
+        "runtimes/win10-x86/nativeassets/uap10.0/SkiaSharp.Views.Interop.UWP.dll",
+        "skiasharp.views.2.80.2.nupkg.sha512",
+        "skiasharp.views.nuspec"
+      ]
+    },
+    "SkiaSharp.Views.Forms/2.80.2": {
+      "sha512": "8aRDb98O2cHymB94O8FBj85qMC+MYEY6591wBpHcwgfz4HMo4orSMApD5y8VDmHpA5KR0Yh2ija+HTylz/9CgA==",
+      "type": "package",
+      "path": "skiasharp.views.forms/2.80.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "build/net462/SkiaSharp.Views.Forms.targets",
+        "lib/monoandroid1.0/SkiaSharp.Views.Forms.dll",
+        "lib/monoandroid1.0/SkiaSharp.Views.Forms.xml",
+        "lib/net462/_._",
+        "lib/tizen40/SkiaSharp.Views.Forms.dll",
+        "lib/tizen40/SkiaSharp.Views.Forms.xml",
+        "lib/uap10.0/SkiaSharp.Views.Forms.dll",
+        "lib/uap10.0/SkiaSharp.Views.Forms.xml",
+        "lib/xamarinios1.0/SkiaSharp.Views.Forms.dll",
+        "lib/xamarinios1.0/SkiaSharp.Views.Forms.xml",
+        "lib/xamarinmac2.0/SkiaSharp.Views.Forms.dll",
+        "lib/xamarinmac2.0/SkiaSharp.Views.Forms.xml",
+        "ref/monoandroid1.0/SkiaSharp.Views.Forms.dll",
+        "ref/monoandroid1.0/SkiaSharp.Views.Forms.xml",
+        "ref/net462/_._",
+        "ref/netstandard1.3/SkiaSharp.Views.Forms.dll",
+        "ref/netstandard1.3/SkiaSharp.Views.Forms.xml",
+        "ref/netstandard2.0/SkiaSharp.Views.Forms.dll",
+        "ref/netstandard2.0/SkiaSharp.Views.Forms.xml",
+        "ref/tizen40/SkiaSharp.Views.Forms.dll",
+        "ref/tizen40/SkiaSharp.Views.Forms.xml",
+        "ref/uap10.0/SkiaSharp.Views.Forms.dll",
+        "ref/uap10.0/SkiaSharp.Views.Forms.xml",
+        "ref/xamarinios1.0/SkiaSharp.Views.Forms.dll",
+        "ref/xamarinios1.0/SkiaSharp.Views.Forms.xml",
+        "ref/xamarinmac2.0/SkiaSharp.Views.Forms.dll",
+        "ref/xamarinmac2.0/SkiaSharp.Views.Forms.xml",
+        "skiasharp.views.forms.2.80.2.nupkg.sha512",
+        "skiasharp.views.forms.nuspec"
+      ]
+    },
     "System.ComponentModel/4.3.0": {
       "sha512": "VyGn1jGRZVfxnh8EdvDCi71v3bMXrsu8aYJOwoV7SNDLVhiEqwP86pPMyRGsDsxhXAm2b3o9OIqeETfN5qfezw==",
       "type": "package",
@@ -1663,6 +2225,28 @@
         "thomaslevesque.weakevent.nuspec"
       ]
     },
+    "Xamarin.Build.Download/0.10.0": {
+      "sha512": "XiQNxx6Jox00O80sJRlZv6jXDZ/r3KC7SMwzQNQcD1gZ+vsZyJH3LcSpdJ5NiZhRrWZlTGNSbooHsOBF7lBOyQ==",
+      "type": "package",
+      "path": "xamarin.build.download/0.10.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "THIRD-PARTY-NOTICE.txt",
+        "build/Microsoft.Win32.Registry.dll",
+        "build/Newtonsoft.Json.dll",
+        "build/Xamarin.Build.Download.dll",
+        "build/Xamarin.Build.Download.props",
+        "build/Xamarin.Build.Download.targets",
+        "buildTransitive/Microsoft.Win32.Registry.dll",
+        "buildTransitive/Newtonsoft.Json.dll",
+        "buildTransitive/Xamarin.Build.Download.dll",
+        "buildTransitive/Xamarin.Build.Download.props",
+        "buildTransitive/Xamarin.Build.Download.targets",
+        "xamarin.build.download.0.10.0.nupkg.sha512",
+        "xamarin.build.download.nuspec"
+      ]
+    },
     "Xamarin.CommunityToolkit/1.1.0": {
       "sha512": "GJiaXaPLrM1qn1HYxDPKlECYAzX5CI6FKtv4NXCq8K7SJTscmFo79RcwZoj1o3de+4V0aiJAVZMCpbMIF/sZVA==",
       "type": "package",
@@ -1754,6 +2338,53 @@
         "readme.txt",
         "xamarin.essentials.1.6.1.nupkg.sha512",
         "xamarin.essentials.nuspec"
+      ]
+    },
+    "Xamarin.Firebase.iOS.Auth/6.9.2": {
+      "sha512": "cyu7neK0nFTDAmx8fVg7SrCqFE3GBe4BQaABrLXVx5RwZ5oUN0g+HnKTkikXPhTjOSQLQSalf5yp2CbBCgwjQQ==",
+      "type": "package",
+      "path": "xamarin.firebase.ios.auth/6.9.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.md",
+        "THIRD-PARTY-NOTICES.txt",
+        "firebaseiosauth_128x128.png",
+        "lib/xamarinios10/Firebase.Auth.dll",
+        "xamarin.firebase.ios.auth.6.9.2.nupkg.sha512",
+        "xamarin.firebase.ios.auth.nuspec"
+      ]
+    },
+    "Xamarin.Firebase.iOS.CloudFirestore/1.19.0": {
+      "sha512": "kXHOgYUIoPChCXKGLaKeqznB7audrXsze7VAhcGDPAe50E3p/uzX23vFsQ+UEN9h29TACZpSEJ59TvmmHS7Dlg==",
+      "type": "package",
+      "path": "xamarin.firebase.ios.cloudfirestore/1.19.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.md",
+        "THIRD-PARTY-NOTICES.txt",
+        "firebaseioscloudfirestore_128x128.png",
+        "lib/xamarinios10/Firebase.CloudFirestore.dll",
+        "xamarin.firebase.ios.cloudfirestore.1.19.0.nupkg.sha512",
+        "xamarin.firebase.ios.cloudfirestore.nuspec"
+      ]
+    },
+    "Xamarin.Firebase.iOS.Core/6.10.4": {
+      "sha512": "b/cy0xmGUGlT/RxQt2mvlB9lL/tiNRcfsZsWH20lP7FI6H/xABAGAQU0MDKM84KTTOx8NN9CB95eY74NWKGQtw==",
+      "type": "package",
+      "path": "xamarin.firebase.ios.core/6.10.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.md",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/Xamarin.Firebase.iOS.Core.targets",
+        "buildTransitive/Xamarin.Firebase.iOS.Core.targets",
+        "firebaseioscore_128x128.png",
+        "lib/xamarinios10/Firebase.Core.dll",
+        "xamarin.firebase.ios.core.6.10.4.nupkg.sha512",
+        "xamarin.firebase.ios.core.nuspec"
       ]
     },
     "Xamarin.Forms/5.0.0.2012": {
@@ -2024,6 +2655,8 @@
       "StoryWriter >= 1.0.0",
       "Xamarin.CommunityToolkit >= 1.1.0",
       "Xamarin.Essentials >= 1.6.1",
+      "Xamarin.Firebase.iOS.Auth >= 6.9.2",
+      "Xamarin.Firebase.iOS.CloudFirestore >= 1.19.0",
       "Xamarin.Forms >= 5.0.0.2012",
       "Xamarin.Forms.PancakeView >= 2.3.0.759"
     ]
@@ -2097,6 +2730,14 @@
           "Xamarin.Essentials": {
             "target": "Package",
             "version": "[1.6.1, )"
+          },
+          "Xamarin.Firebase.iOS.Auth": {
+            "target": "Package",
+            "version": "[6.9.2, )"
+          },
+          "Xamarin.Firebase.iOS.CloudFirestore": {
+            "target": "Package",
+            "version": "[1.19.0, )"
           },
           "Xamarin.Forms": {
             "target": "Package",

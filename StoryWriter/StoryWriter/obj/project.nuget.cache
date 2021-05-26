@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ZRXbJqeLPnlB6g9eKjoKTI9Gy7gdKXtG+XpHCzqdxrbCBpfhKvIYN13bzPFcyLHtTQcpsdjUfFdxkvjLEJ/AjQ==",
+  "dgSpecHash": "tAWrHr3/JNCyYamDXu+yVPwrIFJxwkrEbwgXyOA3KyLs5XmAxyRSZAzWtDKgJgSvNKQ8KReGINGsJpOT6DE5DA==",
   "success": true,
   "projectFilePath": "C:\\Projects\\StoryWriter\\StoryWriter\\StoryWriter\\StoryWriter.csproj",
   "expectedPackageFiles": [
@@ -15,7 +15,11 @@
     "C:\\Users\\R\\.nuget\\packages\\sharpnado.shadows\\1.2.0\\sharpnado.shadows.1.2.0.nupkg.sha512",
     "C:\\Users\\R\\.nuget\\packages\\sharpnado.tabs\\2.1.0\\sharpnado.tabs.2.1.0.nupkg.sha512",
     "C:\\Users\\R\\.nuget\\packages\\sharpnado.taskmonitor\\1.0.1\\sharpnado.taskmonitor.1.0.1.nupkg.sha512",
+    "C:\\Users\\R\\.nuget\\packages\\skiasharp\\2.80.2\\skiasharp.2.80.2.nupkg.sha512",
+    "C:\\Users\\R\\.nuget\\packages\\skiasharp.views.forms\\2.80.2\\skiasharp.views.forms.2.80.2.nupkg.sha512",
+    "C:\\Users\\R\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
     "C:\\Users\\R\\.nuget\\packages\\system.componentmodel\\4.3.0\\system.componentmodel.4.3.0.nupkg.sha512",
+    "C:\\Users\\R\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\R\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\R\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.7.0\\system.reflection.emit.ilgeneration.4.7.0.nupkg.sha512",
     "C:\\Users\\R\\.nuget\\packages\\system.reflection.emit.lightweight\\4.7.0\\system.reflection.emit.lightweight.4.7.0.nupkg.sha512",

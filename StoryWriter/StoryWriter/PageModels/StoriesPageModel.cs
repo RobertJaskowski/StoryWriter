@@ -1,5 +1,4 @@
-﻿using StoryWriter.Model;
-using StoryWriter.Views;
+﻿using StoryWriter.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,12 +9,31 @@ using StoryWriter.Pages;
 using StoryWriter.Services;
 using StoryWriter.Models;
 using System.Threading.Tasks;
+using StoryWriter.Services.Stories;
 
 namespace StoryWriter.PageModels
 {
     public class StoriesPageModel : PageModelBase
     {
+        private List<Story> _myStoriesList;
+        public List<Story> MyStoriesList
+        {
+            get
+            {
+                if (_myStoriesList == null)
+                {
+                    _myStoriesList = new List<Story>();
+                    //_storiesList.Add(new Story("test1"));
+                }
 
+                return _myStoriesList;
+            }
+            set
+            {
+
+                SetProperty(ref _storiesList, value);
+            }
+        }
 
         private List<Story> _storiesList;
         public List<Story> StoriesList
@@ -25,7 +43,6 @@ namespace StoryWriter.PageModels
                 if (_storiesList == null)
                 {
                     _storiesList = new List<Story>();
-                    _storiesList.Add(new Story("test1"));
                 }
 
                 return _storiesList;
@@ -38,21 +55,9 @@ namespace StoryWriter.PageModels
         }
 
 
-        private Command _createStoryButton;
-        public Command CreateStoryButton
-        {
-            get
-            {
-                if (_createStoryButton == null)
-                {
-                    _createStoryButton = new Command(OnTestButtonClicked/*OnCreateStoryButtonClicked*/);
-                }
-
-                return _createStoryButton;
-            }
-        }
-
-        private Command _testButton;
+        public Command CreateStoryButton { get; }
+        public Command MyTabTapped { get; }
+        public Command AllTabTapped { get; }
         public Command TestButton
         {
             get
@@ -64,6 +69,23 @@ namespace StoryWriter.PageModels
 
                 return _testButton;
             }
+        }
+
+
+        private Command _testButton;
+        private INavigationService _navigationService;
+        private IStoriesService _storiesService;
+
+        public StoriesPageModel(INavigationService navigationService, IStoriesService storiesService)
+        {
+            _navigationService = navigationService;
+            this._storiesService = storiesService;
+
+
+            AllTabTapped = new Command(OnAllTabTapped);
+            MyTabTapped = new Command(OnMyTabTapped);
+            CreateStoryButton = new Command(OnCreateStoryButtonClicked);
+
         }
 
         private void OnTestButtonClicked(object obj)
@@ -81,16 +103,28 @@ namespace StoryWriter.PageModels
             }
         }
 
-        void OnCreateStoryButtonClicked()
+        private async void OnMyTabTapped(object obj)
         {
-            // Application.Current.MainPage.Navigation.ShowPopup(new CreateStoryPopup() { IsLightDismissEnabled = true });
+            var allMy = await _storiesService.GetAllMy();
+            MyStoriesList = allMy;
+        }
 
-            Application.Current.MainPage.Navigation.PushModalAsync(new CreateStoryPage());
+        private async void OnAllTabTapped(object obj)
+        {
+            var allPublic = await _storiesService.GetAllPublic();
+            if (allPublic.Count > 0)
+                StoriesList = (List<Story>)allPublic;
+
+        }
+
+        async void OnCreateStoryButtonClicked()
+        {
+            await _navigationService.NavigateToAsync<CreateStoryPageModel>();
         }
 
         public override async Task InitializeAsync(object navigationData)
         {
-            
+
 
             await base.InitializeAsync(navigationData);
         }

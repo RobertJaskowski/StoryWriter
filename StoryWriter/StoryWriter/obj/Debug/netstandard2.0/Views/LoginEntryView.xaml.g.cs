@@ -23,10 +23,14 @@ namespace StoryWriter.Views {
         private global::Xamarin.Forms.BoxView bvUnderline;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::StoryWriter.Views.SKViews.UnderlineGradientView grdUnderline;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(LoginEntryView));
             entInput = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::StoryWriter.Views.Entries.PlainEntry>(this, "entInput");
             bvUnderline = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.BoxView>(this, "bvUnderline");
+            grdUnderline = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::StoryWriter.Views.SKViews.UnderlineGradientView>(this, "grdUnderline");
         }
     }
 }

@@ -105,5 +105,10 @@ namespace StoryWriter.iOS.Services
 
             return tcs.Task;
         }
+
+        public Task<bool> LoginAnonymous()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

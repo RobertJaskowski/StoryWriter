@@ -180,6 +180,10 @@
               "target": "Package",
               "version": "[2.1.0, )"
             },
+            "SkiaSharp.Views.Forms": {
+              "target": "Package",
+              "version": "[2.80.2, )"
+            },
             "Xamarin.CommunityToolkit": {
               "target": "Package",
               "version": "[1.1.0, )"

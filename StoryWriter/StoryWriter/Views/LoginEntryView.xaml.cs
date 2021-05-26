@@ -18,13 +18,13 @@ namespace StoryWriter.Views
         {
             if (e.IsFocused)
             {
-                //await Task.WhenAll(bvUnderline.FadeTo(1),
-                //    grdUnderline.ScaleXTo(1));
+                await Task.WhenAll(bvUnderline.FadeTo(1),
+                    grdUnderline.ScaleXTo(1));
             }
             else
             {
-                //await Task.WhenAll(bvUnderline.FadeTo(0.5),
-                //    grdUnderline.ScaleXTo(0));
+                await Task.WhenAll(bvUnderline.FadeTo(0.5),
+                    grdUnderline.ScaleXTo(0));
             }
         }
     }

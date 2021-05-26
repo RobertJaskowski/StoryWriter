@@ -46,15 +46,11 @@ namespace StoryWriter.PageModels
         public DashboardPageModel(
             ProfilePageModel profilePM,
             SettingsPageModel settingsPM,
-            SummaryPageModel summaryPM,
-            TimeClockPageModel timeClockPM,
             StoriesPageModel storiesPM
             )
         {
             ProfilePageModel = profilePM;
             SettingsPageModel = settingsPM;
-            SummaryPageModel = summaryPM;
-            TimeClockPageModel = timeClockPM;
             StoriesPageModel = storiesPM;
         }
 
@@ -64,8 +60,6 @@ namespace StoryWriter.PageModels
                 base.InitializeAsync(navigationData),
                 ProfilePageModel.InitializeAsync(null),
                 SettingsPageModel.InitializeAsync(null),
-                SummaryPageModel.InitializeAsync(null),
-                TimeClockPageModel.InitializeAsync(null),
                 StoriesPageModel.InitializeAsync(null));
 
             return base.InitializeAsync(navigationData);

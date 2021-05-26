@@ -12,6 +12,9 @@ namespace StoryWriter.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CreateStoryPage : ContentPage
     {
+
+
+
         public CreateStoryPage()
         {
             InitializeComponent();

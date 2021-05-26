@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6VFqyQIkZovXDA31UrCmnFwy+wSlc+rlkmPxyAdriG1OARIAoN/PjCWiwNGY8Je01VR/h7bc6bY54E881LXKmg==",
+  "dgSpecHash": "iLOndnV1x1mWhKWCWGGj5syroqGq6cLx4RJHJVGGvrYRVz87TAjfzJ9ZmS2CbXebUQHI140GqF/PrLhoh7ZpBQ==",
   "success": true,
   "projectFilePath": "C:\\Projects\\StoryWriter\\StoryWriter\\StoryWriter.Android\\StoryWriter.Android.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,9 @@
     "C:\\Users\\R\\.nuget\\packages\\sharpnado.shadows\\1.2.0\\sharpnado.shadows.1.2.0.nupkg.sha512",
     "C:\\Users\\R\\.nuget\\packages\\sharpnado.tabs\\2.1.0\\sharpnado.tabs.2.1.0.nupkg.sha512",
     "C:\\Users\\R\\.nuget\\packages\\sharpnado.taskmonitor\\1.0.1\\sharpnado.taskmonitor.1.0.1.nupkg.sha512",
+    "C:\\Users\\R\\.nuget\\packages\\skiasharp\\2.80.2\\skiasharp.2.80.2.nupkg.sha512",
+    "C:\\Users\\R\\.nuget\\packages\\skiasharp.views\\2.80.2\\skiasharp.views.2.80.2.nupkg.sha512",
+    "C:\\Users\\R\\.nuget\\packages\\skiasharp.views.forms\\2.80.2\\skiasharp.views.forms.2.80.2.nupkg.sha512",
     "C:\\Users\\R\\.nuget\\packages\\square.okhttp\\2.7.5.1\\square.okhttp.2.7.5.1.nupkg.sha512",
     "C:\\Users\\R\\.nuget\\packages\\square.okio\\1.13.0.1\\square.okio.1.13.0.1.nupkg.sha512",
     "C:\\Users\\R\\.nuget\\packages\\system.componentmodel\\4.3.0\\system.componentmodel.4.3.0.nupkg.sha512",

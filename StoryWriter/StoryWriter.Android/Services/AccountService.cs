@@ -28,10 +28,10 @@ namespace StoryWriter.Droid.Services
             return Task.FromResult(10d);
         }
 
-        public Task<bool> LoginAsync(string username, string password)
+        public  Task<bool> LoginAsync(string username, string password)
         {
             var tcs = new TaskCompletionSource<bool>();
-            FirebaseAuth.Instance.SignInWithEmailAndPasswordAsync(username, password)
+             FirebaseAuth.Instance.SignInWithEmailAndPasswordAsync(username, password)
                 .ContinueWith((task) => OnAuthCompleted(task, tcs));
             return tcs.Task;
         }
@@ -101,6 +101,14 @@ namespace StoryWriter.Droid.Services
                 .Get()
                 .AddOnCompleteListener(new OnCompleteListener(tcs));
 
+            return tcs.Task;
+        }
+
+        public Task<bool> LoginAnonymous()
+        {
+            var tcs = new TaskCompletionSource<bool>();
+
+            Firebase.Auth.FirebaseAuth.Instance.SignInAnonymouslyAsync().ContinueWith((task) => OnAuthCompleted(task, tcs));
             return tcs.Task;
         }
     }

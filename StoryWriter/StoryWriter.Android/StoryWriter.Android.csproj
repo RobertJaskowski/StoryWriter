@@ -130,6 +130,7 @@
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\BaseFirebaseCollection.cs" />
     <Compile Include="Services\MyTestDataFirebaseCollection.cs" />
+    <Compile Include="Services\StoriesFirebaseCollection.cs" />
     <Compile Include="Services\TestDataFirebaseCollection.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,15 +1,14 @@
-﻿using System;
+﻿using StoryWriter.Services;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace StoryWriter.Model
+namespace StoryWriter.Models
 {
-    public class Story
+    public class Story : IIdentifiable
     {
-        public Story(string name)
-        {
-            Name = name;
-        }
+        public string Id { get; set; }
+        public bool IsPublic { get; set; }
         public string Name { get; set; }
     }
 }

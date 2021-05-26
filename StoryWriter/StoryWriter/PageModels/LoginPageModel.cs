@@ -44,6 +44,13 @@ namespace StoryWriter.PageModels
         public ButtonModel LogInModel { get; set; }
         public ButtonModel UsePhoneModel { get; set; }
 
+
+        public ButtonModel UseAnonymous { get; set; }
+
+
+
+
+
         private IAccountService _accountService;
         private INavigationService _navigationService;
 
@@ -52,22 +59,38 @@ namespace StoryWriter.PageModels
         {
             _accountService = accountService;
             _navigationService = navigationService;
+
             EmailEntryViewModel = new LoginEntryViewModel("email", false);
             PasswordEntryViewModel = new LoginEntryViewModel("password", true);
 
             ForgotPasswordModel = new ButtonModel("forgot password", OnForgotPassword);
             LogInModel = new ButtonModel("LOG IN", OnLogin);
             UsePhoneModel = new ButtonModel("USE PHONE NUMBER", GoToPhoneLogin);
+            UseAnonymous = new ButtonModel("Anonymous login", OnLoginAnonymous);
         }
+
+        private async void OnLoginAnonymous()
+        {
+            var loginAttempt = await _accountService.LoginAnonymous();
+            if (loginAttempt)
+            {
+
+                await _navigationService.NavigateToAsync<StoriesPageModel>(null, true);
+            }
+            else
+            {
+                //todo alert
+            }
+        }
+
 
         private async void OnLogin()
         {
-            //var loginAttempt = await _accountService.LoginAsync(EmailEntryViewModel.Text, PasswordEntryViewModel.Text);
-            var loginAttempt = await _accountService.LoginAsync(Username,Password);
+            var loginAttempt = await _accountService.LoginAsync(EmailEntryViewModel.Text, PasswordEntryViewModel.Text);
             if (loginAttempt)
             {
                 // navigate to the Dashboard.
-                await _navigationService.NavigateToAsync<StoriesPageModel>();
+                await _navigationService.NavigateToAsync<StoriesPageModel>(null,true);
             }
             else
             {

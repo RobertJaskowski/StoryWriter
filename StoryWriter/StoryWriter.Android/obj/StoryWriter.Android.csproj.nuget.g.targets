@@ -80,6 +80,7 @@
     <Import Project="$(NuGetPackageRoot)xamarin.communitytoolkit\1.1.0\build\Xamarin.CommunityToolkit.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.communitytoolkit\1.1.0\build\Xamarin.CommunityToolkit.targets')" />
     <Import Project="$(NuGetPackageRoot)xamarin.androidx.palette\1.0.0\buildTransitive\monoandroid90\Xamarin.AndroidX.Palette.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.androidx.palette\1.0.0\buildTransitive\monoandroid90\Xamarin.AndroidX.Palette.targets')" />
     <Import Project="$(NuGetPackageRoot)xamarin.androidx.mediarouter\1.1.0\buildTransitive\monoandroid90\Xamarin.AndroidX.MediaRouter.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.androidx.mediarouter\1.1.0\buildTransitive\monoandroid90\Xamarin.AndroidX.MediaRouter.targets')" />
+    <Import Project="$(NuGetPackageRoot)skiasharp\2.80.2\buildTransitive\monoandroid1.0\SkiaSharp.targets" Condition="Exists('$(NuGetPackageRoot)skiasharp\2.80.2\buildTransitive\monoandroid1.0\SkiaSharp.targets')" />
     <Import Project="$(NuGetPackageRoot)resizetizer.nt\0.2.0\buildTransitive\Resizetizer.NT.targets" Condition="Exists('$(NuGetPackageRoot)resizetizer.nt\0.2.0\buildTransitive\Resizetizer.NT.targets')" />
   </ImportGroup>
 </Project>
