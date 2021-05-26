@@ -8,12 +8,12 @@ namespace StoryWriter.Services.Stories
 {
     public class StoriesService : IStoriesService
     {
-        private readonly IFirebaseCollection<Story> storiesCollection;
+        private readonly IRoomFC<Story> _roomFC;
 
 
-        public StoriesService(IFirebaseCollection<Story> firebaseCollection)
+        public StoriesService(IRoomFC<Story> firebaseCollection)
         {
-            this.storiesCollection = firebaseCollection;
+            this._roomFC = firebaseCollection;
         }
 
         private void OnTaskCompleted(Task task, TaskCompletionSource<bool> tcs)
@@ -30,22 +30,21 @@ namespace StoryWriter.Services.Stories
         public Task<bool> CreateStory(string storyName)
         {
             var tcs = new TaskCompletionSource<bool>();
-            storiesCollection.Save(new Story() { Name = storyName }).ContinueWith((task) => OnTaskCompleted(task, tcs));
+            _roomFC.Save(new Story() { Name = storyName }).ContinueWith((task) => OnTaskCompleted(task, tcs));
             return tcs.Task;
         }
 
         public Task<IList<Story>> GetAllPublic()
         {
-            var tcs = new TaskCompletionSource<bool>();
+            var tcs = new TaskCompletionSource<IList<Story>>();
             
-            storiesCollection.Save(new Story() { Name = storyName }).ContinueWith((task) => OnTaskCompleted(task, tcs));
             return tcs.Task;
         }
 
         public Task<IList<Story>> GetAllMy()
         {
-            var tcs = new TaskCompletionSource<bool>();
-            storiesCollection.Save(new Story() { Name = storyName }).ContinueWith((task) => OnTaskCompleted(task, tcs));
+            var tcs = new TaskCompletionSource<IList<Story>>();
+
             return tcs.Task;
         }
     }
