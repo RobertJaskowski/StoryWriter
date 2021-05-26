@@ -32,3 +32,4 @@ C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\XamlC.s
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\StoryWriter.dll
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\ref\StoryWriter.dll
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\StoryWriter.pdb
+C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\StoryWriter.csprojAssemblyReference.cache

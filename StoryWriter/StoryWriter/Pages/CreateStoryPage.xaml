@@ -67,6 +67,7 @@
                                 MaximumLength="15" />
                         </xct:MultiValidationBehavior>
                     </Entry.Behaviors>
+                    
                     <VisualStateManager.VisualStateGroups>
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Valid">
@@ -83,8 +84,13 @@
                     </VisualStateManager.VisualStateGroups>
                 </Entry>
 
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="Make story public"/>
+                    <Switch  IsToggled="{Binding IsStoryPublic}"/>
+                </StackLayout>
+
             </StackLayout>
-            <CollectionView ItemsSource="{Binding Errors}" IsVisible="{Binding IsInputValid,Converter={StaticResource invertBoolConverter}}">
+            <CollectionView ItemsSource="{Binding Errors,Mode=TwoWay}" IsVisible="{Binding IsInputValid,Converter={StaticResource invertBoolConverter}}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                             

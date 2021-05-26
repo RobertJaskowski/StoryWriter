@@ -11,19 +11,18 @@ namespace StoryWriter.PageModels
     {
         #region Properties
 
-        private ObservableCollection<string> _errors;
+        private List<string> _errors;
 
-        public ObservableCollection<string> Errors
+        public List<string> Errors
         {
             get
             {
                 if (_errors == null)
-                    _errors = new ObservableCollection<string>();
+                    _errors = new List<string>();
                 return _errors;
             }
             set
             {
-                _errors = value;
                 SetProperty(ref _errors, value);
             }
         }
@@ -35,7 +34,6 @@ namespace StoryWriter.PageModels
             get { return _isInputValid; }
             set
             {
-                _isInputValid = value;
                 SetProperty(ref _isInputValid, value);
 
             }
@@ -48,12 +46,24 @@ namespace StoryWriter.PageModels
             get { return _currentValidationColor; }
             set
             {
-                _currentValidationColor = value;
                 SetProperty(ref _currentValidationColor, value);
             }
         }
 
 
+        private bool _isStoryPublic;
+        public bool IsStoryPublic
+        {
+            get
+            {
+                return _isStoryPublic;
+            }
+            set
+            {
+                SetProperty(ref _isStoryPublic, value);
+
+            }
+        }
 
         private string _storyName;
         public string StoryName
@@ -66,7 +76,6 @@ namespace StoryWriter.PageModels
             }
             set
             {
-                _storyName = value;
                 SetProperty(ref _storyName, value);
 
             }
@@ -79,7 +88,6 @@ namespace StoryWriter.PageModels
             get { return _isStoryNameValid; }
             set
             {
-                _isStoryNameValid = value;
                 SetProperty(ref _isStoryNameValid, value);
 
                 OnValidationDataChanged();
@@ -98,7 +106,6 @@ namespace StoryWriter.PageModels
             }
             set
             {
-                _storyNameErrors = value;
                 SetProperty(ref _storyNameErrors, value);
 
                 OnErrorsChanged();
@@ -115,7 +122,7 @@ namespace StoryWriter.PageModels
                         e.Add(item.ToString());
                 }
 
-            Errors = new ObservableCollection<string>(e);
+            Errors = new List<string>(e);
         }
 
 
@@ -165,10 +172,9 @@ namespace StoryWriter.PageModels
 
         private async void OnCreateStory(object obj)
         {
-            await _storiesService.CreateStory(StoryName);
+            await _storiesService.CreateStory(StoryName,IsStoryPublic);
             await _navigationService.GoBackAsync();
             _storiesPM.MyTabTapped.Execute(null);
-
             
         }
     }

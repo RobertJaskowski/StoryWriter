@@ -21,6 +21,7 @@ namespace StoryWriter.Droid.Services
 
         public AccountService()
         {
+           LoginAnonymous();//todo
         }
 
         public Task<double> GetCurrentPayRateAsync()

@@ -4,6 +4,9 @@ MonkeyCache.FileStore.dll
 Sharpnado.MaterialFrame.Android.dll
 Sharpnado.Shadows.Android.dll
 Sharpnado.Tabs.Android.dll
+SkiaSharp.dll
+SkiaSharp.Views.Android.dll
+SkiaSharp.Views.Forms.dll
 Square.OkHttp.dll
 Square.OkIO.dll
 Xamarin.AndroidX.Activity.dll
@@ -163,6 +166,3 @@ firebaseauthinterop-19.0.2.aar
 firebasefirestore-22.1.2.aar
 firebaseauth-20.0.4.aar
 firebaseanalytics-18.0.3.aar
-SkiaSharp.dll
-SkiaSharp.Views.Android.dll
-SkiaSharp.Views.Forms.dll

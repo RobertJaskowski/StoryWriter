@@ -10,6 +10,7 @@ using StoryWriter.Services;
 using StoryWriter.Models;
 using System.Threading.Tasks;
 using StoryWriter.Services.Stories;
+using System.Windows.Input;
 
 namespace StoryWriter.PageModels
 {
@@ -55,10 +56,10 @@ namespace StoryWriter.PageModels
         }
 
 
-        public Command CreateStoryButton { get; }
-        public Command MyTabTapped { get; }
-        public Command AllTabTapped { get; }
-        public Command TestButton
+        public ICommand CreateStoryButton { get; }
+        public ICommand MyTabTapped { get; }
+        public ICommand AllTabTapped { get; }
+        public ICommand TestButton
         {
             get
             {
@@ -90,23 +91,23 @@ namespace StoryWriter.PageModels
 
         private void OnTestButtonClicked(object obj)
         {
-            var result = PageModelLocator.Resolve<IFirebaseCollection<MyTestData>>().Save(new MyTestData
-            {
-                name = "nametest",
-                flag = true
-            });
+            //var result = PageModelLocator.Resolve<IFirebaseCollection<MyTestData>>().Save(new MyTestData
+            //{
+            //    name = "nametest",
+            //    flag = true
+            //});
 
 
-            if (result != null)
-            {
+            //if (result != null)
+            //{
 
-            }
+            //}
         }
 
         private async void OnMyTabTapped(object obj)
         {
-            var allMy = await _storiesService.GetAllMy();
-            MyStoriesList = allMy;
+            var allMy = await _storiesService.GetAllFavorited();
+            MyStoriesList = (List<Story>)allMy;
         }
 
         private async void OnAllTabTapped(object obj)

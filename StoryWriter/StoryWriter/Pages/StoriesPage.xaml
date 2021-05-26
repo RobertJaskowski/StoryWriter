@@ -16,7 +16,7 @@
                 IsSwipeEnabled="False"
                 TabStripBackgroundColor="{StaticResource CardBackground}"
                 TabStripHeight="90"
-                TabStripPlacement="Top" >
+                TabStripPlacement="Top">
 
 
 
@@ -24,7 +24,7 @@
                     ControlTemplate="{StaticResource TabItemTemplate}"
                     Style="{StaticResource TabViewItemStyle}"
                     Text="My" 
-                    TabTapped="{Binding MyTabTapped}">
+                    TapCommand="{Binding MyTabTapped}" >
 
                     <xct:TabViewItem.Icon>
                         <FontImageSource
@@ -104,7 +104,8 @@
                 <xct:TabViewItem
                     ControlTemplate="{StaticResource TabItemTemplate}"
                     Style="{StaticResource TabViewItemStyle}"
-                    Text="All" TabTapped="{Binding AllTabTapped}">
+                    Text="All" 
+                    TapCommand="{Binding AllTabTapped}">
 
                     <xct:TabViewItem.Icon>
                         <FontImageSource
@@ -183,41 +184,59 @@
 
             </xct:TabView>
 
-            <AbsoluteLayout 
-                WidthRequest="10"
-                >
+            <AbsoluteLayout Margin="10" HeightRequest="110" HorizontalOptions="End" VerticalOptions="End" >
 
-
+                    
                 <Image
                     IsVisible="True" 
-                    Background="Red"
                     Source="add-solid.png" 
-                    AbsoluteLayout.LayoutFlags="PositionProportional"  
-                    AbsoluteLayout.LayoutBounds=".95,.65,50,50" 
+                    HeightRequest="50"
+                    WidthRequest="50"
+                    
+                    Margin="0"
+                    
+                    AbsoluteLayout.LayoutBounds="1,.0,50,50" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
                 />
 
                 <Button 
-                    Background="Transparent"
-                    AbsoluteLayout.LayoutFlags="PositionProportional"  
-                    AbsoluteLayout.LayoutBounds=".95,.65,50,50"
+                    Background="transparent"
+                    HeightRequest="50"
+                    WidthRequest="50"
+                    
+                    Margin="0"
+                    Padding="0"
                     IsVisible="True" 
-                    Command="{Binding TestButton}" />
+                    Command="{Binding TestButton}" 
+                    
+                    AbsoluteLayout.LayoutBounds="1,.0,50,50" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    />
 
 
 
                 <Image
-                    Background="Transparent"
                     Source="add-solid.png" 
-                    AbsoluteLayout.LayoutFlags="PositionProportional"  
-                    AbsoluteLayout.LayoutBounds=".95,.95,50,50" 
+                    HeightRequest="50"
+                    WidthRequest="50"
+                    Margin="0"
+                    
+                    AbsoluteLayout.LayoutBounds="1,1,50,50" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
                     
                 />
                 <Button
                     Command="{Binding CreateStoryButton}"
-                    Background="Transparent"
-                    AbsoluteLayout.LayoutFlags="PositionProportional"  
-                    AbsoluteLayout.LayoutBounds=".95,.95,50,50"
+                    Background="transparent"
+                    HeightRequest="50"
+                    WidthRequest="50"
+                    Margin="0"
+                    Padding="0" 
+                    AbsoluteLayout.LayoutBounds="1,1,50,50" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
                     />
+                    
+                    <!--<Image BackgroundColor="Red" HeightRequest="1"/>-->
 
             </AbsoluteLayout>
 

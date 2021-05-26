@@ -8,8 +8,8 @@ namespace StoryWriter.Services.Stories
 {
     public interface IStoriesService
     {
-        Task<bool> CreateStory(string storyName);
+        Task<bool> CreateStory(string storyName, bool isStoryPublic);
         Task<IList<Story>> GetAllPublic();
-        Task<IList<Story>> GetAllMy();
+        Task<IList<Story>> GetAllFavorited();
     }
 }

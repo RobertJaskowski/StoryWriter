@@ -5,13 +5,14 @@ using Firebase.Firestore;
 using StoryWriter.Droid.ServiceListeners;
 using StoryWriter.Droid.Services;
 using StoryWriter.Models;
+using StoryWriter.Services;
 using StoryWriter.Services.Stories;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(StoriesFirebaseCollection<Story>))]
 namespace StoryWriter.Droid.Services
 {
-    public class StoriesFirebaseCollection<T> : BaseFirebaseCollection<T>, IRoomFC<T> where T : Story
+    public class StoriesFirebaseCollection<T> : BaseFirebaseCollection<T>, IRoomFC<T> where T : IIdentifiable
     {
         protected override string DocumentPath =>
             "rooms/";
@@ -20,7 +21,6 @@ namespace StoryWriter.Droid.Services
         public Task<IList<T>> GetAllPublic()
         {
             var tcs = new TaskCompletionSource<IList<T>>();
-            var list = new List<T>();
 
             FirebaseFirestore.Instance
                 .Collection(DocumentPath)
@@ -30,7 +30,6 @@ namespace StoryWriter.Droid.Services
 
             return tcs.Task;
         }
-
 
 
     }

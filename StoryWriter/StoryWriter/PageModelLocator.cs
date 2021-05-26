@@ -43,10 +43,13 @@ namespace StoryWriter
             // Register Services (registered as Singletons by default)
 
             _container.Register<INavigationService, NavigationService>();
+
             _container.Register<IAccountService>(DependencyService.Get<IAccountService>());
-            _container.Register<IStatementService, MockStatementService>();
-            _container.Register<IWorkService, MockWorkService>();
-            _container.Register<IStoriesService, StoriesService>();
+            _container.Register<IStoriesService>(DependencyService.Get<IStoriesService>());
+
+
+            _container.Register(DependencyService.Get<IRoomFC<Story>>());
+            _container.Register(DependencyService.Get<IFavoritedRoomFC<FavoritedRoom>>());
 
 
 
