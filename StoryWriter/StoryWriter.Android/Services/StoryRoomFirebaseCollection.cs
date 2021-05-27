@@ -15,7 +15,7 @@ namespace StoryWriter.Droid.Services
     public class StoryRoomFirebaseCollection<T> : BaseFirebaseCollection<T>, IStoryRoomFC<T> where T : IIdentifiable
     {
         protected override string DocumentPath =>
-            "rooms/";
+            "stories/";
 
         public Task<IList<T>> GetAllPublic()
         {

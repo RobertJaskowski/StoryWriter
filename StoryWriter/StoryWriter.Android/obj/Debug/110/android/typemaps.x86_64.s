@@ -34959,9 +34959,9 @@ map_java_to_managed:
 	.quad	.L.java_type_name.7175
 	.quad	.L.managed_type_name.9318
 	.quad	.L.java_type_name.7176
-	.quad	0
+	.quad	.L.managed_type_name.9310
 	.quad	.L.java_type_name.7177
-	.quad	.L.managed_type_name.9311
+	.quad	0
 	.quad	.L.java_type_name.7178
 	.quad	.L.managed_type_name.9312
 	.quad	.L.java_type_name.7179

@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            xmlns:pages="clr-namespace:StoryWriter.Pages"
-            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
-            android:TabbedPage.ToolbarPlacement="Bottom"
-            x:Class="StoryWriter.Pages.DashboardPage">
+<TabbedPage
+    x:Class="StoryWriter.Pages.DashboardPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:pages="clr-namespace:StoryWriter.Pages"
+    xmlns:pages1="clr-namespace:StoryWriter.Pages.StoriesPages"
+    android:TabbedPage.ToolbarPlacement="Bottom">
     <TabbedPage.Children>
-
         <NavigationPage Title="Stories" IconImageSource="add-solid.png">
             <x:Arguments>
 
@@ -14,7 +15,14 @@
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="time" IconImageSource="add-solid.png">
+        <NavigationPage Title="Stories" IconImageSource="add-solid.png">
+            <x:Arguments>
+
+                <pages1:StoryWritingRoomPage BindingContext="{Binding StoryWritingRoomPageModel}" />
+            </x:Arguments>
+        </NavigationPage>
+
+        <!--<NavigationPage Title="time" IconImageSource="add-solid.png">
             <x:Arguments>
                 <pages:TimeClockPage BindingContext="{Binding TimeClockPageModel}" />
             </x:Arguments>
@@ -36,6 +44,6 @@
             <x:Arguments>
                 <pages:SettingsPage BindingContext="{Binding SettingsPageModel}" />
             </x:Arguments>
-        </NavigationPage>
+        </NavigationPage>-->
     </TabbedPage.Children>
 </TabbedPage>

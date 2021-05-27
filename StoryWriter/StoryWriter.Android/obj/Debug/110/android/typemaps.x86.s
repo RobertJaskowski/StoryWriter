@@ -34959,9 +34959,9 @@ map_java_to_managed:
 	.long	.L.java_type_name.7175
 	.long	.L.managed_type_name.9318
 	.long	.L.java_type_name.7176
-	.long	0
+	.long	.L.managed_type_name.9310
 	.long	.L.java_type_name.7177
-	.long	.L.managed_type_name.9311
+	.long	0
 	.long	.L.java_type_name.7178
 	.long	.L.managed_type_name.9312
 	.long	.L.java_type_name.7179

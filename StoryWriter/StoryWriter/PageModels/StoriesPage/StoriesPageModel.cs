@@ -92,7 +92,7 @@ namespace StoryWriter.PageModels
         }
 
         private Command _testButton;
-        private INavigationService _navigationService;
+        public INavigationService _navigationService;
         private IStoriesService _storiesService;
 
         public StoriesPageModel(INavigationService navigationService, IStoriesService storiesService)
@@ -116,7 +116,7 @@ namespace StoryWriter.PageModels
 
         private void OnTestButtonClicked(object obj)
         {
-            MyStoriesPageModel.MyStoriesList.Add(new Story() { Name = "asdfsadf" });
+            MyStoriesPageModel.MyStoriesList.Add(new Story() { Title = "asdfsadf" });
             //var result = PageModelLocator.Resolve<IFirebaseCollection<MyTestData>>().Save(new MyTestData
             //{
             //    name = "nametest",
@@ -133,6 +133,7 @@ namespace StoryWriter.PageModels
             if (IsRefreshing) return;
             IsRefreshing = true;
 
+            MyStoriesPageModel.MyStoriesList = new ObservableCollection<Story>();
             var allMy = await _storiesService.GetAllFavorited();
 
             MyStoriesPageModel.MyStoriesList = new ObservableCollection<Story>(allMy.ToList());

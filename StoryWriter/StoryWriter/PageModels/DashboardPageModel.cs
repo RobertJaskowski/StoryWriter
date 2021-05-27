@@ -1,4 +1,5 @@
 ﻿using StoryWriter.PageModels.Base;
+using StoryWriter.PageModels.StoriesPage;
 using System.Threading.Tasks;
 
 namespace StoryWriter.PageModels
@@ -13,55 +14,66 @@ namespace StoryWriter.PageModels
             set => SetProperty(ref _storiesPage, value);
         }
 
-        private SummaryPageModel _summaryPM;
+        private StoryWritingRoomPageModel _storyWritingPage;
 
-        public SummaryPageModel SummaryPageModel
+        public StoryWritingRoomPageModel StoryWritingRoomPageModel
         {
-            get => _summaryPM;
-            set => SetProperty(ref _summaryPM, value);
+            get => _storyWritingPage;
+            set => SetProperty(ref _storyWritingPage, value);
         }
 
-        private ProfilePageModel _profilePM;
+        //private SummaryPageModel _summaryPM;
 
-        public ProfilePageModel ProfilePageModel
-        {
-            get => _profilePM;
-            set => SetProperty(ref _profilePM, value);
-        }
+        //public SummaryPageModel SummaryPageModel
+        //{
+        //    get => _summaryPM;
+        //    set => SetProperty(ref _summaryPM, value);
+        //}
 
-        private SettingsPageModel _settigsPM;
+        //private ProfilePageModel _profilePM;
 
-        public SettingsPageModel SettingsPageModel
-        {
-            get => _settigsPM;
-            set => SetProperty(ref _settigsPM, value);
-        }
+        //public ProfilePageModel ProfilePageModel
+        //{
+        //    get => _profilePM;
+        //    set => SetProperty(ref _profilePM, value);
+        //}
 
-        private TimeClockPageModel _timeclockPM;
+        //private SettingsPageModel _settigsPM;
 
-        public TimeClockPageModel TimeClockPageModel
-        {
-            get => _timeclockPM;
-            set => SetProperty(ref _timeclockPM, value);
-        }
+        //public SettingsPageModel SettingsPageModel
+        //{
+        //    get => _settigsPM;
+        //    set => SetProperty(ref _settigsPM, value);
+        //}
+
+        //private TimeClockPageModel _timeclockPM;
+
+        //public TimeClockPageModel TimeClockPageModel
+        //{
+        //    get => _timeclockPM;
+        //    set => SetProperty(ref _timeclockPM, value);
+        //}
 
         public DashboardPageModel(
-            ProfilePageModel profilePM,
-            SettingsPageModel settingsPM,
-            StoriesPageModel storiesPM
+            //ProfilePageModel profilePM,
+            //SettingsPageModel settingsPM,
+            StoriesPageModel storiesPM,
+            StoryWritingRoomPageModel storyWritingPM
             )
         {
-            ProfilePageModel = profilePM;
-            SettingsPageModel = settingsPM;
+            //ProfilePageModel = profilePM;
+            //SettingsPageModel = settingsPM;
             StoriesPageModel = storiesPM;
+            StoryWritingRoomPageModel = storyWritingPM;
         }
 
         public override Task InitializeAsync(object navigationData)
         {
             return Task.WhenAny(
                 base.InitializeAsync(navigationData),
-                ProfilePageModel.InitializeAsync(null),
-                SettingsPageModel.InitializeAsync(null),
+                //ProfilePageModel.InitializeAsync(null),
+                //SettingsPageModel.InitializeAsync(null),
+                StoryWritingRoomPageModel.InitializeAsync(null),
                 StoriesPageModel.InitializeAsync(null));
         }
     }

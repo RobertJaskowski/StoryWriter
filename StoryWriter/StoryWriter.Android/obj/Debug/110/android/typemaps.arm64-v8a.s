@@ -34960,9 +34960,9 @@ map_java_to_managed:
 	.xword	.L.java_type_name.7175
 	.xword	.L.managed_type_name.9318
 	.xword	.L.java_type_name.7176
-	.xword	0
+	.xword	.L.managed_type_name.9310
 	.xword	.L.java_type_name.7177
-	.xword	.L.managed_type_name.9311
+	.xword	0
 	.xword	.L.java_type_name.7178
 	.xword	.L.managed_type_name.9312
 	.xword	.L.java_type_name.7179

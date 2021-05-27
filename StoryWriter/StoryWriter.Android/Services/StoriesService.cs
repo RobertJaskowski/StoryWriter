@@ -38,7 +38,7 @@ namespace StoryWriter.Droid.Services
             var tcs = new TaskCompletionSource<bool>();
             await _roomFC.Save(new Story()
             {
-                Name = storyName,
+                Title = storyName,
                 IsPublic = isStoryPublic
             })
                 .ContinueWith((task) => stringID = task.Result)
@@ -79,6 +79,19 @@ namespace StoryWriter.Droid.Services
                     var fetchedRoom = await _roomFC.Get(fav.FavoritedRoomId);
                     returnStories.Add(fetchedRoom);
                 }
+            }
+
+            IList<Story> rem = new List<Story>();
+
+            foreach (var item in returnStories)
+            {
+                if (item.Id == null)
+                    rem.Add(item);
+            }
+
+            foreach (var item in rem)
+            {
+                returnStories.Remove(item);
             }
 
             tcs.TrySetResult(returnStories);

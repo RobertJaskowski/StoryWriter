@@ -26,8 +26,8 @@ namespace StoryWriter
             // Register Page and Page Models
 
             Register<StoriesPageModel, StoriesPage>();
-
             Register<CreateStoryPageModel, CreateStoryPage>();
+            Register<StoryWritingRoomPageModel, StoryWritingRoomPage>();
 
             Register<DashboardPageModel, DashboardPage>();
             Register<LoginPageModel, LoginPage>();
@@ -48,8 +48,8 @@ namespace StoryWriter
             _container.Register(DependencyService.Get<IStoryRoomFC<Story>>());
             _container.Register(DependencyService.Get<IFavoritedRoomFC<FavoritedRoom>>());
 
-            ////_container.Register(DependencyService.Get<IFirebaseCollection<WorkItem>>());
             _container.Register(DependencyService.Get<IFirebaseCollection<Story>>());
+            ////_container.Register(DependencyService.Get<IFirebaseCollection<WorkItem>>());
             _container.Register(DependencyService.Get<IFirebaseCollection<TestData>>());
             _container.Register(DependencyService.Get<IFirebaseCollection<MyTestData>>());
         }

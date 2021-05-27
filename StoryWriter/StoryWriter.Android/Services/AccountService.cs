@@ -100,7 +100,7 @@ namespace StoryWriter.Droid.Services
                 .Collection("users")
                 .Document(FirebaseAuth.Instance.CurrentUser.Uid)
                 .Get()
-                .AddOnCompleteListener(new OnCompleteListener(tcs));
+                .AddOnCompleteListener(new OnAuthenticatedUserCompleteListener(tcs));
 
             return tcs.Task;
         }

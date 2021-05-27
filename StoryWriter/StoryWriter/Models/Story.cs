@@ -1,4 +1,5 @@
 ﻿using StoryWriter.Services;
+using System.Collections.Generic;
 
 namespace StoryWriter.Models
 {
@@ -6,6 +7,8 @@ namespace StoryWriter.Models
     {
         public string Id { get; set; }
         public bool IsPublic { get; set; }
-        public string Name { get; set; }
+        public string Title { get; set; }
+        public string AdminId { get; set; }
+        public List<DialogueLine> DialogueLines { get; set; }
     }
 }

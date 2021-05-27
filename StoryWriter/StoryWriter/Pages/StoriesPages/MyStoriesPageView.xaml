@@ -45,7 +45,7 @@
                                             Margin="36,0"
                                             FontSize="24"
                                             LineBreakMode="WordWrap"
-                                            Text="{Binding Name}"
+                                            Text="{Binding Title}"
                                             TextColor="White"
                                             VerticalOptions="Center" />
                                         <Image

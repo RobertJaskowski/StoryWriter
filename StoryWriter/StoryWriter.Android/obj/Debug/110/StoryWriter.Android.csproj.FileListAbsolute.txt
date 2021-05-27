@@ -781,3 +781,4 @@ C:\Projects\StoryWriter\StoryWriter\StoryWriter.Android\obj\Debug\110\stamp\_Con
 C:\Projects\StoryWriter\StoryWriter\StoryWriter.Android\obj\Debug\110\stamp\_GenerateJavaStubs.stamp
 C:\Projects\StoryWriter\StoryWriter\StoryWriter.Android\obj\Debug\110\stamp\_GeneratePackageManagerJava.stamp
 C:\Projects\StoryWriter\StoryWriter\StoryWriter.Android\obj\Debug\110\stamp\_ResolveLibraryProjectImports.stamp
+C:\Projects\StoryWriter\StoryWriter\StoryWriter.Android\obj\Debug\110\android\src\crc645bd40fdae0381d5d\OnAuthenticatedUserCompleteListener.java

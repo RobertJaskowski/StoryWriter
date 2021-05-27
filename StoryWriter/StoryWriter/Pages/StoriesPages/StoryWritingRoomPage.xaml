@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="StoryWriter.Pages.StoriesPages.StoryWritingRoomPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="{Binding CurrentStory.Title}">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Grid>
+                <RefreshView
+                    Margin="0,20,0,0"
+                    Command="{Binding RefreshCommand}"
+                    IsRefreshing="{Binding IsRefreshing}"
+                    RefreshColor="{StaticResource Accent}">
+                    <CollectionView
+                        Grid.Row="1"
+                        Margin="0,42,0,0"
+                        ItemsLayout="VerticalList"
+                        ItemsSource="{Binding CurrentStory.DialogueLines}"
+                        VerticalOptions="Start">
+
+                        <CollectionView.ItemTemplate>
+
+                            <DataTemplate>
+                                <Grid Padding="12,6" HeightRequest="80">
+
+                                    <Frame
+                                        Margin="2"
+                                        Padding="0"
+                                        BackgroundColor="Orange"
+                                        CornerRadius="2"
+                                        HasShadow="False"
+                                        IsClippedToBounds="True">
+
+                                        <Grid ColumnDefinitions=".55*,.45*">
+                                            <Label
+                                                Margin="36,0"
+                                                FontAttributes="Bold"
+                                                FontSize="24"
+                                                HorizontalOptions="Start"
+                                                LineBreakMode="NoWrap"
+                                                Text="{Binding Character.Name}"
+                                                TextColor="White"
+                                                VerticalOptions="Center" />
+
+                                            <Label
+                                                Grid.Column="1"
+                                                FontSize="16"
+                                                HorizontalOptions="StartAndExpand"
+                                                LineBreakMode="WordWrap"
+                                                Text="{Binding Line}" />
+                                        </Grid>
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </RefreshView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

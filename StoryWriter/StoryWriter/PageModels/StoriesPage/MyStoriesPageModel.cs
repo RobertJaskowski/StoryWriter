@@ -46,6 +46,7 @@ namespace StoryWriter.PageModels.StoriesPage
         {
             if (obj is Story)
             {
+                Root._navigationService.NavigateToAsync<StoryWritingRoomPageModel>(obj);
             }
         }
     }
