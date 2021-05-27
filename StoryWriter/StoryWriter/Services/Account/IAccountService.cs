@@ -11,9 +11,11 @@ namespace StoryWriter
         Task<bool> LoginAnonymous();
 
         Task<bool> LoginAsync(string username, string password);
+
         Task<double> GetCurrentPayRateAsync();
-        Task<bool> SendOtpCodeAsync(string phoneNumber);
-        Task<bool> VerifyOtpCodeAsync(string code);
+
+        //Task<bool> SendOtpCodeAsync(string phoneNumber);
+        //Task<bool> VerifyOtpCodeAsync(string code);
 
         Task<AuthenticatedUser> GetUserAsync();
     }

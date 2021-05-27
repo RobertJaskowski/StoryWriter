@@ -63,8 +63,6 @@ namespace StoryWriter.PageModels
                 ProfilePageModel.InitializeAsync(null),
                 SettingsPageModel.InitializeAsync(null),
                 StoriesPageModel.InitializeAsync(null));
-
-            return base.InitializeAsync(navigationData);
         }
     }
 }

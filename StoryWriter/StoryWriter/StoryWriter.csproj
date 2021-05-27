@@ -43,6 +43,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Pages\StoriesPages\FavoritedStoriesPageView.xaml.cs">
+      <DependentUpon>FavoritedStoriesPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\StoriesPages\MyStoriesPageView.xaml.cs">
+      <DependentUpon>MyStoriesPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\StoriesPages\PublicStoriesPageView.xaml.cs">
+      <DependentUpon>PublicStoriesPageView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="Controls\ActiveChallengesView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -76,7 +88,13 @@
     <EmbeddedResource Update="Pages\SettingsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\StoriesPages\MyStoriesPage.xaml">
+    <EmbeddedResource Update="Pages\StoriesPages\FavoritedStoriesPageView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\StoriesPages\MyStoriesPageView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\StoriesPages\PublicStoriesPageView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\StoriesPages\StoriesPage.xaml">

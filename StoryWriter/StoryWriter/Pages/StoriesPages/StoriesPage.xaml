@@ -3,7 +3,7 @@
     x:Class="StoryWriter.Pages.StoriesPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:StoriesPages="clr-namespace:StoryWriter.Pages.StoriesPages"
+    xmlns:storiesPages="clr-namespace:StoryWriter.Pages.StoriesPages"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     NavigationPage.HasNavigationBar="False">
 
@@ -16,7 +16,6 @@
                 TabStripBackgroundColor="{StaticResource CardBackground}"
                 TabStripHeight="90"
                 TabStripPlacement="Top">
-
 
                 <xct:TabViewItem
                     ControlTemplate="{StaticResource TabItemTemplate}"
@@ -40,58 +39,7 @@
                             Color="{StaticResource Accent}" />
                     </xct:TabViewItem.IconSelected>
 
-                    <StoriesPages:MyStoriesPage BindingContext="{Binding MyStoriesPage}" />
-                    <!--
-                    <xct:TabViewItem.Content>
-
-                        <Grid>
-                            <RefreshView
-                                Margin="0,20,0,0"
-                                Command="{Binding RefreshCommand}"
-                                IsRefreshing="{Binding IsRefreshing}"
-                                RefreshColor="{StaticResource Accent}">
-
-                                <CollectionView
-                                    Grid.Row="0"
-                                    Margin="0,42,0,0"
-                                    ItemsLayout="VerticalList"
-                                    ItemsSource="{Binding MyStoriesList}"
-                                    VerticalOptions="Start">
-
-                                    <CollectionView.ItemTemplate>
-
-                                        <DataTemplate>
-                                            <Grid Padding="12,6" HeightRequest="80">
-
-                                                <Frame
-                                                    Padding="0"
-                                                    BackgroundColor="{StaticResource Accent}"
-                                                    CornerRadius="12"
-                                                    HasShadow="False"
-                                                    IsClippedToBounds="True">
-
-                                                    <Grid ColumnDefinitions=".55*,.45*">
-                                                        <Label
-                                                            Margin="36,0"
-                                                            FontSize="24"
-                                                            LineBreakMode="WordWrap"
-                                                            Text="{Binding Name}"
-                                                            TextColor="White"
-                                                            VerticalOptions="Center" />
-                                                        <Image
-                                                            Grid.Column="1"
-                                                            Aspect="AspectFill"
-                                                            Source="strength.png" />
-                                                    </Grid>
-                                                </Frame>
-                                            </Grid>
-                                        </DataTemplate>
-                                    </CollectionView.ItemTemplate>
-                                </CollectionView>
-                            </RefreshView>
-                        </Grid>
-                    </xct:TabViewItem.Content>
-                </xct:TabViewItem>-->
+                    <storiesPages:MyStoriesPageView BindingContext="{Binding BindingContext.MyStoriesPageModel, Mode=TwoWay}" />
                 </xct:TabViewItem>
 
                 <xct:TabViewItem
@@ -114,56 +62,13 @@
                             Size="42"
                             Color="{StaticResource Accent}" />
                     </xct:TabViewItem.IconSelected>
-
-                    <xct:TabViewItem.Content>
-
-                        <Grid>
-
-                            <CollectionView
-                                Grid.Row="1"
-                                Margin="0,42,0,0"
-                                ItemsLayout="VerticalList"
-                                ItemsSource="{Binding StoriesList}"
-                                VerticalOptions="Start">
-
-                                <CollectionView.ItemTemplate>
-
-                                    <DataTemplate>
-                                        <Grid Padding="12,6" HeightRequest="80">
-
-                                            <Frame
-                                                Padding="0"
-                                                BackgroundColor="Black"
-                                                CornerRadius="12"
-                                                HasShadow="False"
-                                                IsClippedToBounds="True">
-
-                                                <Grid ColumnDefinitions=".55*,.45*">
-                                                    <Label
-                                                        Margin="36,0"
-                                                        FontSize="24"
-                                                        LineBreakMode="WordWrap"
-                                                        Text="{Binding Name}"
-                                                        TextColor="White"
-                                                        VerticalOptions="Center" />
-                                                    <Image
-                                                        Grid.Column="1"
-                                                        Aspect="AspectFill"
-                                                        Source="strength.png" />
-                                                </Grid>
-                                            </Frame>
-                                        </Grid>
-                                    </DataTemplate>
-                                </CollectionView.ItemTemplate>
-                            </CollectionView>
-                        </Grid>
-                    </xct:TabViewItem.Content>
+                    <storiesPages:FavoritedStoriesPageView BindingContext="{Binding BindingContext.FavoritedStoriesPageModel, Mode=TwoWay}" />
                 </xct:TabViewItem>
 
                 <xct:TabViewItem
                     ControlTemplate="{StaticResource TabItemTemplate}"
                     Style="{StaticResource TabViewItemStyle}"
-                    TapCommand="{Binding Public}"
+                    TapCommand="{Binding PublicTabTapped}"
                     Text="Public">
 
                     <xct:TabViewItem.Icon>
@@ -180,50 +85,7 @@
                             Size="42"
                             Color="{StaticResource Accent}" />
                     </xct:TabViewItem.IconSelected>
-
-                    <xct:TabViewItem.Content>
-
-                        <Grid>
-
-                            <CollectionView
-                                Grid.Row="1"
-                                Margin="0,42,0,0"
-                                ItemsLayout="VerticalList"
-                                ItemsSource="{Binding StoriesList}"
-                                VerticalOptions="Start">
-
-                                <CollectionView.ItemTemplate>
-
-                                    <DataTemplate>
-                                        <Grid Padding="12,6" HeightRequest="80">
-
-                                            <Frame
-                                                Padding="0"
-                                                BackgroundColor="Black"
-                                                CornerRadius="12"
-                                                HasShadow="False"
-                                                IsClippedToBounds="True">
-
-                                                <Grid ColumnDefinitions=".55*,.45*">
-                                                    <Label
-                                                        Margin="36,0"
-                                                        FontSize="24"
-                                                        LineBreakMode="WordWrap"
-                                                        Text="{Binding Name}"
-                                                        TextColor="White"
-                                                        VerticalOptions="Center" />
-                                                    <Image
-                                                        Grid.Column="1"
-                                                        Aspect="AspectFill"
-                                                        Source="strength.png" />
-                                                </Grid>
-                                            </Frame>
-                                        </Grid>
-                                    </DataTemplate>
-                                </CollectionView.ItemTemplate>
-                            </CollectionView>
-                        </Grid>
-                    </xct:TabViewItem.Content>
+                    <storiesPages:PublicStoriesPageView BindingContext="{Binding BindingContext.PublicStoriesPageModel, Mode=TwoWay}" />
                 </xct:TabViewItem>
             </xct:TabView>
 

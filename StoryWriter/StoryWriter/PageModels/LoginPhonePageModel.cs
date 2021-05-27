@@ -10,6 +10,7 @@ namespace StoryWriter.PageModels
     public class LoginPhonePageModel : PageModelBase
     {
         private string _phoneNumber;
+
         public string PhoneNumber
         {
             get => _phoneNumber;
@@ -17,6 +18,7 @@ namespace StoryWriter.PageModels
         }
 
         private string _code;
+
         public string Code
         {
             get => _code;
@@ -24,6 +26,7 @@ namespace StoryWriter.PageModels
         }
 
         private bool _codeSent;
+
         public bool CodeSent
         {
             get => _codeSent;
@@ -31,6 +34,7 @@ namespace StoryWriter.PageModels
         }
 
         private string _buttonText = "Send Code";
+
         public string ButtonText
         {
             get => _buttonText;
@@ -38,6 +42,7 @@ namespace StoryWriter.PageModels
         }
 
         private ICommand _nextCommand;
+
         public ICommand NextCommand
         {
             get => _nextCommand;
@@ -54,35 +59,35 @@ namespace StoryWriter.PageModels
             _accountService = accountService;
             _navigationService = navigationService;
 
-            NextCommand = new Command(OnNextAction);
+            //NextCommand = new Command(OnNextAction);
         }
 
-        private async void OnNextAction(object obj)
-        {
-            if (_codeRequested)
-            {
-                // verify code that user entered.
-                var loginAttempt = await _accountService.VerifyOtpCodeAsync(Code);
-                if (loginAttempt)
-                {
-                    await _navigationService.NavigateToAsync<DashboardPageModel>(null, true);
-                }
-                else
-                {
-                    // Something went wrong
-                    // TODO: Alert via Dialog Service.
-                }
-            }
-            else
-            {
-                CodeSent = await _accountService.SendOtpCodeAsync(PhoneNumber);
+        //private async void OnNextAction(object obj)
+        //{
+        //    if (_codeRequested)
+        //    {
+        //        // verify code that user entered.
+        //        var loginAttempt = await _accountService.VerifyOtpCodeAsync(Code);
+        //        if (loginAttempt)
+        //        {
+        //            await _navigationService.NavigateToAsync<DashboardPageModel>(null, true);
+        //        }
+        //        else
+        //        {
+        //            // Something went wrong
+        //            // TODO: Alert via Dialog Service.
+        //        }
+        //    }
+        //    else
+        //    {
+        //        CodeSent = await _accountService.SendOtpCodeAsync(PhoneNumber);
 
-                if (!CodeSent)
-                    return;
+        //        if (!CodeSent)
+        //            return;
 
-                _codeRequested = true;
-                ButtonText = "Verify Code";
-            }
-        }
+        //        _codeRequested = true;
+        //        ButtonText = "Verify Code";
+        //    }
+        //}
     }
 }

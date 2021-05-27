@@ -13,7 +13,7 @@ using Xamarin.Forms;
 
 namespace StoryWriter.Droid.Services
 {
-    public class AccountService : PhoneAuthProvider.OnVerificationStateChangedCallbacks, IAccountService
+    public class AccountService : /*PhoneAuthProvider.OnVerificationStateChangedCallbacks,*/ IAccountService
     {
         private const int OTP_TIMEOUT = 30; // seconds
         private TaskCompletionSource<bool> _phoneAuthTcs;
@@ -37,35 +37,35 @@ namespace StoryWriter.Droid.Services
             return tcs.Task;
         }
 
-        public override void OnVerificationCompleted(PhoneAuthCredential credential)
-        {
-            System.Diagnostics.Debug.WriteLine("PhoneAuthCredential created Automatically");
-        }
+        //public override void OnVerificationCompleted(PhoneAuthCredential credential)
+        //{
+        //    System.Diagnostics.Debug.WriteLine("PhoneAuthCredential created Automatically");
+        //}
 
-        public override void OnVerificationFailed(FirebaseException exception)
-        {
-            System.Diagnostics.Debug.WriteLine("Verification Failed: " + exception.Message);
-            _phoneAuthTcs?.TrySetResult(false);
-        }
+        //public override void OnVerificationFailed(FirebaseException exception)
+        //{
+        //    System.Diagnostics.Debug.WriteLine("Verification Failed: " + exception.Message);
+        //    _phoneAuthTcs?.TrySetResult(false);
+        //}
 
-        public override void OnCodeSent(string verificationId, PhoneAuthProvider.ForceResendingToken forceResendingToken)
-        {
-            base.OnCodeSent(verificationId, forceResendingToken);
-            _verificationId = verificationId;
-            _phoneAuthTcs?.TrySetResult(true);
-        }
+        //public override void OnCodeSent(string verificationId, PhoneAuthProvider.ForceResendingToken forceResendingToken)
+        //{
+        //    base.OnCodeSent(verificationId, forceResendingToken);
+        //    _verificationId = verificationId;
+        //    _phoneAuthTcs?.TrySetResult(true);
+        //}
 
-        public Task<bool> SendOtpCodeAsync(string phoneNumber)
-        {
-            _phoneAuthTcs = new TaskCompletionSource<bool>();
-            PhoneAuthProvider.Instance.VerifyPhoneNumber(
-                phoneNumber,
-                OTP_TIMEOUT,
-                TimeUnit.Seconds,
-                Platform.CurrentActivity,
-                this);
-            return _phoneAuthTcs.Task;
-        }
+        //public Task<bool> SendOtpCodeAsync(string phoneNumber)
+        //{
+        //    _phoneAuthTcs = new TaskCompletionSource<bool>();
+        //    PhoneAuthProvider.Instance.VerifyPhoneNumber(
+        //        phoneNumber,
+        //        OTP_TIMEOUT,
+        //        TimeUnit.Seconds,
+        //        Platform.CurrentActivity,
+        //        this);
+        //    return _phoneAuthTcs.Task;
+        //}
 
         private void OnAuthCompleted(Task task, TaskCompletionSource<bool> tcs)
         {
@@ -79,18 +79,18 @@ namespace StoryWriter.Droid.Services
             tcs.SetResult(true);
         }
 
-        public Task<bool> VerifyOtpCodeAsync(string code)
-        {
-            if (!string.IsNullOrWhiteSpace(_verificationId))
-            {
-                var credential = PhoneAuthProvider.GetCredential(_verificationId, code);
-                var tcs = new TaskCompletionSource<bool>();
-                FirebaseAuth.Instance.SignInWithCredentialAsync(credential)
-                    .ContinueWith((task) => OnAuthCompleted(task, tcs));
-                return tcs.Task;
-            }
-            return Task.FromResult(false);
-        }
+        //public Task<bool> VerifyOtpCodeAsync(string code)
+        //{
+        //    if (!string.IsNullOrWhiteSpace(_verificationId))
+        //    {
+        //        var credential = PhoneAuthProvider.GetCredential(_verificationId, code);
+        //        var tcs = new TaskCompletionSource<bool>();
+        //        FirebaseAuth.Instance.SignInWithCredentialAsync(credential)
+        //            .ContinueWith((task) => OnAuthCompleted(task, tcs));
+        //        return tcs.Task;
+        //    }
+        //    return Task.FromResult(false);
+        //}
 
         public Task<AuthenticatedUser> GetUserAsync()
         {

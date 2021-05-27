@@ -1,6 +1,9 @@
 ﻿using StoryWriter.Models;
 using StoryWriter.PageModels.Base;
+using StoryWriter.PageModels.StoriesPage;
+using StoryWriter.Pages.StoriesPages;
 using StoryWriter.Services.Stories;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,6 +14,30 @@ namespace StoryWriter.PageModels
 {
     public class StoriesPageModel : PageModelBase
     {
+        private MyStoriesPageModel _myStoriesPageModel;
+
+        public MyStoriesPageModel MyStoriesPageModel
+        {
+            get => _myStoriesPageModel;
+            set => SetProperty(ref _myStoriesPageModel, value);
+        }
+
+        private FavoritedStoriesPageModel _favoritedStoriesPageModel;
+
+        public FavoritedStoriesPageModel FavoritedStoriesPageModel
+        {
+            get => _favoritedStoriesPageModel;
+            set => SetProperty(ref _favoritedStoriesPageModel, value);
+        }
+
+        private PublicStoriesPageModel _publicStoriesPageModel;
+
+        public PublicStoriesPageModel PublicStoriesPageModel
+        {
+            get => _publicStoriesPageModel;
+            set => SetProperty(ref _publicStoriesPageModel, value);
+        }
+
         private int _selectedTabViewIndex;
 
         public int SelectedTabViewIndex
@@ -25,26 +52,6 @@ namespace StoryWriter.PageModels
         {
             get { return _isRefreshing; }
             set { SetProperty(ref _isRefreshing, value); }
-        }
-
-        private ObservableCollection<Story> _myStoriesList;
-
-        public ObservableCollection<Story> MyStoriesList
-        {
-            get
-            {
-                if (_myStoriesList == null)
-                {
-                    _myStoriesList = new ObservableCollection<Story>();
-                    //_storiesList.Add(new Story("test1"));
-                }
-
-                return _myStoriesList;
-            }
-            set
-            {
-                SetProperty(ref _myStoriesList, value);
-            }
         }
 
         private ObservableCollection<Story> _storiesList;
@@ -66,6 +73,7 @@ namespace StoryWriter.PageModels
             }
         }
 
+        public ICommand RefreshCommand { get; }
         public ICommand CreateStoryButton { get; }
         public ICommand MyTabTapped { get; }
         public ICommand AllTabTapped { get; }
@@ -92,14 +100,23 @@ namespace StoryWriter.PageModels
             _navigationService = navigationService;
             this._storiesService = storiesService;
 
+            MyStoriesPageModel = new MyStoriesPageModel(this);
+            FavoritedStoriesPageModel = new FavoritedStoriesPageModel(this);
+            PublicStoriesPageModel = new PublicStoriesPageModel(this);
+
             AllTabTapped = new Command(OnAllTabTapped);
             MyTabTapped = new Command(OnMyTabTapped);
             CreateStoryButton = new Command(OnCreateStoryButtonClicked);
+            RefreshCommand = new Command(OnRefresh);
+        }
+
+        private void OnRefresh(object obj)
+        {
         }
 
         private void OnTestButtonClicked(object obj)
         {
-            MyStoriesList.Add(new Story() { Name = "asdfsadf" });
+            MyStoriesPageModel.MyStoriesList.Add(new Story() { Name = "asdfsadf" });
             //var result = PageModelLocator.Resolve<IFirebaseCollection<MyTestData>>().Save(new MyTestData
             //{
             //    name = "nametest",
@@ -118,7 +135,9 @@ namespace StoryWriter.PageModels
 
             var allMy = await _storiesService.GetAllFavorited();
 
-            MyStoriesList = new ObservableCollection<Story>(allMy.ToList());
+            MyStoriesPageModel.MyStoriesList = new ObservableCollection<Story>(allMy.ToList());
+
+            IsRefreshing = false;
         }
 
         private async void OnAllTabTapped(object obj)
@@ -129,6 +148,8 @@ namespace StoryWriter.PageModels
             var allPublic = await _storiesService.GetAllPublic();
             if (allPublic.Count > 0)
                 StoriesList = new ObservableCollection<Story>(allPublic.ToList());
+
+            IsRefreshing = false;
         }
 
         private async void OnCreateStoryButtonClicked()

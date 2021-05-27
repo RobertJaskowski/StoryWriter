@@ -18,7 +18,7 @@ namespace StoryWriter.Droid.Extensions
             }
             catch (Exception e)
             {
-                System.Diagnostics.Debug.WriteLine("EXCEPTION THROWN");
+                System.Diagnostics.Debug.WriteLine("EXCEPTION THROWN " + e.Message);
             }
             return default;
         }
