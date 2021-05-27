@@ -15,7 +15,6 @@ C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\Pages\L
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\Pages\LoginPhonePage.xaml.g.cs
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\Pages\ProfilePage.xaml.g.cs
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\Pages\SettingsPage.xaml.g.cs
-C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\Pages\StoriesPage.xaml.g.cs
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\Pages\SummaryPage.xaml.g.cs
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\Pages\TimeClockPage.xaml.g.cs
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\Views\Buttons\BindableButton.xaml.g.cs
@@ -33,3 +32,5 @@ C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\StoryWr
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\ref\StoryWriter.dll
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\StoryWriter.pdb
 C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\StoryWriter.csprojAssemblyReference.cache
+C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\Pages\StoriesPages\MyStoriesPage.xaml.g.cs
+C:\Projects\StoryWriter\StoryWriter\StoryWriter\obj\Debug\netstandard2.0\Pages\StoriesPages\StoriesPage.xaml.g.cs

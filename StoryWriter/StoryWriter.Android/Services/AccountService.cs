@@ -1,27 +1,27 @@
-﻿using System;
-using System.Threading.Tasks;
-using Firebase;
+﻿using Firebase;
 using Firebase.Auth;
 using Firebase.Firestore;
 using Java.Util.Concurrent;
 using StoryWriter.Droid.ServiceListeners;
 using StoryWriter.Droid.Services;
 using StoryWriter.Models;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(AccountService))]
+
 namespace StoryWriter.Droid.Services
 {
     public class AccountService : PhoneAuthProvider.OnVerificationStateChangedCallbacks, IAccountService
     {
-        const int OTP_TIMEOUT = 30; // seconds
+        private const int OTP_TIMEOUT = 30; // seconds
         private TaskCompletionSource<bool> _phoneAuthTcs;
         private string _verificationId;
 
         public AccountService()
         {
-           LoginAnonymous();//todo
+            LoginAnonymous();//todo
         }
 
         public Task<double> GetCurrentPayRateAsync()
@@ -29,11 +29,11 @@ namespace StoryWriter.Droid.Services
             return Task.FromResult(10d);
         }
 
-        public  Task<bool> LoginAsync(string username, string password)
+        public Task<bool> LoginAsync(string username, string password)
         {
             var tcs = new TaskCompletionSource<bool>();
-             FirebaseAuth.Instance.SignInWithEmailAndPasswordAsync(username, password)
-                .ContinueWith((task) => OnAuthCompleted(task, tcs));
+            FirebaseAuth.Instance.SignInWithEmailAndPasswordAsync(username, password)
+               .ContinueWith((task) => OnAuthCompleted(task, tcs));
             return tcs.Task;
         }
 

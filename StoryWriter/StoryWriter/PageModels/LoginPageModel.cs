@@ -1,17 +1,13 @@
 ﻿using StoryWriter.PageModels.Base;
 using StoryWriter.ViewModels;
 using StoryWriter.ViewModels.Buttons;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace StoryWriter.PageModels
 {
     public class LoginPageModel : PageModelBase
     {
         private string _icon;
+
         public string Icon
         {
             get => _icon;
@@ -26,8 +22,6 @@ namespace StoryWriter.PageModels
             set { SetProperty(ref _username, value); }
         }
 
-
-
         private string _password;
 
         public string Password
@@ -36,7 +30,6 @@ namespace StoryWriter.PageModels
             set { SetProperty(ref _password, value); }
         }
 
-
         public LoginEntryViewModel EmailEntryViewModel { get; set; }
         public LoginEntryViewModel PasswordEntryViewModel { get; set; }
 
@@ -44,12 +37,7 @@ namespace StoryWriter.PageModels
         public ButtonModel LogInModel { get; set; }
         public ButtonModel UsePhoneModel { get; set; }
 
-
         public ButtonModel UseAnonymous { get; set; }
-
-
-
-
 
         private IAccountService _accountService;
         private INavigationService _navigationService;
@@ -74,7 +62,6 @@ namespace StoryWriter.PageModels
             var loginAttempt = await _accountService.LoginAnonymous();
             if (loginAttempt)
             {
-
                 await _navigationService.NavigateToAsync<StoriesPageModel>(null, true);
             }
             else
@@ -83,14 +70,13 @@ namespace StoryWriter.PageModels
             }
         }
 
-
         private async void OnLogin()
         {
             var loginAttempt = await _accountService.LoginAsync(EmailEntryViewModel.Text, PasswordEntryViewModel.Text);
             if (loginAttempt)
             {
                 // navigate to the Dashboard.
-                await _navigationService.NavigateToAsync<StoriesPageModel>(null,true);
+                await _navigationService.NavigateToAsync<StoriesPageModel>(null, true);
             }
             else
             {
@@ -100,7 +86,6 @@ namespace StoryWriter.PageModels
 
         private void OnForgotPassword()
         {
-
         }
 
         private void GoToPhoneLogin()

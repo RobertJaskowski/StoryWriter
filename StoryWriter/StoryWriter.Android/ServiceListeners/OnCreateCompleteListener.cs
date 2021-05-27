@@ -1,7 +1,6 @@
-﻿using System;
-using System.Threading.Tasks;
-using Android.Gms.Tasks;
+﻿using Android.Gms.Tasks;
 using Firebase.Firestore;
+using System.Threading.Tasks;
 using Task = Android.Gms.Tasks.Task;
 
 namespace StoryWriter.Droid.ServiceListeners

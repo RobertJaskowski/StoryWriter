@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using StoryWriter.PageModels.Base;
 using System.Threading.Tasks;
-using StoryWriter.PageModels.Base;
 
 namespace StoryWriter.PageModels
 {
     public class DashboardPageModel : PageModelBase
     {
         private StoriesPageModel _storiesPage;
+
         public StoriesPageModel StoriesPageModel
         {
             get => _storiesPage;
@@ -16,6 +14,7 @@ namespace StoryWriter.PageModels
         }
 
         private SummaryPageModel _summaryPM;
+
         public SummaryPageModel SummaryPageModel
         {
             get => _summaryPM;
@@ -23,6 +22,7 @@ namespace StoryWriter.PageModels
         }
 
         private ProfilePageModel _profilePM;
+
         public ProfilePageModel ProfilePageModel
         {
             get => _profilePM;
@@ -30,6 +30,7 @@ namespace StoryWriter.PageModels
         }
 
         private SettingsPageModel _settigsPM;
+
         public SettingsPageModel SettingsPageModel
         {
             get => _settigsPM;
@@ -37,6 +38,7 @@ namespace StoryWriter.PageModels
         }
 
         private TimeClockPageModel _timeclockPM;
+
         public TimeClockPageModel TimeClockPageModel
         {
             get => _timeclockPM;

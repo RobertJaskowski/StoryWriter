@@ -1,28 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using StoryWriter.Droid.ServiceListeners;
-using StoryWriter.Droid.Services;
+﻿using StoryWriter.Droid.Services;
 using StoryWriter.Models;
 using StoryWriter.Services.Stories;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(StoriesService))]
+
 namespace StoryWriter.Droid.Services
 {
     public class StoriesService : IStoriesService
     {
-        private readonly IRoomFC<Story> _roomFC;
+        private readonly IStoryRoomFC<Story> _roomFC;
         private readonly IFavoritedRoomFC<FavoritedRoom> _favRoomFC;
 
         public StoriesService()
         {
-            _roomFC = new StoriesFirebaseCollection<Story>();
+            _roomFC = new StoryRoomFirebaseCollection<Story>();
             _favRoomFC = new FavoritedRoomFirebaseCollection<FavoritedRoom>();
-
         }
-
 
         private void OnTaskCompleted(Task task, TaskCompletionSource<bool> tcs)
         {
@@ -37,8 +33,7 @@ namespace StoryWriter.Droid.Services
 
         public async Task<bool> CreateStory(string storyName, bool isStoryPublic)
         {
-
-            string stringID="";
+            string stringID = "";
 
             var tcs = new TaskCompletionSource<bool>();
             await _roomFC.Save(new Story()
@@ -58,11 +53,10 @@ namespace StoryWriter.Droid.Services
             await _favRoomFC.Save(new FavoritedRoom()
             {
                 FavoritedRoomId = stringID,
-            })
-                .ContinueWith((task) => OnTaskCompleted(task, tcs));
+            });
+            //.ContinueWith((task) => OnTaskCompleted(task, tcs));
 
-
-            return  tcs.Task.Result;
+            return tcs.Task.Result;
         }
 
         public Task<IList<Story>> GetAllPublic()
@@ -70,23 +64,26 @@ namespace StoryWriter.Droid.Services
             return _roomFC.GetAllPublic();
         }
 
-        public Task<IList<Story>> GetAllFavorited()
+        public async Task<IList<Story>> GetAllFavorited()
         {
             var tcs = new TaskCompletionSource<IList<Story>>();
+            IList<Story> returnStories = new List<Story>();
 
             //get users/id/rooms/favoritedRoom
-            var r = _favRoomFC.GetAll().Result;
+            var r = await _favRoomFC.GetAll();
 
             if (r.Count > 0)
+            {
                 foreach (var fav in r)
                 {
-                    tcs.Task.Result.Add(_roomFC.Get(fav.FavoritedRoomId).Result);
+                    var fetchedRoom = await _roomFC.Get(fav.FavoritedRoomId);
+                    returnStories.Add(fetchedRoom);
                 }
+            }
 
+            tcs.TrySetResult(returnStories);
 
-
-
-            return tcs.Task;
+            return tcs.Task.Result;
         }
     }
 }

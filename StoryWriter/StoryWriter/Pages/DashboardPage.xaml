@@ -1,38 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:pages="clr-namespace:StoryWriter.Pages"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom"
-             x:Class="StoryWriter.Pages.DashboardPage"
-            xmlns:pages="clr-namespace:StoryWriter.Pages">
+            x:Class="StoryWriter.Pages.DashboardPage">
     <TabbedPage.Children>
 
-        <NavigationPage Title="Stories">
+        <NavigationPage Title="Stories" IconImageSource="add-solid.png">
             <x:Arguments>
-                <pages:StoriesPage BindingContext="{Binding StoriesPageModel}"/>
-            </x:Arguments>
-        </NavigationPage>
-        <NavigationPage Title="time">
-            <x:Arguments>
-                <pages:TimeClockPage BindingContext="{Binding TimeClockPageModel}"/>
+
+                <pages:StoriesPage BindingContext="{Binding StoriesPageModel}" />
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="summary" >
+        <NavigationPage Title="time" IconImageSource="add-solid.png">
             <x:Arguments>
-                <pages:SummaryPage BindingContext="{Binding SummaryPageModel}"/>
+                <pages:TimeClockPage BindingContext="{Binding TimeClockPageModel}" />
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="profile">
+        <NavigationPage Title="summary" IconImageSource="add-solid.png">
             <x:Arguments>
-                <pages:ProfilePage BindingContext="{Binding ProfilePageModel}"/>
+                <pages:SummaryPage BindingContext="{Binding SummaryPageModel}" />
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="settings">
+        <NavigationPage Title="Profile" IconImageSource="add-solid.png">
             <x:Arguments>
-                <pages:SettingsPage BindingContext="{Binding SettingsPageModel}"/>
+                <pages:ProfilePage BindingContext="{Binding ProfilePageModel}" />
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="settings" IconImageSource="add-solid.png">
+            <x:Arguments>
+                <pages:SettingsPage BindingContext="{Binding SettingsPageModel}" />
             </x:Arguments>
         </NavigationPage>
     </TabbedPage.Children>

@@ -1,6 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using StoryWriter.PageModels.Base;
+using System.Threading.Tasks;
 using Xamarin.Forms;
-using StoryWriter.PageModels.Base;
 
 namespace StoryWriter
 {

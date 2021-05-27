@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Firebase.Firestore;
-using Java.Util;
+﻿using Firebase.Firestore;
 using StoryWriter.Droid.Extensions;
 using StoryWriter.Droid.ServiceListeners;
 using StoryWriter.Services;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace StoryWriter.Droid.Services
 {
@@ -58,7 +56,6 @@ namespace StoryWriter.Droid.Services
         public Task<string> Save(T item)
         {
             var tcs = new TaskCompletionSource<string>();
-
 
             FirebaseFirestore.Instance
                 .Collection(DocumentPath)

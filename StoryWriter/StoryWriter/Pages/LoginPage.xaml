@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:buttons="clr-namespace:StoryWriter.Views.Buttons" xmlns:skViews="clr-namespace:StoryWriter.Views.SKViews" xmlns:views="clr-namespace:StoryWriter.Views"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:StoryWriter.Views"
+             xmlns:buttons="clr-namespace:StoryWriter.Views.Buttons"
+             xmlns:skViews="clr-namespace:StoryWriter.Views.SKViews"
              x:Class="StoryWriter.Pages.LoginPage">
     <ContentPage.Content>
         <Grid>
@@ -29,8 +31,8 @@
                         BackgroundColor="Transparent" TextColor="White"
                         VerticalOptions="StartAndExpand" />
             </StackLayout>
-            <!--<Entry Placeholder="username" Text="{Binding Username}"/>
-            <Entry Placeholder="password" Text="{Binding Password}" IsPassword="True"/>
+            <!--<Entry Placeholder="username" Text="{Binding Username}" />
+            <Entry Placeholder="password" Text="{Binding Password}" IsPassword="True" />
             <buttons:BindableButton BindingContext="{Binding LogInModel}"
                         HorizontalOptions="Center" WidthRequest="200"
                         BackgroundColor="White" />-->

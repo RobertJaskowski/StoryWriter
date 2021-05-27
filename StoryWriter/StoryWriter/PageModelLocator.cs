@@ -1,14 +1,13 @@
 ﻿using StoryWriter.Models;
 using StoryWriter.PageModels;
 using StoryWriter.PageModels.Base;
+using StoryWriter.PageModels.StoriesPage;
 using StoryWriter.Pages;
+using StoryWriter.Pages.StoriesPages;
 using StoryWriter.Services;
-using StoryWriter.Services.Statement;
 using StoryWriter.Services.Stories;
-using StoryWriter.Services.Work;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using TinyIoC;
 using Xamarin.Forms;
 
@@ -16,8 +15,8 @@ namespace StoryWriter
 {
     public class PageModelLocator
     {
-        static TinyIoCContainer _container;
-        static Dictionary<Type, Type> _lookupTable;
+        private static TinyIoCContainer _container;
+        private static Dictionary<Type, Type> _lookupTable;
 
         static PageModelLocator()
         {
@@ -26,6 +25,7 @@ namespace StoryWriter
 
             // Register Page and Page Models
 
+            Register<StoriesPageModel, StoriesPage>();
 
             Register<CreateStoryPageModel, CreateStoryPage>();
 
@@ -36,9 +36,7 @@ namespace StoryWriter
             Register<ProfilePageModel, ProfilePage>();
             Register<SettingsPageModel, SettingsPage>();
             Register<SummaryPageModel, SummaryPage>();
-            Register<StoriesPageModel, StoriesPage>();
             Register<TimeClockPageModel, TimeClockPage>();
-
 
             // Register Services (registered as Singletons by default)
 
@@ -47,11 +45,8 @@ namespace StoryWriter
             _container.Register<IAccountService>(DependencyService.Get<IAccountService>());
             _container.Register<IStoriesService>(DependencyService.Get<IStoriesService>());
 
-
-            _container.Register(DependencyService.Get<IRoomFC<Story>>());
+            _container.Register(DependencyService.Get<IStoryRoomFC<Story>>());
             _container.Register(DependencyService.Get<IFavoritedRoomFC<FavoritedRoom>>());
-
-
 
             ////_container.Register(DependencyService.Get<IFirebaseCollection<WorkItem>>());
             _container.Register(DependencyService.Get<IFirebaseCollection<Story>>());
@@ -65,7 +60,7 @@ namespace StoryWriter
         /// </summary>
         /// <typeparam name="TPageModel"></typeparam>
         /// <typeparam name="TPage"></typeparam>
-        static void Register<TPageModel, TPage>() where TPageModel : PageModelBase where TPage : Page
+        private static void Register<TPageModel, TPage>() where TPageModel : PageModelBase where TPage : Page
         {
             _lookupTable.Add(typeof(TPageModel), typeof(TPage));
             _container.Register<TPageModel>();

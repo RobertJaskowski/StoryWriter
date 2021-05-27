@@ -1,13 +1,11 @@
-﻿using MonkeyCache.FileStore;
-using StoryWriter.PageModels.Base;
+﻿using StoryWriter.PageModels.Base;
 using StoryWriter.Services.Stories;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using Xamarin.Forms;
 
 namespace StoryWriter.PageModels
 {
-    class CreateStoryPageModel : PageModelBase
+    internal class CreateStoryPageModel : PageModelBase
     {
         #region Properties
 
@@ -27,15 +25,14 @@ namespace StoryWriter.PageModels
             }
         }
 
-
         private bool _isInputValid;
+
         public bool IsInputValid
         {
             get { return _isInputValid; }
             set
             {
                 SetProperty(ref _isInputValid, value);
-
             }
         }
 
@@ -50,8 +47,8 @@ namespace StoryWriter.PageModels
             }
         }
 
-
         private bool _isStoryPublic;
+
         public bool IsStoryPublic
         {
             get
@@ -61,11 +58,11 @@ namespace StoryWriter.PageModels
             set
             {
                 SetProperty(ref _isStoryPublic, value);
-
             }
         }
 
         private string _storyName;
+
         public string StoryName
         {
             get
@@ -77,12 +74,11 @@ namespace StoryWriter.PageModels
             set
             {
                 SetProperty(ref _storyName, value);
-
             }
         }
 
-
         private bool _isStoryNameValid;
+
         public bool IsStoryNameValid
         {
             get { return _isStoryNameValid; }
@@ -91,11 +87,11 @@ namespace StoryWriter.PageModels
                 SetProperty(ref _isStoryNameValid, value);
 
                 OnValidationDataChanged();
-
             }
         }
 
         private List<object> _storyNameErrors;
+
         public List<object> StoryNameErrors
         {
             get
@@ -125,7 +121,6 @@ namespace StoryWriter.PageModels
             Errors = new List<string>(e);
         }
 
-
         private void OnValidationDataChanged()
         {
             if (IsStoryNameValid)
@@ -133,23 +128,20 @@ namespace StoryWriter.PageModels
             else
                 IsInputValid = false;
 
-
             if (IsInputValid)
                 CurrentValidationColor = Color.Green;
             else
                 CurrentValidationColor = Color.Red;
         }
 
-        #endregion
-
+        #endregion Properties
 
         #region Commands
 
-
         public Command BackButton { get; }
-        public  Command CreateButton { get; }
+        public Command CreateButton { get; }
 
-        #endregion
+        #endregion Commands
 
         private INavigationService _navigationService;
         private IStoriesService _storiesService;
@@ -161,7 +153,7 @@ namespace StoryWriter.PageModels
             _storiesService = storiesService;
             _storiesPM = storiesPageModel;
 
-            CreateButton = new Command(OnCreateStory, (e)=> { return IsInputValid; });
+            CreateButton = new Command(OnCreateStory, (e) => { return IsInputValid; });
             BackButton = new Command(Back);
         }
 
@@ -172,10 +164,9 @@ namespace StoryWriter.PageModels
 
         private async void OnCreateStory(object obj)
         {
-            await _storiesService.CreateStory(StoryName,IsStoryPublic);
-            await _navigationService.GoBackAsync();
+            await _storiesService.CreateStory(StoryName, IsStoryPublic);
+            Back(null);
             _storiesPM.MyTabTapped.Execute(null);
-            
         }
     }
 }
