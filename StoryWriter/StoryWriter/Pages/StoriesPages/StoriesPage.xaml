@@ -91,7 +91,6 @@
 
             <AbsoluteLayout
                 Margin="10"
-                HeightRequest="110"
                 HorizontalOptions="End"
                 VerticalOptions="End">
 

@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="{Binding CurrentStory.Title}">
     <ContentPage.Content>
-        <StackLayout>
+        <Grid>
 
             <Grid>
                 <RefreshView
@@ -70,81 +70,113 @@
                 </RefreshView>
             </Grid>
 
+            <!--<AbsoluteLayout
+                Padding="10"
+                BackgroundColor="Gold"
+                HorizontalOptions="Start">
+                <Label
+                    AbsoluteLayout.LayoutBounds="1,1,150,10"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    BackgroundColor="BlanchedAlmond"
+                    Text="None character selected" />
+
+            -->
+            <!--  Text="{Binding SelectedCharacter}"  -->
+            <!--
+            </AbsoluteLayout>-->
+
+
+            <AbsoluteLayout
+                BackgroundColor="LightBlue"
+                HeightRequest="150"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                WidthRequest="100">
+
+
+                <CollectionView
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    AbsoluteLayout.LayoutFlags="All"
+                    BackgroundColor="Yellow"
+                    ItemsLayout="VerticalList"
+                    VerticalOptions="StartAndExpand">
+                    <!--  ItemsSource="{Binding CurrentStory.Characters}"  -->
+
+
+                    <CollectionView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Item One</x:String>
+                            <x:String>Item One</x:String>
+                            <x:String>Item One</x:String>
+                        </x:Array>
+                    </CollectionView.ItemsSource>
+
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate>
+                            <Grid>
+
+                                <Frame
+                                    Margin="2"
+                                    Padding="0"
+                                    BackgroundColor="green"
+                                    HasShadow="False"
+                                    HorizontalOptions="FillAndExpand">
+
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="24"
+                                        HorizontalTextAlignment="End"
+                                        LineBreakMode="NoWrap"
+                                        Text="{Binding .}"
+                                        TextColor="White"
+                                        VerticalOptions="Center" />
+                                    <!--  Text="{Binding Name}"  -->
+
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </AbsoluteLayout>
+
+
             <AbsoluteLayout
                 BackgroundColor="Orange"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="EndAndExpand">
 
-                <Grid BackgroundColor="pink" RowDefinitions="*,50">
-                    <Grid
+
+                <Grid
+                    AbsoluteLayout.LayoutBounds="0,1,1,1"
+                    AbsoluteLayout.LayoutFlags="All"
+                    BackgroundColor="pink"
+                    ColumnDefinitions="*,50"
+                    RowDefinitions="50">
+
+
+                    <Entry
                         Grid.Row="0"
-                        BackgroundColor="Aqua"
-                        ColumnDefinitions="*,*"
-                        RowDefinitions="*">
+                        Grid.Column="0"
+                        HorizontalOptions="FillAndExpand"
+                        Text="test" />
+                    <!--  {Binding CurrentMessage}  -->
 
-                        <Label
-                            Grid.Column="0"
-                            HorizontalOptions="Start"
-                            HorizontalTextAlignment="Start"
-                            Text="None character selected" />
-                        <!--  Text="{Binding SelectedCharacter}"  -->
-                        <CollectionView
-                            Grid.Column="1"
-                            BackgroundColor="yellow"
-                            ItemsLayout="VerticalList">
-                            <!--  ItemsSource="{Binding CurrentStory.Characters}"  -->
-                            <CollectionView.ItemsSource>
-                                <x:Array Type="{x:Type x:String}">
-                                    <x:String>Item One</x:String>
-                                    <x:String>Item One</x:String>
-                                    <x:String>Item One</x:String>
-                                </x:Array>
-                            </CollectionView.ItemsSource>
 
-                            <CollectionView.ItemTemplate>
-
-                                <DataTemplate>
-                                    <Grid>
-
-                                        <Frame
-                                            Margin="2"
-                                            Padding="0"
-                                            BackgroundColor="green"
-                                            HasShadow="False">
-
-                                            <Label
-                                                FontAttributes="Bold"
-                                                FontSize="24"
-                                                HorizontalOptions="End"
-                                                LineBreakMode="NoWrap"
-                                                Text="{Binding .}"
-                                                TextColor="White"
-                                                VerticalOptions="Center" />
-                                            <!--  Text="{Binding Name}"  -->
-
-                                        </Frame>
-                                    </Grid>
-                                </DataTemplate>
-                            </CollectionView.ItemTemplate>
-                        </CollectionView>
-                    </Grid>
-
-                    <Grid
-                        Grid.Row="1"
-                        BackgroundColor="Red"
-                        ColumnDefinitions="*,50"
-                        RowDefinitions="50">
-                        <Entry Grid.Column="0" Text="test" />
-                        <!--  {Binding CurrentMessage}  -->
-                        <ImageButton
-                            Grid.Column="1"
-                            Padding="5"
-                            Source="add-solid.png" />
-                    </Grid>
+                    <ImageButton
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Padding="5"
+                        Source="add-solid.png" />
 
 
                 </Grid>
+
+
             </AbsoluteLayout>
-        </StackLayout>
+
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
