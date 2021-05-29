@@ -9,6 +9,7 @@ namespace StoryWriter.Models
         public bool IsPublic { get; set; }
         public string Title { get; set; }
         public string AdminId { get; set; }
+        public List<Character> Characters { get; set; }
         public List<DialogueLine> DialogueLines { get; set; }
     }
 }

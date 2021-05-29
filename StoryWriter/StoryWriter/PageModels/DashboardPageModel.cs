@@ -1,11 +1,20 @@
 ﻿using StoryWriter.PageModels.Base;
 using StoryWriter.PageModels.StoriesPage;
+using System;
 using System.Threading.Tasks;
 
 namespace StoryWriter.PageModels
 {
     public class DashboardPageModel : PageModelBase
     {
+        private bool _isVisible;
+
+        public bool IsVisible
+        {
+            get => _isVisible;
+            set => SetProperty(ref _isVisible, value);
+        }
+
         private StoriesPageModel _storiesPage;
 
         public StoriesPageModel StoriesPageModel
@@ -15,6 +24,7 @@ namespace StoryWriter.PageModels
         }
 
         private StoryWritingRoomPageModel _storyWritingPage;
+        private readonly INavigationService _navigationService;
 
         public StoryWritingRoomPageModel StoryWritingRoomPageModel
         {
@@ -30,13 +40,13 @@ namespace StoryWriter.PageModels
         //    set => SetProperty(ref _summaryPM, value);
         //}
 
-        //private ProfilePageModel _profilePM;
+        private ProfilePageModel _profilePM;
 
-        //public ProfilePageModel ProfilePageModel
-        //{
-        //    get => _profilePM;
-        //    set => SetProperty(ref _profilePM, value);
-        //}
+        public ProfilePageModel ProfilePageModel
+        {
+            get => _profilePM;
+            set => SetProperty(ref _profilePM, value);
+        }
 
         //private SettingsPageModel _settigsPM;
 
@@ -55,16 +65,28 @@ namespace StoryWriter.PageModels
         //}
 
         public DashboardPageModel(
-            //ProfilePageModel profilePM,
+            INavigationService navigationService,
+            ProfilePageModel profilePM,
             //SettingsPageModel settingsPM,
             StoriesPageModel storiesPM,
             StoryWritingRoomPageModel storyWritingPM
             )
         {
-            //ProfilePageModel = profilePM;
+            this._navigationService = navigationService;
+            ProfilePageModel = profilePM;
             //SettingsPageModel = settingsPM;
             StoriesPageModel = storiesPM;
             StoryWritingRoomPageModel = storyWritingPM;
+
+            navigationService.OnPageSwitched += OnPageSwitched;
+        }
+
+        private void OnPageSwitched(PageModelBase newPageModel)
+        {
+            if (newPageModel is StoryWritingRoomPageModel)
+                IsVisible = false;
+            else
+                IsVisible = true;
         }
 
         public override Task InitializeAsync(object navigationData)

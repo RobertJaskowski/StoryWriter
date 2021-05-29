@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace StoryWriter.PageModels.StoriesPage
 {
@@ -19,6 +21,29 @@ namespace StoryWriter.PageModels.StoriesPage
             set => SetProperty(ref _currentStory, value);
         }
 
+        private string _selectedCharacter;
+
+        public string SelectedCharacter
+        {
+            get => _selectedCharacter;
+            set => SetProperty(ref _selectedCharacter, value);
+        }
+
+        private string _currentMessage;
+
+        public string CurrentMessage
+        {
+            get => _currentMessage;
+            set => SetProperty(ref _currentMessage, value);
+        }
+
+        public ICommand SendMessage { get; }
+
+        public StoryWritingRoomPageModel()
+        {
+            SendMessage = new Command(OnMessageSent);
+        }
+
         public override Task InitializeAsync(object navigationData)
         {
             if (navigationData != null)
@@ -30,6 +55,10 @@ namespace StoryWriter.PageModels.StoriesPage
             }
 
             return base.InitializeAsync(navigationData);
+        }
+
+        private async void OnMessageSent(object obj)
+        {
         }
     }
 }

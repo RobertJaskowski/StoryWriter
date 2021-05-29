@@ -1,5 +1,4 @@
-﻿
-using StoryWriter.PageModels;
+﻿using StoryWriter.PageModels;
 using StoryWriter.Views;
 using System;
 using System.Threading.Tasks;
@@ -10,7 +9,6 @@ namespace StoryWriter
 {
     public partial class App : Application
     {
-
         public App()
         {
             InitializeComponent();
@@ -19,10 +17,10 @@ namespace StoryWriter
             //MainPage = new AppShell(); default
         }
 
-        Task InitNavigation()
+        private Task InitNavigation()
         {
             var navService = PageModelLocator.Resolve<INavigationService>();
-            return navService.NavigateToAsync<DashboardPageModel>();
+            return navService.NavigateToAsync<StartUpPagePageModel>();
         }
 
         protected override async void OnStart()

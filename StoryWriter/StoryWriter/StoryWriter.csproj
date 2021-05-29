@@ -5,21 +5,19 @@
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
   </PropertyGroup>
 
-	<ItemGroup>
-		<None Remove="add-solid.svg" />
-		<None Remove="Resources\Fonts\FABrands.otf" />
-		<None Remove="Resources\Fonts\FARegular.otf" />
-		<None Remove="Resources\Fonts\FASolid.otf" />
-		<None Remove="Resources\Images\ic_add_circle.png" />
-	</ItemGroup>
+  <ItemGroup>
+    <None Remove="add-solid.svg" />
+    <None Remove="Resources\Fonts\FABrands.otf" />
+    <None Remove="Resources\Fonts\FARegular.otf" />
+    <None Remove="Resources\Fonts\FASolid.otf" />
+    <None Remove="Resources\Images\ic_add_circle.png" />
+  </ItemGroup>
 
-	<ItemGroup>
-		<EmbeddedResource Include="Resources\Fonts\FABrands.otf" />
-		<EmbeddedResource Include="Resources\Fonts\FARegular.otf" />
-		<EmbeddedResource Include="Resources\Fonts\FASolid.otf" />
-	</ItemGroup>
-
-	
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\FABrands.otf" />
+    <EmbeddedResource Include="Resources\Fonts\FARegular.otf" />
+    <EmbeddedResource Include="Resources\Fonts\FASolid.otf" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MonkeyCache.FileStore" Version="1.5.2" />
@@ -29,8 +27,8 @@
     <PackageReference Include="Sharpnado.Tabs" Version="2.1.0" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.2" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />  
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
     <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
   </ItemGroup>
 
@@ -39,10 +37,13 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <SharedImage Include="Resources\Images\add-solid.svg" BaseSize="20,20" />
+    <SharedImage Include="Resources\Images\add-solid.svg" BaseSize="20,20" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Pages\StartUpPage.xaml.cs">
+      <DependentUpon>StartUpPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\StoriesPages\FavoritedStoriesPageView.xaml.cs">
       <DependentUpon>FavoritedStoriesPageView.xaml</DependentUpon>
     </Compile>
@@ -80,6 +81,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\LoginPhonePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\StartUpPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\ProfilePage.xaml">

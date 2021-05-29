@@ -9,48 +9,59 @@
 
             <Grid>
                 <RefreshView
-                    Margin="0,20,0,0"
+                    Margin="0,10,0,0"
                     Command="{Binding RefreshCommand}"
                     IsRefreshing="{Binding IsRefreshing}"
                     RefreshColor="{StaticResource Accent}">
                     <CollectionView
-                        Grid.Row="1"
-                        Margin="0,42,0,0"
+                        Margin="10"
                         ItemsLayout="VerticalList"
-                        ItemsSource="{Binding CurrentStory.DialogueLines}"
                         VerticalOptions="Start">
+                        <!--  ItemsSource="{Binding CurrentStory.DialogueLines}"  -->
+
+                        <CollectionView.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Tom</x:String>
+                                <x:String>Item 2</x:String>
+                                <x:String>Item 3</x:String>
+                            </x:Array>
+                        </CollectionView.ItemsSource>
 
                         <CollectionView.ItemTemplate>
 
                             <DataTemplate>
-                                <Grid Padding="12,6" HeightRequest="80">
+                                <Grid BackgroundColor="Red">
 
                                     <Frame
-                                        Margin="2"
                                         Padding="0"
                                         BackgroundColor="Orange"
                                         CornerRadius="2"
                                         HasShadow="False"
                                         IsClippedToBounds="True">
 
-                                        <Grid ColumnDefinitions=".55*,.45*">
+                                        <StackLayout Orientation="Vertical" Spacing="0">
                                             <Label
-                                                Margin="36,0"
+                                                Margin="2,4,0,0"
+                                                BackgroundColor="Green"
                                                 FontAttributes="Bold"
-                                                FontSize="24"
+                                                FontSize="20"
                                                 HorizontalOptions="Start"
+                                                IsVisible="{Binding IsNameVisible, FallbackValue=True}"
                                                 LineBreakMode="NoWrap"
-                                                Text="{Binding Character.Name}"
-                                                TextColor="White"
-                                                VerticalOptions="Center" />
+                                                Text="{Binding .}"
+                                                TextColor="Black" />
+                                            <!--  Character.Name  -->
 
                                             <Label
-                                                Grid.Column="1"
+                                                Margin="8,0,0,0"
+                                                BackgroundColor="Green"
                                                 FontSize="16"
                                                 HorizontalOptions="StartAndExpand"
                                                 LineBreakMode="WordWrap"
-                                                Text="{Binding Line}" />
-                                        </Grid>
+                                                Text="{Binding .}"
+                                                TextColor="Black" />
+                                            <!--  Text="{Binding Line}"  -->
+                                        </StackLayout>
                                     </Frame>
                                 </Grid>
                             </DataTemplate>
@@ -58,6 +69,71 @@
                     </CollectionView>
                 </RefreshView>
             </Grid>
+
+            <AbsoluteLayout
+                BackgroundColor="Orange"
+                HeightRequest="110"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="End">
+
+                <StackLayout BackgroundColor="pink" Orientation="Vertical">
+                    <StackLayout BackgroundColor="Aqua" Orientation="Horizontal">
+
+                        <Label
+                            HorizontalOptions="Start"
+                            HorizontalTextAlignment="Start"
+                            Text="None character selected"
+                            VerticalTextAlignment="End" />
+                        <!--  Text="{Binding SelectedCharacter}"  -->
+                        <CollectionView BackgroundColor="yellow" ItemsLayout="VerticalList">
+                            <!--  ItemsSource="{Binding CurrentStory.Characters}"  -->
+                            <CollectionView.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Item One</x:String>
+                                    <x:String>Item One</x:String>
+                                    <x:String>Item One</x:String>
+                                </x:Array>
+                            </CollectionView.ItemsSource>
+
+                            <CollectionView.ItemTemplate>
+
+                                <DataTemplate>
+                                    <Grid>
+
+                                        <Frame
+                                            Margin="2"
+                                            Padding="0"
+                                            BackgroundColor="green"
+                                            HasShadow="False">
+
+                                            <Grid>
+                                                <Label
+                                                    FontAttributes="Bold"
+                                                    FontSize="24"
+                                                    HorizontalOptions="Start"
+                                                    LineBreakMode="NoWrap"
+                                                    Text="{Binding .}"
+                                                    TextColor="White"
+                                                    VerticalOptions="Center" />
+                                                <!--  Text="{Binding Name}"  -->
+
+                                            </Grid>
+                                        </Frame>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+
+                    <StackLayout BackgroundColor="red" Orientation="Horizontal">
+                        <Entry Text="test" />
+                        <!--  {Binding CurrentMessage}  -->
+                        <ImageButton Source="add-solid.png" />
+                    </StackLayout>
+
+
+                </StackLayout>
+            </AbsoluteLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

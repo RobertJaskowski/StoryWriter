@@ -25,6 +25,8 @@ namespace StoryWriter
 
             // Register Page and Page Models
 
+            Register<StartUpPagePageModel, StartUpPage>();
+
             Register<StoriesPageModel, StoriesPage>();
             Register<CreateStoryPageModel, CreateStoryPage>();
             Register<StoryWritingRoomPageModel, StoryWritingRoomPage>();
@@ -96,6 +98,16 @@ namespace StoryWriter
             var pageType = _lookupTable[pageModelType];
             var page = (Page)Activator.CreateInstance(pageType);
             var pageModel = Resolve<TPageModelType>();
+            page.BindingContext = pageModel;
+            return page;
+        }
+
+        public static Page CreatePageFor<TPageModelType>(out PageModelBase pageModel) where TPageModelType : PageModelBase
+        {
+            Type pageModelType = typeof(TPageModelType);
+            var pageType = _lookupTable[pageModelType];
+            var page = (Page)Activator.CreateInstance(pageType);
+            pageModel = Resolve<TPageModelType>();
             page.BindingContext = pageModel;
             return page;
         }

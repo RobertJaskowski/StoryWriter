@@ -1,4 +1,5 @@
 ﻿using StoryWriter.PageModels.Base;
+using System;
 using System.Threading.Tasks;
 
 namespace StoryWriter
@@ -20,5 +21,7 @@ namespace StoryWriter
         /// </summary>
         /// <returns></returns>
         Task GoBackAsync();
+
+        Action<PageModelBase> OnPageSwitched { get; set; }
     }
 }

@@ -4,9 +4,12 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:base="clr-namespace:StoryWriter.Pages.Base"
     xmlns:pages="clr-namespace:StoryWriter.Pages"
     xmlns:pages1="clr-namespace:StoryWriter.Pages.StoriesPages"
-    android:TabbedPage.ToolbarPlacement="Bottom">
+    android:TabbedPage.ToolbarPlacement="Bottom"
+    NavigationPage.HasNavigationBar="False">
+
     <TabbedPage.Children>
         <NavigationPage Title="Stories" IconImageSource="add-solid.png">
             <x:Arguments>
@@ -15,10 +18,10 @@
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="Stories" IconImageSource="add-solid.png">
+        <NavigationPage Title="Profile" IconImageSource="add-solid.png">
             <x:Arguments>
 
-                <pages1:StoryWritingRoomPage BindingContext="{Binding StoryWritingRoomPageModel}" />
+                <pages:ProfilePage BindingContext="{Binding ProfilePageModel}" />
             </x:Arguments>
         </NavigationPage>
 
