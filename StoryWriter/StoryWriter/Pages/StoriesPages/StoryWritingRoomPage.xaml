@@ -72,20 +72,26 @@
 
             <AbsoluteLayout
                 BackgroundColor="Orange"
-                HeightRequest="110"
                 HorizontalOptions="FillAndExpand"
-                VerticalOptions="End">
+                VerticalOptions="EndAndExpand">
 
-                <StackLayout BackgroundColor="pink" Orientation="Vertical">
-                    <StackLayout BackgroundColor="Aqua" Orientation="Horizontal">
+                <Grid BackgroundColor="pink" RowDefinitions="*,50">
+                    <Grid
+                        Grid.Row="0"
+                        BackgroundColor="Aqua"
+                        ColumnDefinitions="*,*"
+                        RowDefinitions="*">
 
                         <Label
+                            Grid.Column="0"
                             HorizontalOptions="Start"
                             HorizontalTextAlignment="Start"
-                            Text="None character selected"
-                            VerticalTextAlignment="End" />
+                            Text="None character selected" />
                         <!--  Text="{Binding SelectedCharacter}"  -->
-                        <CollectionView BackgroundColor="yellow" ItemsLayout="VerticalList">
+                        <CollectionView
+                            Grid.Column="1"
+                            BackgroundColor="yellow"
+                            ItemsLayout="VerticalList">
                             <!--  ItemsSource="{Binding CurrentStory.Characters}"  -->
                             <CollectionView.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
@@ -106,33 +112,38 @@
                                             BackgroundColor="green"
                                             HasShadow="False">
 
-                                            <Grid>
-                                                <Label
-                                                    FontAttributes="Bold"
-                                                    FontSize="24"
-                                                    HorizontalOptions="Start"
-                                                    LineBreakMode="NoWrap"
-                                                    Text="{Binding .}"
-                                                    TextColor="White"
-                                                    VerticalOptions="Center" />
-                                                <!--  Text="{Binding Name}"  -->
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="24"
+                                                HorizontalOptions="End"
+                                                LineBreakMode="NoWrap"
+                                                Text="{Binding .}"
+                                                TextColor="White"
+                                                VerticalOptions="Center" />
+                                            <!--  Text="{Binding Name}"  -->
 
-                                            </Grid>
                                         </Frame>
                                     </Grid>
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
                         </CollectionView>
-                    </StackLayout>
+                    </Grid>
 
-                    <StackLayout BackgroundColor="red" Orientation="Horizontal">
-                        <Entry Text="test" />
+                    <Grid
+                        Grid.Row="1"
+                        BackgroundColor="Red"
+                        ColumnDefinitions="*,50"
+                        RowDefinitions="50">
+                        <Entry Grid.Column="0" Text="test" />
                         <!--  {Binding CurrentMessage}  -->
-                        <ImageButton Source="add-solid.png" />
-                    </StackLayout>
+                        <ImageButton
+                            Grid.Column="1"
+                            Padding="5"
+                            Source="add-solid.png" />
+                    </Grid>
 
 
-                </StackLayout>
+                </Grid>
             </AbsoluteLayout>
         </StackLayout>
     </ContentPage.Content>
