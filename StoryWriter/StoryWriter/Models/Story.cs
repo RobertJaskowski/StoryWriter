@@ -1,9 +1,11 @@
 ﻿using StoryWriter.Services;
+using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace StoryWriter.Models
 {
+    [Serializable]
     public class Story : IIdentifiable
     {
         public string Id { get; set; }

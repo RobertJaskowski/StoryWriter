@@ -76,7 +76,7 @@ namespace StoryWriter.Droid.Services
             FirebaseFirestore.Instance
                 .Collection(CollectionPath)
                 .Document(item.Id)
-                .Update(ConvertToDictionary(item))
+                .Set(ConvertToHashMap(item))
                 .AddOnCompleteListener(new OnDocumentUpdateCompleteListener(tcs));
 
             return tcs.Task;
@@ -93,6 +93,8 @@ namespace StoryWriter.Droid.Services
         public static Dictionary<string, Java.Lang.Object> ConvertToDictionary(T item)
         {
             var dict = new Dictionary<string, Java.Lang.Object>();
+
+            //dict.Add("Id", new Java.Lang.String(str);)
 
             var jsonStr = Newtonsoft.Json.JsonConvert.SerializeObject(item);
             var propertyDict = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonStr);
@@ -113,14 +115,17 @@ namespace StoryWriter.Droid.Services
                     javaVal = dt.ToString();
                 else if (val is bool boolVal)
                     javaVal = new Java.Lang.Boolean(boolVal);
-                else if (vall is ArrayList arrayVal)
-                    javaVal = new ArrayList((int)arrayVal);
 
                 if (javaVal != null)
                     dict.Add(key, javaVal);
             }
 
             return dict;
+        }
+
+        public static HashMap ConvertToHashMap(T item)
+        {
+            return new HashMap(ConvertToDictionary(item));
         }
     }
 }

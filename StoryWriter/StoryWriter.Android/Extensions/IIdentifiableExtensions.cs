@@ -31,6 +31,8 @@ namespace StoryWriter.Droid.Extensions
                 else if (val is bool boolVal)
                     javaVal = new Java.Lang.Boolean(boolVal);
 
+                //else if (key == "Characters")
+                //    javaVal = new ArrayList((System.Collections.ICollection)val);
                 if (javaVal != null)
                     dict.Add(key, javaVal);
             }
