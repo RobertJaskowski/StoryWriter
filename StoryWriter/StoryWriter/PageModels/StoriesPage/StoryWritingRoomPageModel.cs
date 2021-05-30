@@ -1,6 +1,7 @@
 ﻿using StoryWriter.Models;
 using StoryWriter.PageModels.Base;
 using StoryWriter.Services;
+using StoryWriter.Services.Stories;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -21,15 +22,26 @@ namespace StoryWriter.PageModels.StoriesPage
             set => SetProperty(ref _currentStory, value);
         }
 
-        private string _selectedCharacter;
+        private Character _selectedCharacter;
 
-        public string SelectedCharacter
+        public Character SelectedCharacter
         {
             get => _selectedCharacter;
             set => SetProperty(ref _selectedCharacter, value);
         }
 
+        private bool _isWritingEnabled;
+
+        public bool IsWritingEnabled
+        {
+            get => _isWritingEnabled;
+            set => SetProperty(ref _isWritingEnabled, value);
+        }
+
         private string _currentMessage;
+        private readonly INavigationService navigationService;
+        private readonly IStoriesService storiesService;
+        private readonly IAccountService accountService;
 
         public string CurrentMessage
         {
@@ -37,11 +49,31 @@ namespace StoryWriter.PageModels.StoriesPage
             set => SetProperty(ref _currentMessage, value);
         }
 
-        public ICommand SendMessage { get; }
+        private bool IsCharacterSelected => SelectedCharacter != null;
 
-        public StoryWritingRoomPageModel()
+        public ICommand SendMessage { get; }
+        public ICommand EditStoryCommand { get; }
+        public ICommand CharacterTappedCommand { get; }
+
+        public StoryWritingRoomPageModel(INavigationService navigationService, IStoriesService storiesService, IAccountService accountService)
         {
             SendMessage = new Command(OnMessageSent);
+            EditStoryCommand = new Command(OnEditStory);
+            CharacterTappedCommand = new Command(OnCharacterTap);
+            this.navigationService = navigationService;
+            this.storiesService = storiesService;
+            this.accountService = accountService;
+        }
+
+        private void OnCharacterTap(object obj)
+        {
+            if (obj is Character)
+                SelectedCharacter = (Character)obj;
+        }
+
+        private async void OnEditStory(object obj)
+        {
+            await navigationService.NavigateToAsync<EditStoryPageModel>(CurrentStory);
         }
 
         public override Task InitializeAsync(object navigationData)
@@ -51,6 +83,7 @@ namespace StoryWriter.PageModels.StoriesPage
                 if (navigationData is Story story)
                 {
                     CurrentStory = story;
+                    IsWritingEnabled = true;
                 }
             }
 
@@ -59,6 +92,27 @@ namespace StoryWriter.PageModels.StoriesPage
 
         private async void OnMessageSent(object obj)
         {
+            if (string.IsNullOrEmpty(CurrentMessage)) return;
+            if (!IsCharacterSelected) return;
+
+            IsWritingEnabled = false;
+
+            var newDialogueLines = CurrentStory.DialogueLines;
+            newDialogueLines.Add(new DialogueLine()
+            {
+                Character = SelectedCharacter,
+                AuthorUser = await accountService.GetUserAsync(),
+                Line = CurrentMessage
+            });
+
+            CurrentStory.DialogueLines = newDialogueLines;
+
+            var res = await storiesService.UpdateStory(CurrentStory);
+
+            if (res)
+                CurrentMessage = "";
+
+            IsWritingEnabled = true;
         }
     }
 }

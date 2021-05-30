@@ -1,11 +1,13 @@
 ﻿using Android.App;
 using Android.Widget;
 using StoryWriter.Droid;
+using StoryWriter.Services;
 
 [assembly: Xamarin.Forms.Dependency(typeof(MessageAndroid))]
+
 namespace StoryWriter.Droid
 {
-    public class MessageAndroid : IMessage
+    public class MessageAndroid : IMessageService
     {
         public void LongAlert(string message)
         {

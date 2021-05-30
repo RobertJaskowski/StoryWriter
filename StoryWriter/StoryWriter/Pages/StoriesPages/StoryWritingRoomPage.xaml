@@ -3,9 +3,16 @@
     x:Class="StoryWriter.Pages.StoriesPages.StoryWritingRoomPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="CurrentPage"
     Title="{Binding CurrentStory.Title}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding EditStoryCommand}" Text="Edit story" />
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
-        <Grid>
+
+        <RelativeLayout>
 
             <Grid>
                 <RefreshView
@@ -30,39 +37,27 @@
                         <CollectionView.ItemTemplate>
 
                             <DataTemplate>
-                                <Grid BackgroundColor="Red">
+                                <Grid>
 
-                                    <Frame
-                                        Padding="0"
-                                        BackgroundColor="Orange"
-                                        CornerRadius="2"
-                                        HasShadow="False"
-                                        IsClippedToBounds="True">
+                                    <StackLayout Orientation="Vertical" Spacing="0">
+                                        <Label
+                                            Margin="2,4,0,0"
+                                            FontAttributes="Bold"
+                                            FontSize="20"
+                                            HorizontalOptions="Start"
+                                            IsVisible="{Binding IsNameVisible, FallbackValue=True}"
+                                            LineBreakMode="NoWrap"
+                                            Text="{Binding Character.Name}"
+                                            TextColor="Black" />
 
-                                        <StackLayout Orientation="Vertical" Spacing="0">
-                                            <Label
-                                                Margin="2,4,0,0"
-                                                BackgroundColor="Green"
-                                                FontAttributes="Bold"
-                                                FontSize="20"
-                                                HorizontalOptions="Start"
-                                                IsVisible="{Binding IsNameVisible, FallbackValue=True}"
-                                                LineBreakMode="NoWrap"
-                                                Text="{Binding .}"
-                                                TextColor="Black" />
-                                            <!--  Character.Name  -->
-
-                                            <Label
-                                                Margin="8,0,0,0"
-                                                BackgroundColor="Green"
-                                                FontSize="16"
-                                                HorizontalOptions="StartAndExpand"
-                                                LineBreakMode="WordWrap"
-                                                Text="{Binding .}"
-                                                TextColor="Black" />
-                                            <!--  Text="{Binding Line}"  -->
-                                        </StackLayout>
-                                    </Frame>
+                                        <Label
+                                            Margin="8,0,0,0"
+                                            FontSize="16"
+                                            HorizontalOptions="StartAndExpand"
+                                            LineBreakMode="WordWrap"
+                                            Text="{Binding Line}"
+                                            TextColor="Black" />
+                                    </StackLayout>
                                 </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
@@ -70,113 +65,104 @@
                 </RefreshView>
             </Grid>
 
-            <!--<AbsoluteLayout
-                Padding="10"
-                BackgroundColor="Gold"
-                HorizontalOptions="Start">
-                <Label
-                    AbsoluteLayout.LayoutBounds="1,1,150,10"
-                    AbsoluteLayout.LayoutFlags="PositionProportional"
-                    BackgroundColor="BlanchedAlmond"
-                    Text="None character selected" />
+            <Grid
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=.1}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=.6}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=.87}">
+                <Label Text="{Binding SelectedCharacter.Name}" />
+            </Grid>
 
-            -->
-            <!--  Text="{Binding SelectedCharacter}"  -->
-            <!--
-            </AbsoluteLayout>-->
-
-
-            <AbsoluteLayout
-                BackgroundColor="LightBlue"
-                HeightRequest="150"
-                HorizontalOptions="End"
-                VerticalOptions="End"
-                WidthRequest="100">
-
+            <Grid
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=.4}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=.4}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=.6}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=.5}">
 
                 <CollectionView
-                    AbsoluteLayout.LayoutBounds="0,0,1,1"
-                    AbsoluteLayout.LayoutFlags="All"
-                    BackgroundColor="Yellow"
+                    BackgroundColor="Transparent"
                     ItemsLayout="VerticalList"
+                    ItemsSource="{Binding CurrentStory.Characters}"
                     VerticalOptions="StartAndExpand">
+
+                    <CollectionView.GestureRecognizers>
+
+                        <TapGestureRecognizer Command="{Binding Source={x:Reference CurrentPage}, Path=BindingContext.CharacterTappedCommand}" CommandParameter="{Binding .}" />
+                    </CollectionView.GestureRecognizers>
                     <!--  ItemsSource="{Binding CurrentStory.Characters}"  -->
 
-
-                    <CollectionView.ItemsSource>
+                    <!--<CollectionView.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Item One</x:String>
                             <x:String>Item One</x:String>
                             <x:String>Item One</x:String>
                         </x:Array>
-                    </CollectionView.ItemsSource>
+                    </CollectionView.ItemsSource>-->
 
                     <CollectionView.ItemTemplate>
 
                         <DataTemplate>
-                            <Grid>
+                            <Grid BackgroundColor="Transparent">
 
                                 <Frame
                                     Margin="2"
                                     Padding="0"
-                                    BackgroundColor="green"
+                                    BackgroundColor="Transparent"
                                     HasShadow="False"
                                     HorizontalOptions="FillAndExpand">
 
                                     <Label
-                                        FontAttributes="Bold"
+                                        BackgroundColor="Transparent"
                                         FontSize="24"
                                         HorizontalTextAlignment="End"
                                         LineBreakMode="NoWrap"
-                                        Text="{Binding .}"
-                                        TextColor="White"
+                                        Text="{Binding Name}"
+                                        TextColor="Black"
                                         VerticalOptions="Center" />
-                                    <!--  Text="{Binding Name}"  -->
-
                                 </Frame>
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
+            </Grid>
+            <Grid
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=.1}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=1}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=.9}">
 
-            </AbsoluteLayout>
+                <Entry
+                    HorizontalOptions="FillAndExpand"
+                    Placeholder="Type..."
+                    Text="{Binding CurrentMessage}" />
+                <!--  {Binding CurrentMessage}  -->
 
-
-            <AbsoluteLayout
-                BackgroundColor="Orange"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="EndAndExpand">
-
-
-                <Grid
-                    AbsoluteLayout.LayoutBounds="0,1,1,1"
-                    AbsoluteLayout.LayoutFlags="All"
-                    BackgroundColor="pink"
-                    ColumnDefinitions="*,50"
-                    RowDefinitions="50">
-
-
-                    <Entry
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        HorizontalOptions="FillAndExpand"
-                        Text="test" />
-                    <!--  {Binding CurrentMessage}  -->
-
-
-                    <ImageButton
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        Padding="5"
-                        Source="add-solid.png" />
-
-
-                </Grid>
-
-
-            </AbsoluteLayout>
-
-
-        </Grid>
+                <ImageButton
+                    Padding="5"
+                    HeightRequest="50"
+                    HorizontalOptions="End"
+                    IsEnabled="{Binding IsWritingEnabled}"
+                    Source="add-solid.png"
+                    WidthRequest="50" />
+            </Grid>
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -19,6 +19,8 @@ namespace StoryWriter.Droid.Services
         private TaskCompletionSource<bool> _phoneAuthTcs;
         private string _verificationId;
 
+        private AuthenticatedUser CachedUser;
+
         public AccountService()
         {
             LoginAnonymous();//todo
@@ -96,11 +98,21 @@ namespace StoryWriter.Droid.Services
         {
             var tcs = new TaskCompletionSource<AuthenticatedUser>();
 
+            if (CachedUser != null)
+            {
+                tcs.TrySetResult(CachedUser);
+                return tcs.Task;
+            }
+
             FirebaseFirestore.Instance
                 .Collection("users")
                 .Document(FirebaseAuth.Instance.CurrentUser.Uid)
                 .Get()
-                .AddOnCompleteListener(new OnAuthenticatedUserCompleteListener(tcs));
+                .AddOnCompleteListener(new OnAuthenticatedUserCompleteListener(tcs))
+                ;
+
+            if (tcs.Task.Result.Id != null)
+                CachedUser = tcs.Task.Result;
 
             return tcs.Task;
         }

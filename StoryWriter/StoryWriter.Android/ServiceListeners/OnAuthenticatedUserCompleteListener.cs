@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Android.Gms.Tasks;
 using Firebase.Firestore;
+using StoryWriter.Droid.Services;
 using StoryWriter.Models;
 
 namespace StoryWriter.Droid.ServiceListeners
@@ -25,10 +26,18 @@ namespace StoryWriter.Droid.ServiceListeners
                 {
                     var user = new AuthenticatedUser();
                     user.Id = doc.Id;
+
+                    user.UserId = doc.GetString("UserId");
                     user.Nickname = doc.GetString("Nickname");
                     _tcs.TrySetResult(user);
+
+
+                    if (user.Id !=null)
+                        AccountService.CachedUser = user;
+
                     return;
                 }
+
             }
             // something went wrong
             _tcs.TrySetResult(default(AuthenticatedUser));

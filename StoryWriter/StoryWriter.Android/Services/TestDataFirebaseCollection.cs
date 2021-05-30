@@ -8,7 +8,7 @@ namespace StoryWriter.Droid.Services
 {
     public class TestDataFirebaseCollection : BaseFirebaseCollection<MyTestData>
     {
-        protected override string DocumentPath =>
+        protected override string CollectionPath =>
             "mytestData/"
             + Firebase.Auth.FirebaseAuth.Instance.CurrentUser.Uid
             + "/mytest";

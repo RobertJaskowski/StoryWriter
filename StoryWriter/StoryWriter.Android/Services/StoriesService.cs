@@ -98,5 +98,15 @@ namespace StoryWriter.Droid.Services
 
             return tcs.Task.Result;
         }
+
+        public async Task<bool> UpdateStory(Story story)
+        {
+            var tcs = new TaskCompletionSource<bool>();
+
+            bool r = await _roomFC.Update(story);
+
+            tcs.TrySetResult(r);
+            return tcs.Task.Result;
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using StoryWriter.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace StoryWriter.Services.Stories

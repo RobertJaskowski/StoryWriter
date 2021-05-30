@@ -13,14 +13,14 @@ namespace StoryWriter.Droid.Services
         {
         }
 
-        protected abstract string DocumentPath { get; }
+        protected abstract string CollectionPath { get; }
 
         public Task<bool> Delete(T item)
         {
             var tcs = new TaskCompletionSource<bool>();
 
             FirebaseFirestore.Instance
-                .Collection(DocumentPath)
+                .Collection(CollectionPath)
                 .Document(item.Id)
                 .Delete()
                 .AddOnCompleteListener(new OnDeleteCompleteListener(tcs));
@@ -33,7 +33,7 @@ namespace StoryWriter.Droid.Services
             var tcs = new TaskCompletionSource<T>();
 
             FirebaseFirestore.Instance
-                .Collection(DocumentPath)
+                .Collection(CollectionPath)
                 .Document(id)
                 .Get()
                 .AddOnCompleteListener(new OnDocumentCompleteListener<T>(tcs));
@@ -46,7 +46,7 @@ namespace StoryWriter.Droid.Services
             var tcs = new TaskCompletionSource<IList<T>>();
 
             FirebaseFirestore.Instance
-                .Collection(DocumentPath)
+                .Collection(CollectionPath)
                 .Get()
                 .AddOnCompleteListener(new OnCollectionCompleteListener<T>(tcs));
 
@@ -58,9 +58,22 @@ namespace StoryWriter.Droid.Services
             var tcs = new TaskCompletionSource<string>();
 
             FirebaseFirestore.Instance
-                .Collection(DocumentPath)
+                .Collection(CollectionPath)
                 .Add(item.ConvertToHashMap())
                 .AddOnCompleteListener(new OnCreateCompleteListener(tcs));
+
+            return tcs.Task;
+        }
+
+        public Task<bool> Update(T item)
+        {
+            var tcs = new TaskCompletionSource<bool>();
+
+            FirebaseFirestore.Instance
+                .Collection(CollectionPath)
+                .Document(item.Id)
+                .Update(item.ConvertToDictionary())
+                .AddOnCompleteListener(new OnDocumentUpdateCompleteListener(tcs));
 
             return tcs.Task;
         }

@@ -14,7 +14,7 @@ namespace StoryWriter.Droid.Services
 {
     public class StoryRoomFirebaseCollection<T> : BaseFirebaseCollection<T>, IStoryRoomFC<T> where T : IIdentifiable
     {
-        protected override string DocumentPath =>
+        protected override string CollectionPath =>
             "stories/";
 
         public Task<IList<T>> GetAllPublic()
@@ -22,7 +22,7 @@ namespace StoryWriter.Droid.Services
             var tcs = new TaskCompletionSource<IList<T>>();
 
             FirebaseFirestore.Instance
-                .Collection(DocumentPath)
+                .Collection(CollectionPath)
                 .WhereEqualTo("IsPublic", true)
                 .Get()
                 .AddOnCompleteListener(new OnCollectionCompleteListener<T>(tcs));

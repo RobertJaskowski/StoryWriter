@@ -30,6 +30,7 @@ namespace StoryWriter
             Register<StoriesPageModel, StoriesPage>();
             Register<CreateStoryPageModel, CreateStoryPage>();
             Register<StoryWritingRoomPageModel, StoryWritingRoomPage>();
+            Register<EditStoryPageModel, EditStoryPage>();
 
             Register<DashboardPageModel, DashboardPage>();
             Register<LoginPageModel, LoginPage>();
@@ -46,6 +47,7 @@ namespace StoryWriter
 
             _container.Register<IAccountService>(DependencyService.Get<IAccountService>());
             _container.Register<IStoriesService>(DependencyService.Get<IStoriesService>());
+            _container.Register<IMessageService>(DependencyService.Get<IMessageService>());
 
             _container.Register(DependencyService.Get<IStoryRoomFC<Story>>());
             _container.Register(DependencyService.Get<IFavoritedRoomFC<FavoritedRoom>>());

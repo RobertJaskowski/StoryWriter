@@ -16,6 +16,6 @@ namespace StoryWriter.Droid.Services
 {
     public class StoryWritingRoomDialogueLinesFC<T> : BaseFirebaseCollection<T>, IStoryWritingRoomDialogueLinesFC<T> where T : IIdentifiable
     {
-        protected override string DocumentPath => "stories/";//todo
+        protected override string CollectionPath => "stories/";//todo
     }
 }

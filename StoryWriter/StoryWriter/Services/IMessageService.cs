@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace StoryWriter
+namespace StoryWriter.Services
 {
-    public interface IMessage
+    public interface IMessageService
     {
         void LongAlert(string message);
         void ShortAlert(string message);

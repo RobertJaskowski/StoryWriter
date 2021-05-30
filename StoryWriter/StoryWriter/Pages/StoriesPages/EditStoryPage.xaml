@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="StoryWriter.Pages.StoriesPages.EditStoryPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    x:Name="CurrentPage">
+    <ContentPage.Content>
+        <StackLayout
+            Margin="0"
+            Padding="0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+
+            <Label
+                FontAttributes="Bold"
+                FontSize="25"
+                Text="{Binding IsAdminFeedback}"
+                TextColor="Red" />
+
+            <Line BackgroundColor="Black" HeightRequest="1" />
+
+            <Entry
+                HorizontalOptions="FillAndExpand"
+                IsEnabled="{Binding IsAdmin}"
+                Placeholder="Story name"
+                Text="{Binding NewStory.Title, FallbackValue=''}">
+                <Entry.Behaviors>
+                    <xct:MultiValidationBehavior
+                        Errors="{Binding StoryNameErrors}"
+                        Flags="ValidateOnValueChanging"
+                        IsValid="{Binding IsStoryNameValid}">
+                        <xct:TextValidationBehavior xct:MultiValidationBehavior.Error="Min lenght of name is 3" MinimumLength="3" />
+                        <xct:TextValidationBehavior xct:MultiValidationBehavior.Error="Max lenght of name is 15" MaximumLength="15" />
+                    </xct:MultiValidationBehavior>
+                </Entry.Behaviors>
+
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Valid">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="Green" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Invalid">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="IndianRed" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Entry>
+
+            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                <Label Text="Is story public" />
+                <Switch IsEnabled="{Binding IsAdmin}" IsToggled="{Binding NewStory.IsPublic}" />
+            </StackLayout>
+
+            <Line BackgroundColor="Black" HeightRequest="1" />
+
+            <Label
+                FontAttributes="Bold"
+                FontSize="30"
+                Text="Characters"
+                TextColor="Black" />
+            <Label
+                FontAttributes="Italic"
+                FontSize="17"
+                Text="Swipe to remove characters"
+                TextColor="Gray" />
+
+            <Entry
+                HorizontalOptions="FillAndExpand"
+                Placeholder="New Character Entry"
+                Text="{Binding NewCharacterEntry}">
+                <Entry.Behaviors>
+                    <xct:MultiValidationBehavior Flags="ValidateOnValueChanging">
+                        <xct:TextValidationBehavior xct:MultiValidationBehavior.Error="Min lenght of name is 3" MinimumLength="3" />
+                        <xct:TextValidationBehavior xct:MultiValidationBehavior.Error="Max lenght of name is 15" MaximumLength="15" />
+                    </xct:MultiValidationBehavior>
+                </Entry.Behaviors>
+
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Valid">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="Green" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Invalid">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="IndianRed" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Entry>
+
+            <Button
+                Command="{Binding AddCharacterCommand}"
+                ImageSource="add-solid.png"
+                Text="Add character" />
+            <CollectionView
+                BackgroundColor="Transparent"
+                ItemsLayout="VerticalList"
+                ItemsSource="{Binding NewStory.Characters}"
+                VerticalOptions="StartAndExpand">
+
+                <!--  ItemsSource="{Binding CurrentStory.Characters}"  -->
+
+                <!--<CollectionView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Item One</x:String>
+                            <x:String>Item One</x:String>
+                            <x:String>Item One</x:String>
+                        </x:Array>
+                    </CollectionView.ItemsSource>-->
+
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate>
+                        <Grid BackgroundColor="Transparent">
+
+                            <Frame
+                                Margin="2"
+                                Padding="0"
+                                BackgroundColor="LightBlue"
+                                HasShadow="True"
+                                HorizontalOptions="FillAndExpand">
+
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:Reference CurrentPage}, Path=BindingContext.CharacterTappedCommand}" CommandParameter="{Binding .}" />
+                                    <SwipeGestureRecognizer Command="{Binding Source={x:Reference CurrentPage}, Path=BindingContext.CharacterRemoveCommand}" CommandParameter="{Binding .}" />
+                                </Frame.GestureRecognizers>
+                                <Label
+                                    BackgroundColor="Transparent"
+                                    FontSize="24"
+                                    HorizontalTextAlignment="End"
+                                    LineBreakMode="NoWrap"
+                                    Text="{Binding Name}"
+                                    TextColor="Black"
+                                    VerticalOptions="Center" />
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button
+                Command="{Binding AcceptChangesCommand}"
+                HorizontalOptions="FillAndExpand"
+                IsEnabled="{Binding IsFree}"
+                Text="{Binding UpdatingFeedback}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

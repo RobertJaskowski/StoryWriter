@@ -117,7 +117,7 @@
     <Compile Include="Extensions\IIdentifiableExtensions.cs" />
     <Compile Include="Extensions\JavaLangExtensions.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="MessageAndroid.cs" />
+    <Compile Include="Services\MessageAndroid.cs" />
     <Compile Include="Renderers\HoursProgressViewRenderer.cs" />
     <Compile Include="Renderers\PlainEntryRenderer.cs" />
     <Compile Include="Renderers\TabbedRenderer.cs" />
@@ -128,6 +128,7 @@
     <Compile Include="ServiceListeners\OnCreateCompleteListener.cs" />
     <Compile Include="ServiceListeners\OnDeleteCompleteListener.cs" />
     <Compile Include="ServiceListeners\OnDocumentCompleteListener.cs" />
+    <Compile Include="ServiceListeners\OnDocumentUpdateCompleteListener.cs" />
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\BaseFirebaseCollection.cs" />
     <Compile Include="Services\FavoritedRoomFirebaseCollection.cs" />

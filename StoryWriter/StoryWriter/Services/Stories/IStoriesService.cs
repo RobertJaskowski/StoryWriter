@@ -8,6 +8,8 @@ namespace StoryWriter.Services.Stories
     {
         Task<bool> CreateStory(string storyName, bool isStoryPublic);
 
+        Task<bool> UpdateStory(Story story);
+
         Task<IList<Story>> GetAllPublic();
 
         Task<IList<Story>> GetAllFavorited();
