@@ -113,9 +113,14 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\Array.cs" />
     <Compile Include="Extensions\DocumentReferenceExtensions.cs" />
     <Compile Include="Extensions\IIdentifiableExtensions.cs" />
+    <Compile Include="Extensions\JavaAuthenticatedUser.cs" />
+    <Compile Include="Extensions\JavaCharacter.cs" />
+    <Compile Include="Extensions\JavaDialogueLine.cs" />
     <Compile Include="Extensions\JavaLangExtensions.cs" />
+    <Compile Include="Extensions\JavaStory.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Services\MessageAndroid.cs" />
     <Compile Include="Renderers\HoursProgressViewRenderer.cs" />
@@ -135,7 +140,6 @@
     <Compile Include="Services\MyTestDataFirebaseCollection.cs" />
     <Compile Include="Services\StoryRoomFirebaseCollection.cs" />
     <Compile Include="Services\StoriesService.cs" />
-    <Compile Include="Services\StoryWritingRoomDialogueLinesFC.cs" />
     <Compile Include="Services\TestDataFirebaseCollection.cs" />
   </ItemGroup>
   <ItemGroup>

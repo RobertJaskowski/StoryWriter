@@ -75,7 +75,8 @@ namespace StoryWriter.PageModels
         //        else
         //        {
         //            // Something went wrong
-        //            // TODO: Alert via Dialog Service.
+        //                            messageService.LongAlert("Login failed");
+
         //        }
         //    }
         //    else

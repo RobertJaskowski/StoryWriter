@@ -5,8 +5,6 @@ using StoryWriter.Services;
 
 namespace StoryWriter.Droid.Extensions
 {
-
-
     public static class IIdentifiableExtensions
     {
         public static Dictionary<string, Java.Lang.Object> ConvertToDictionary(this IIdentifiable item)

@@ -31,15 +31,17 @@ namespace StoryWriter.Droid.Services
             tcs.SetResult(true);
         }
 
-        public async Task<bool> CreateStory(string storyName, bool isStoryPublic)
+        public async Task<bool> CreateStory(string storyName, bool isStoryPublic, AuthenticatedUser user)
         {
             string stringID = "";
 
             var tcs = new TaskCompletionSource<bool>();
+
             await _roomFC.Save(new Story()
             {
                 Title = storyName,
-                IsPublic = isStoryPublic
+                IsPublic = isStoryPublic,
+                AdminId = user.Id
             })
                 .ContinueWith((task) => stringID = task.Result)
                 .ContinueWith((task) => OnTaskCompleted(task, tcs));

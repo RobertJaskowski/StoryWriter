@@ -160,6 +160,7 @@ namespace StoryWriter.PageModels
 
         public override async Task InitializeAsync(object navigationData)
         {
+            MyTabTapped?.Execute(null);
             await base.InitializeAsync(navigationData);
         }
     }

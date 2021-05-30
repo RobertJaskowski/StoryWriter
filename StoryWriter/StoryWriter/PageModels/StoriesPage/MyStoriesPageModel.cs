@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -20,7 +21,6 @@ namespace StoryWriter.PageModels.StoriesPage
                 if (_myStoriesList == null)
                 {
                     _myStoriesList = new ObservableCollection<Story>();
-                    //_storiesList.Add(new Story("test1"));
                 }
 
                 return _myStoriesList;
@@ -48,6 +48,11 @@ namespace StoryWriter.PageModels.StoriesPage
             {
                 Root._navigationService.NavigateToAsync<StoryWritingRoomPageModel>(obj);
             }
+        }
+
+        public override Task InitializeAsync(object navigationData)
+        {//not used in xct tabview
+            return base.InitializeAsync(navigationData);
         }
     }
 }

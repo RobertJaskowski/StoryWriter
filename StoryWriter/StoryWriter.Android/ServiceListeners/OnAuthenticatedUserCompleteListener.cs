@@ -27,17 +27,14 @@ namespace StoryWriter.Droid.ServiceListeners
                     var user = new AuthenticatedUser();
                     user.Id = doc.Id;
 
-                    user.UserId = doc.GetString("UserId");
                     user.Nickname = doc.GetString("Nickname");
                     _tcs.TrySetResult(user);
 
-
-                    if (user.Id !=null)
+                    if (user.Id != null)
                         AccountService.CachedUser = user;
 
                     return;
                 }
-
             }
             // something went wrong
             _tcs.TrySetResult(default(AuthenticatedUser));

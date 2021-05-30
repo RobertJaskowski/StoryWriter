@@ -1,4 +1,5 @@
 ﻿using StoryWriter.PageModels.Base;
+using StoryWriter.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,6 +11,7 @@ namespace StoryWriter.PageModels
     public class LoginEmailPageModel : PageModelBase
     {
         private ICommand _loginCommand;
+
         public ICommand LoginCommand
         {
             get => _loginCommand;
@@ -17,6 +19,7 @@ namespace StoryWriter.PageModels
         }
 
         private string _username;
+
         public string Username
         {
             get => _username;
@@ -24,6 +27,7 @@ namespace StoryWriter.PageModels
         }
 
         private string _password;
+
         public string Password
         {
             get => _password;
@@ -32,11 +36,13 @@ namespace StoryWriter.PageModels
 
         private INavigationService _navigationService;
         private IAccountService _accountService;
+        private readonly IMessageService messageService;
 
-        public LoginEmailPageModel(INavigationService navigationService, IAccountService accountService)
+        public LoginEmailPageModel(INavigationService navigationService, IAccountService accountService, IMessageService messageService)
         {
             _navigationService = navigationService;
             _accountService = accountService;
+            this.messageService = messageService;
 
             // Init our Login Command
             LoginCommand = new Command(DoLoginAction);
@@ -55,7 +61,7 @@ namespace StoryWriter.PageModels
             }
             else
             {
-                // TODO: Display an Alert for Failure!
+                messageService.LongAlert("Login failed");
             }
         }
     }

@@ -6,7 +6,7 @@ namespace StoryWriter.Services.Stories
 {
     public interface IStoriesService
     {
-        Task<bool> CreateStory(string storyName, bool isStoryPublic);
+        Task<bool> CreateStory(string storyName, bool isStoryPublic, AuthenticatedUser user);
 
         Task<bool> UpdateStory(Story story);
 

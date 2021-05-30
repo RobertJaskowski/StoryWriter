@@ -14,6 +14,14 @@ namespace StoryWriter.PageModels.StoriesPage
 {
     public class StoryWritingRoomPageModel : PageModelBase
     {
+        private bool _isRefreshing;
+
+        public bool IsRefreshing
+        {
+            get { return _isRefreshing; }
+            set { SetProperty(ref _isRefreshing, value); }
+        }
+
         public Story _currentStory;
 
         public Story CurrentStory
@@ -42,6 +50,7 @@ namespace StoryWriter.PageModels.StoriesPage
         private readonly INavigationService navigationService;
         private readonly IStoriesService storiesService;
         private readonly IAccountService accountService;
+        private readonly IStoryRoomFC<Story> storyRoomFC;
 
         public string CurrentMessage
         {
@@ -50,19 +59,33 @@ namespace StoryWriter.PageModels.StoriesPage
         }
 
         private bool IsCharacterSelected => SelectedCharacter != null;
+        public ICommand RefreshCommand { get; }
 
         public ICommand SendMessage { get; }
         public ICommand EditStoryCommand { get; }
         public ICommand CharacterTappedCommand { get; }
 
-        public StoryWritingRoomPageModel(INavigationService navigationService, IStoriesService storiesService, IAccountService accountService)
+        public StoryWritingRoomPageModel(INavigationService navigationService, IStoriesService storiesService, IAccountService accountService, IStoryRoomFC<Story> storyRoomFC)
         {
+            RefreshCommand = new Command(OnRefresh);
             SendMessage = new Command(OnMessageSent);
             EditStoryCommand = new Command(OnEditStory);
             CharacterTappedCommand = new Command(OnCharacterTap);
+
             this.navigationService = navigationService;
             this.storiesService = storiesService;
             this.accountService = accountService;
+            this.storyRoomFC = storyRoomFC;
+        }
+
+        private async void OnRefresh(object obj)
+        {
+            IsRefreshing = true;
+
+            var newS = await storyRoomFC.Get(CurrentStory.Id);
+            CurrentStory = newS;
+
+            IsRefreshing = false;
         }
 
         private void OnCharacterTap(object obj)
@@ -87,6 +110,7 @@ namespace StoryWriter.PageModels.StoriesPage
                 }
             }
 
+            IsRefreshing = false;
             return base.InitializeAsync(navigationData);
         }
 

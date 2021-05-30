@@ -13,7 +13,7 @@ namespace StoryWriter.PageModels.StoriesPage
 {
     public class EditStoryPageModel : PageModelBase
     {
-        public Story _currentStory;
+        private Story _currentStory;
 
         public Story CurrentStory
         {
@@ -21,7 +21,7 @@ namespace StoryWriter.PageModels.StoriesPage
             set => SetProperty(ref _currentStory, value);
         }
 
-        public Story _newStory;
+        private Story _newStory;
 
         public Story NewStory
         {
@@ -29,7 +29,7 @@ namespace StoryWriter.PageModels.StoriesPage
             set => SetProperty(ref _newStory, value);
         }
 
-        public string _newCharacterEntry;
+        private string _newCharacterEntry;
 
         public string NewCharacterEntry
         {
@@ -45,7 +45,7 @@ namespace StoryWriter.PageModels.StoriesPage
             set => SetProperty(ref _isFree, value);
         }
 
-        public string _updatingFeedback;
+        private string _updatingFeedback;
 
         public string UpdatingFeedback
         {
@@ -56,7 +56,7 @@ namespace StoryWriter.PageModels.StoriesPage
             set => SetProperty(ref _updatingFeedback, value);
         }
 
-        public bool _isAdmin;
+        private bool _isAdmin;
 
         public bool IsAdmin
         {
@@ -124,21 +124,29 @@ namespace StoryWriter.PageModels.StoriesPage
             if (res)
             {
                 await navigationService.GoBackAsync();
+                storyWritingRoomPageModel.CurrentStory = NewStory;
             }
         }
 
         private async void OnCharacterAdd(object obj)
         {
+            if (string.IsNullOrEmpty(NewCharacterEntry)) return;
             IsFree = false;
 
-            if (string.IsNullOrEmpty(NewCharacterEntry)) return;
+            var res = await accountService.GetUserAsync();
 
-            NewStory.Characters.Add(new Character()
+            var c = NewStory.Copy();
+
+            if (c.Characters == null)
+                c.Characters = new List<Character>();
+            c.Characters.Add(new Character()
             {
                 Name = NewCharacterEntry,
-                AuthorUser = await accountService.GetUserAsync()
+                AuthorUser = res
             });
             NewCharacterEntry = "";
+
+            NewStory = c;
 
             OnPropertyChanged(nameof(NewStory));
 
@@ -152,9 +160,26 @@ namespace StoryWriter.PageModels.StoriesPage
         private void OnCharacterRemoved(object obj)
         {
             if (obj != null && !(obj is Character)) return;
+            var cha = obj as Character;
 
-            NewStory.Characters.Remove((Character)obj);
+            var c = NewStory.Copy();
+
+            Character re = null;
+            foreach (var item in c.Characters)
+            {
+                if (item.Id == cha.Id)
+                {
+                    re = item;
+                    break;
+                }
+            }
+            if (re == null) return;
+
+            c.Characters.Remove(re);
+
+            NewStory = c;
             OnPropertyChanged(nameof(NewStory));
+            OnPropertyChanged(nameof(NewStory.Characters));
         }
 
         public override async Task InitializeAsync(object navigationData)

@@ -63,11 +63,11 @@
                 FontSize="30"
                 Text="Characters"
                 TextColor="Black" />
-            <Label
+            <!--<Label
                 FontAttributes="Italic"
                 FontSize="17"
                 Text="Swipe to remove characters"
-                TextColor="Gray" />
+                TextColor="Gray" />-->
 
             <Entry
                 HorizontalOptions="FillAndExpand"
@@ -119,10 +119,11 @@
                 <CollectionView.ItemTemplate>
 
                     <DataTemplate>
-                        <Grid BackgroundColor="Transparent">
+                        <Grid BackgroundColor="Transparent" ColumnDefinitions="*,70">
 
                             <Frame
-                                Margin="2"
+                                Grid.Column="0"
+                                Margin="5,2,2,2"
                                 Padding="0"
                                 BackgroundColor="LightBlue"
                                 HasShadow="True"
@@ -130,17 +131,28 @@
 
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Source={x:Reference CurrentPage}, Path=BindingContext.CharacterTappedCommand}" CommandParameter="{Binding .}" />
-                                    <SwipeGestureRecognizer Command="{Binding Source={x:Reference CurrentPage}, Path=BindingContext.CharacterRemoveCommand}" CommandParameter="{Binding .}" />
                                 </Frame.GestureRecognizers>
                                 <Label
+                                    Padding="10,0,0,0"
                                     BackgroundColor="Transparent"
-                                    FontSize="24"
-                                    HorizontalTextAlignment="End"
+                                    FontSize="26"
+                                    HorizontalTextAlignment="Start"
                                     LineBreakMode="NoWrap"
                                     Text="{Binding Name}"
                                     TextColor="Black"
-                                    VerticalOptions="Center" />
+                                    VerticalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={x:Reference CurrentPage}, Path=BindingContext.CharacterTappedCommand}" CommandParameter="{Binding .}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
                             </Frame>
+
+                            <Button
+                                Grid.Column="1"
+                                Margin="0,0,5,0"
+                                Command="{Binding Source={x:Reference CurrentPage}, Path=BindingContext.CharacterRemoveCommand}"
+                                CommandParameter="{Binding .}"
+                                Text="-" />
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

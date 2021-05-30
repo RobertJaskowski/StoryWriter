@@ -1,4 +1,5 @@
 ﻿using StoryWriter.PageModels.Base;
+using StoryWriter.Services;
 using StoryWriter.ViewModels;
 using StoryWriter.ViewModels.Buttons;
 
@@ -40,12 +41,14 @@ namespace StoryWriter.PageModels
         public ButtonModel UseAnonymous { get; set; }
 
         private IAccountService _accountService;
+        private readonly IMessageService messageService;
         private INavigationService _navigationService;
 
         public LoginPageModel(INavigationService navigationService,
-            IAccountService accountService)
+            IAccountService accountService, IMessageService messageService)
         {
             _accountService = accountService;
+            this.messageService = messageService;
             _navigationService = navigationService;
 
             EmailEntryViewModel = new LoginEntryViewModel("email", false);
@@ -66,7 +69,7 @@ namespace StoryWriter.PageModels
             }
             else
             {
-                //todo alert
+                messageService.LongAlert("Login failed");
             }
         }
 
@@ -80,7 +83,7 @@ namespace StoryWriter.PageModels
             }
             else
             {
-                // TODO: Display an Alert for Failure!
+                messageService.LongAlert("Login failed");
             }
         }
 

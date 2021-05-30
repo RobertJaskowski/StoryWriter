@@ -146,13 +146,14 @@ namespace StoryWriter.PageModels
         private INavigationService _navigationService;
         private IStoriesService _storiesService;
         private StoriesPageModel _storiesPM;
+        private readonly IAccountService accountService;
 
-        public CreateStoryPageModel(INavigationService navigationService, IStoriesService storiesService, StoriesPageModel storiesPageModel)
+        public CreateStoryPageModel(INavigationService navigationService, IStoriesService storiesService, StoriesPageModel storiesPageModel, IAccountService accountService)
         {
             _navigationService = navigationService;
             _storiesService = storiesService;
             _storiesPM = storiesPageModel;
-
+            this.accountService = accountService;
             CreateButton = new Command(OnCreateStory, (e) => { return IsInputValid; });
             BackButton = new Command(Back);
         }
@@ -164,7 +165,8 @@ namespace StoryWriter.PageModels
 
         private async void OnCreateStory(object obj)
         {
-            await _storiesService.CreateStory(StoryName, IsStoryPublic);
+            var user = await accountService.GetUserAsync();
+            await _storiesService.CreateStory(StoryName, IsStoryPublic, user);
             Back(null);
             _storiesPM.MyTabTapped.Execute(null);
         }
